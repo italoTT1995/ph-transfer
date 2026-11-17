@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PH Transfer | Mais que transporte. Uma experiência em cada trajeto.</title>
+  <meta name="description" content="Mobilidade executiva com conforto, segurança e atendimento personalizado em Belo Horizonte. Conheça o Protocolo Essenza e nossa frota de luxo." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandDark: '#0d0d0e',
+            brandCard: '#151518',
+            brandBorder: 'rgba(255, 255, 255, 0.08)',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Custom Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Favicon Oficial PH Transfer -->
+  <link rel="icon" type="image/png" href="assets/img/logo-ph-transfer.png" />
+</head>
+<body class="bg-brandDark text-[#f4f4f6] selection:bg-white selection:text-black">
+
+  <!-- ========================================================================= -->
+  <!-- 1. NAVBAR FIXA COM LOGO OFICIAL                                           -->
+  <!-- ========================================================================= -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-5 flex items-center justify-between">
+      
+      <!-- LOGO OFICIAL PH TRANSFER -->
+      <a href="#inicio" class="flex items-center group">
+        <img 
+          src="assets/img/logo-ph-transfer.png" 
+          alt="PH Transfer Logotipo Oficial" 
+          class="h-16 sm:h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-md" 
+        />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-[11px] sm:text-xs font-semibold tracking-[0.18em] text-zinc-300 uppercase">
+        <a href="#inicio" class="hover:text-white transition-colors duration-200">Início</a>
+        <a href="#servicos" class="hover:text-white transition-colors duration-200">Serviços</a>
+        <a href="#diferenciais" class="hover:text-white transition-colors duration-200">Diferenciais</a>
+        <a href="#essenza" class="hover:text-white transition-colors duration-200">Protocolo Essenza</a>
+        <a href="#frota" class="hover:text-white transition-colors duration-200">Nossa Frota</a>
+        <a href="#sobre" class="hover:text-white transition-colors duration-200">Sobre Nós</a>
+        <a href="#contato" class="hover:text-white transition-colors duration-200">Contato</a>
+        <div class="flex items-center gap-1.5 text-zinc-300 font-medium pl-3 border-l border-white/20">
+          <svg class="w-3.5 h-3.5 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-[10px]">PT/BR</span>
+        </div>
+      </nav>
+
+      <!-- Mobile Button -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10" aria-label="Abrir Menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-white/10 px-6 py-6 space-y-4">
+      <nav class="flex flex-col gap-3 text-xs font-medium tracking-widest uppercase text-zinc-200">
+        <a href="#inicio" class="mobile-nav-link hover:text-white py-1">Início</a>
+        <a href="#servicos" class="mobile-nav-link hover:text-white py-1">Serviços</a>
+        <a href="#diferenciais" class="mobile-nav-link hover:text-white py-1">Diferenciais</a>
+        <a href="#essenza" class="mobile-nav-link hover:text-white py-1">Protocolo Essenza</a>
+        <a href="#frota" class="mobile-nav-link hover:text-white py-1">Nossa Frota</a>
+        <a href="#sobre" class="mobile-nav-link hover:text-white py-1">Sobre Nós</a>
+        <a href="#contato" class="mobile-nav-link hover:text-white py-1">Contato</a>
+      </nav>
+      <div class="pt-3 border-t border-white/10">
+        <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center py-3 rounded-full text-xs font-semibold tracking-wider flex items-center justify-center gap-2">
+          <span>Solicitar meu orçamento</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 01. HERO — PRIMEIRA DOBRA                                                 -->
+  <!-- ========================================================================= -->
+  <section id="inicio" class="relative min-h-screen flex flex-col justify-between pt-32 sm:pt-36 pb-8 overflow-hidden">
+    
+    <!-- FOTO DE FUNDO HD COM ENQUADRAMENTO E ILUMINAÇÃO EDITORIAL -->
+    <div class="hero-bg-container">
+      <img 
+        src="assets/img/Foto_01_Frota_Corolla_Fachada.jpg" 
+        alt="Frota PH Transfer - Carros Executivos no Pôr do Sol" 
+        class="hero-bg-image" 
+        loading="eager"
+        fetchpriority="high"
+      />
+      <!-- Gradiente sutil e inteligente -->
+      <div class="hero-gradient-overlay"></div>
+    </div>
+
+    <!-- Conteúdo Hero -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-8 sm:py-12">
+      <div class="max-w-2xl space-y-6">
+
+        <!-- Eyebrow Oficial do Documento -->
+        <div class="inline-flex items-center gap-3 reveal-on-scroll">
+          <span class="w-6 h-[1.5px] bg-white/60"></span>
+          <span class="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-white font-semibold drop-shadow-md">PH TRANSFER | TRANSPORTE EXECUTIVO</span>
+        </div>
+
+        <!-- Headline com serifa itálica e sombra de texto -->
+        <h1 class="text-4xl sm:text-5xl lg:text-[62px] xl:text-[68px] font-normal tracking-tight text-white leading-[1.08] hero-text-shadow reveal-on-scroll">
+          Mais que transporte,<br />
+          uma <span class="font-serif-italic font-normal text-white">experiência em</span><br />
+          <span class="font-serif-italic font-normal text-white">cada trajeto.</span>
+        </h1>
+
+        <!-- Subtítulo Oficial -->
+        <p class="text-sm sm:text-base lg:text-lg text-zinc-100 font-normal max-w-xl leading-relaxed hero-text-shadow reveal-on-scroll delay-1">
+          Mobilidade executiva com conforto, segurança e atendimento personalizado. Da primeira recepção ao destino final, cada detalhe é pensado para transformar sua viagem em uma experiência de excelência.
+        </p>
+
+        <!-- Ações do Hero (Botões Oficiais do Doc) -->
+        <div class="pt-2 flex flex-wrap items-center gap-4 reveal-on-scroll delay-2">
+          <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="hero-cta-btn inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-medium tracking-wide text-white border border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all duration-300 shadow-xl group">
+            <svg class="w-4 h-4 text-white fill-current transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.585 1.761.895 2.796.896h.001c3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.767-5.769-5.783zm3.393 8.307c-.144.405-.837.774-1.17.824-.312.045-.634.055-1.92-.477-1.52-.625-2.5-2.18-2.576-2.28-.076-.101-.617-.822-.617-1.568 0-.746.39-.112.528-.261.138-.149.301-.186.402-.186.101 0 .202.001.291.005.093.005.218-.035.341.261.127.306.435 1.059.473 1.136.038.077.064.167.013.268-.051.101-.077.164-.153.253-.076.089-.16.198-.228.266-.076.076-.156.16-.067.312.089.152.395.651.848 1.055.584.52 1.077.682 1.229.758.152.076.241.064.33-.038.089-.101.381-.444.483-.596.101-.152.203-.127.341-.076.138.051.875.412 1.027.488.152.076.253.114.291.177.038.064.038.368-.106.773z"/>
+            </svg>
+            <span>Solicitar meu orçamento</span>
+          </a>
+
+          <a href="#sobre" class="btn-ghost px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-medium tracking-wide flex items-center gap-2">
+            <span>Conheça a PH Transfer</span>
+            <svg class="w-3.5 h-3.5 text-zinc-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Barra de 4 Cards Translúcidos na Base (Formato Cápsula Original do Mockup) -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 pb-2">
+      <div class="glass-pill-container rounded-2xl sm:rounded-3xl border border-white/20 bg-black/40 backdrop-blur-md grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/15 px-2 py-4 sm:py-6 shadow-2xl reveal-on-scroll delay-3">
+        
+        <!-- Card 1: Segurança -->
+        <div class="px-4 sm:px-6 py-2.5 sm:py-2 text-center md:text-left flex flex-col justify-center">
+          <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Segurança</h3>
+          <p class="text-xs sm:text-sm text-zinc-300 font-light mt-0.5">em todas as viagens</p>
+        </div>
+
+        <!-- Card 2: Conforto -->
+        <div class="px-4 sm:px-6 py-2.5 sm:py-2 text-center md:text-left flex flex-col justify-center">
+          <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Conforto</h3>
+          <p class="text-xs sm:text-sm text-zinc-300 font-light mt-0.5">em cada trajeto</p>
+        </div>
+
+        <!-- Card 3: Café Premiado -->
+        <div class="px-4 sm:px-6 py-2.5 sm:py-2 text-center md:text-left flex flex-col justify-center">
+          <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Café Premiado</h3>
+          <p class="text-xs sm:text-sm text-zinc-300 font-light mt-0.5">em cada carro</p>
+        </div>
+
+        <!-- Card 4: Atendimento -->
+        <div class="px-4 sm:px-6 py-2.5 sm:py-2 text-center md:text-left flex flex-col justify-center">
+          <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Atendimento</h3>
+          <p class="text-xs sm:text-sm text-zinc-300 font-light mt-0.5">personalizado</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 02. APRESENTAÇÃO DOS SERVIÇOS — SOLUÇÕES EM MOBILIDADE                    -->
+  <!-- ========================================================================= -->
+  <section id="servicos" class="py-24 sm:py-32 relative border-t border-white/5 bg-[#0a0a0c]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho da Seção -->
+      <div class="max-w-3xl mb-16 sm:mb-20 space-y-4">
+        <div class="inline-flex items-center gap-3">
+          <span class="w-6 h-[1.5px] bg-white/60"></span>
+          <span class="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">Soluções em Mobilidade</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white leading-tight">
+          Seu destino é o nosso <span class="font-serif-italic font-normal">próximo compromisso.</span>
+        </h2>
+        <p class="text-base sm:text-lg text-zinc-400 font-light leading-relaxed max-w-2xl pt-2">
+          Seja para um compromisso profissional, uma viagem especial ou um momento que merece atenção aos detalhes, a PH Transfer oferece soluções de transporte personalizadas para diferentes necessidades.
+        </p>
+      </div>
+
+      <!-- Grid de 6 Serviços com Numeração Editorial -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Serviço 01: Transfer Aeroportuário -->
+        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-zinc-500 tracking-wider">01</span>
+              <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white tracking-tight">Transfer Aeroportuário</h3>
+            <p class="text-sm text-zinc-300 font-light leading-relaxed">
+              Sua viagem começa antes mesmo do embarque. Pontualidade, conforto e tranquilidade nos deslocamentos de ida e volta ao aeroporto (Confins e Pampulha).
+            </p>
+          </div>
+          <div class="pt-6 border-t border-white/10 mt-6">
+            <button class="service-cta-btn text-xs font-semibold uppercase tracking-wider text-white hover:text-zinc-300 flex items-center gap-2 group-hover:translate-x-1 transition-all" data-service="Transfer Aeroportuário">
+              <span>Solicitar este serviço</span>
+              <span class="text-sm">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Serviço 02: City Tour & Turismo -->
+        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-zinc-500 tracking-wider">02</span>
+              <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white tracking-tight">City Tour & Turismo</h3>
+            <p class="text-sm text-zinc-300 font-light leading-relaxed">
+              Conheça Belo Horizonte e região (Inhotim, Ouro Preto, Tiradentes) com roteiros personalizados, comodidade e indicações locais especiais.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-white/10 mt-6">
+            <button class="service-cta-btn text-xs font-semibold uppercase tracking-wider text-white hover:text-zinc-300 flex items-center gap-2 group-hover:translate-x-1 transition-all" data-service="City Tour & Turismo">
+              <span>Solicitar este serviço</span>
+              <span class="text-sm">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Serviço 03: Trajetos Executivos -->
+        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-zinc-500 tracking-wider">03</span>
+              <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white tracking-tight">Trajetos Executivos</h3>
+            <p class="text-sm text-zinc-300 font-light leading-relaxed">
+              Deslocamentos urbanos, compromissos profissionais e trajetos particulares com discrição, agilidade, pontualidade e conforto inegociável.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-white/10 mt-6">
+            <button class="service-cta-btn text-xs font-semibold uppercase tracking-wider text-white hover:text-zinc-300 flex items-center gap-2 group-hover:translate-x-1 transition-all" data-service="Trajetos Executivos">
+              <span>Solicitar este serviço</span>
+              <span class="text-sm">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Serviço 04: Casamentos e Eventos -->
+        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-zinc-500 tracking-wider">04</span>
+              <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white tracking-tight">Casamentos e Eventos</h3>
+            <p class="text-sm text-zinc-300 font-light leading-relaxed">
+              Uma experiência de transporte planejada para acompanhar noivas, famílias e convidados com elegância, pontualidade e atendimento cerimonial.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-white/10 mt-6">
+            <button class="service-cta-btn text-xs font-semibold uppercase tracking-wider text-white hover:text-zinc-300 flex items-center gap-2 group-hover:translate-x-1 transition-all" data-service="Casamentos e Eventos">
+              <span>Solicitar este serviço</span>
+              <span class="text-sm">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Serviço 05: Viagens -->
+        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-zinc-500 tracking-wider">05</span>
+              <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white tracking-tight">Viagens</h3>
+            <p class="text-sm text-zinc-300 font-light leading-relaxed">
+              Percursos intermunicipais e interestaduais com segurança de alto nível, conforto extremo, climatização perfeita e planejamento prévio de rota.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-white/10 mt-6">
+            <button class="service-cta-btn text-xs font-semibold uppercase tracking-wider text-white hover:text-zinc-300 flex items-center gap-2 group-hover:translate-x-1 transition-all" data-service="Viagens Intermunicipais">
+              <span>Solicitar este serviço</span>
+              <span class="text-sm">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Serviço 06: Comitivas e Corporativo -->
+        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-zinc-500 tracking-wider">06</span>
+              <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white tracking-tight">Comitivas e Corporativo</h3>
+            <p class="text-sm text-zinc-300 font-light leading-relaxed">
+              Mobilidade organizada para empresas, grupos, executivos, delegações e eventos empresariais, com coordenação dedicada e faturamento corporativo.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-white/10 mt-6">
+            <button class="service-cta-btn text-xs font-semibold uppercase tracking-wider text-white hover:text-zinc-300 flex items-center gap-2 group-hover:translate-x-1 transition-all" data-service="Comitivas e Corporativo">
+              <span>Solicitar este serviço</span>
+              <span class="text-sm">→</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Banner de Fechamento da Seção de Serviços -->
+      <div class="mt-12 p-8 sm:p-10 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="space-y-1 text-center sm:text-left">
+          <h4 class="text-lg font-bold text-white">Precisa de um trajeto específico ou personalizado?</h4>
+          <p class="text-xs sm:text-sm text-zinc-400 font-light">Nossa equipe planeja a melhor logística para sua necessidade.</p>
+        </div>
+        <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20solicitar%20uma%20solução%20personalizada%20de%20transporte%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-3.5 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap shadow-lg">
+          <span>Solicite uma solução para sua necessidade</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 03. DIFERENCIAL — A EXPERIÊNCIA PH TRANSFER                                -->
+  <!-- ========================================================================= -->
+  <section id="diferenciais" class="py-24 sm:py-32 relative border-t border-white/5 bg-[#0d0d0e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Coluna Esquerda: Texto e os 5 Pilares -->
+        <div class="lg:col-span-7 space-y-8">
+          <div class="space-y-4">
+            <div class="inline-flex items-center gap-3">
+              <span class="w-6 h-[1.5px] bg-white/60"></span>
+              <span class="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">A Experiência PH Transfer</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-normal tracking-tight text-white leading-tight">
+              A excelência começa <span class="font-serif-italic font-normal">antes de você entrar no carro.</span>
+            </h2>
+            <p class="text-base text-zinc-300 font-light leading-relaxed">
+              Uma boa experiência não acontece por acaso. Cada serviço começa com planejamento de rota, atenção aos horários, preparação do veículo e organização do atendimento.
+            </p>
+            <p class="text-sm text-zinc-400 font-light leading-relaxed">
+              Nosso compromisso é simples: você entra no carro sabendo que tudo foi pensado para que o trajeto aconteça com tranquilidade.
+            </p>
+          </div>
+
+          <!-- Os 5 Pilares que Orientam o Atendimento -->
+          <div class="space-y-4 pt-4 border-t border-white/10">
+            
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all flex gap-4 items-start">
+              <span class="text-base font-bold text-white shrink-0">01</span>
+              <div>
+                <h4 class="text-sm font-bold text-white">Planejamento prévio</h4>
+                <p class="text-xs text-zinc-400 font-light mt-0.5">Cada deslocamento é organizado considerando o destino, os horários e as necessidades da viagem.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all flex gap-4 items-start">
+              <span class="text-base font-bold text-white shrink-0">02</span>
+              <div>
+                <h4 class="text-sm font-bold text-white">Pontualidade</h4>
+                <p class="text-xs text-zinc-400 font-light mt-0.5">Compromisso rigoroso com os horários e respeito ao tempo de cada passageiro.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all flex gap-4 items-start">
+              <span class="text-base font-bold text-white shrink-0">03</span>
+              <div>
+                <h4 class="text-sm font-bold text-white">Atendimento personalizado</h4>
+                <p class="text-xs text-zinc-400 font-light mt-0.5">Cada cliente recebe atenção de acordo com a ocasião e o tipo de serviço contratado.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all flex gap-4 items-start">
+              <span class="text-base font-bold text-white shrink-0">04</span>
+              <div>
+                <h4 class="text-sm font-bold text-white">Conforto e cuidado</h4>
+                <p class="text-xs text-zinc-400 font-light mt-0.5">Veículos preparados, climatizados e higienizados para proporcionar uma experiência agradável.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all flex gap-4 items-start">
+              <span class="text-base font-bold text-white shrink-0">05</span>
+              <div>
+                <h4 class="text-sm font-bold text-white">Discrição e profissionalismo</h4>
+                <p class="text-xs text-zinc-400 font-light mt-0.5">Uma postura executiva que respeita a privacidade e o momento de cada passageiro.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Foto Real de Atendimento com Porta -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
+            <img 
+              src="assets/img/Foto_05_Atendimento_Porta.jpg" 
+              alt="Motorista Executivo PH Transfer abrindo a porta" 
+              class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/10">
+              <p class="text-xs text-white font-medium italic font-serif">"A diferença entre simplesmente oferecer um transporte e cuidar de toda a experiência."</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 04. PROTOCOLO ESSENZA — O PROTOCOLO DE BORDO OFICIAL                      -->
+  <!-- ========================================================================= -->
+  <section id="essenza" class="py-24 sm:py-32 relative border-t border-white/5 bg-[#09090b]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      
+      <!-- Cabeçalho do Essenza -->
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-3">
+          <span class="w-6 h-[1.5px] bg-white/60"></span>
+          <span class="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">Protocolo Essenza | PH Transfer</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white leading-tight">
+          Não é um extra. <span class="font-serif-italic font-normal">É o padrão.</span>
+        </h2>
+        <p class="text-base sm:text-lg text-zinc-300 font-light leading-relaxed pt-2">
+          Antes de você entrar no carro, tudo já está pronto. O Essenza é o protocolo de bordo da PH Transfer: um conjunto de cuidados que Pedro Henrique prepara antes de cada viagem, independentemente do destino, do cliente ou do horário.
+        </p>
+        <p class="text-sm text-zinc-400 font-light leading-relaxed">
+          Não é uma cortesia ocasional. É a forma como a PH Transfer recebe. Sempre. Porque, para nós, excelência não está apenas no carro. Está também no que acontece dentro dele.
+        </p>
+      </div>
+
+      <!-- Cinco Elementos que Transformam Cada Trajeto -->
+      <div>
+        <div class="mb-8">
+          <span class="text-xs uppercase tracking-[0.2em] font-semibold text-zinc-400">Cinco itens. Uma experiência inteira.</span>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+          
+          <!-- Item 01: Café -->
+          <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all">
+            <div class="space-y-3">
+              <span class="text-xs font-mono text-zinc-500">01</span>
+              <h3 class="text-lg font-bold text-white tracking-tight">Café Mineiro Premiado</h3>
+              <p class="text-xs text-zinc-300 font-light leading-relaxed">
+                Café de origem mineira, especial e premiado, selecionado pessoalmente por Pedro Henrique e servido a bordo em louça especial.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 02: Água -->
+          <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all">
+            <div class="space-y-3">
+              <span class="text-xs font-mono text-zinc-500">02</span>
+              <h3 class="text-lg font-bold text-white tracking-tight">Água com e sem gás</h3>
+              <p class="text-xs text-zinc-300 font-light leading-relaxed">
+                Água mineral resfriada, com e sem gás. Porque conforto também significa ter opções e poder escolher.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 03: Guloseimas -->
+          <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all">
+            <div class="space-y-3">
+              <span class="text-xs font-mono text-zinc-500">03</span>
+              <h3 class="text-lg font-bold text-white tracking-tight">Guloseimas Selecionadas</h3>
+              <p class="text-xs text-zinc-300 font-light leading-relaxed">
+                Balas recheadas, chocolates, amendoins, barras de cereal e outros mimos escolhidos com rigor para seu conforto.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 04: Conexão -->
+          <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all">
+            <div class="space-y-3">
+              <span class="text-xs font-mono text-zinc-500">04</span>
+              <h3 class="text-lg font-bold text-white tracking-tight">Wi-Fi & Carregador</h3>
+              <p class="text-xs text-zinc-300 font-light leading-relaxed">
+                Internet Wi-Fi de alta velocidade e carregadores compatíveis com todas as marcas para você nunca ficar desconectado.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 05: Trilha Sonora -->
+          <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all">
+            <div class="space-y-3">
+              <span class="text-xs font-mono text-zinc-500">05</span>
+              <h3 class="text-lg font-bold text-white tracking-tight">Trilha Sonora Ambiente</h3>
+              <p class="text-xs text-zinc-300 font-light leading-relaxed">
+                Música ambiente suave para relaxar ou trabalhar, customizada de acordo com seu gosto ou com silêncio absoluto.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Destaque Especial: O Café Que é Servido Para Você -->
+      <div class="p-8 sm:p-12 rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-md">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs text-zinc-200">
+              <span>☕ Experiência Gastronômica a Bordo</span>
+            </div>
+            <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
+              O café que é servido para você: <span class="font-serif-italic">origem mineira e premiação nacional.</span>
+            </h3>
+            <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+              Não é qualquer café. É um café de origem mineira, premiado, selecionado por Pedro Henrique com o mesmo critério que utiliza em cada detalhe da PH Transfer: oferecer o melhor que está ao seu alcance.
+            </p>
+            <div class="p-4 rounded-xl border-l-2 border-white bg-white/5">
+              <p class="text-sm font-serif italic text-white leading-relaxed">
+                "Tem gente que volta pela viagem. Tem gente que volta pelo café. Aqui você tem os dois."
+              </p>
+              <span class="text-xs uppercase tracking-widest text-zinc-400 font-sans block mt-2">— Eu pensei em você antes de você entrar.</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl">
+            <img 
+              src="assets/img/Foto_03_Cafe_Santiago_Chave.jpg" 
+              alt="Café Premiado servido na xícara Santiago com chave Toyota" 
+              class="w-full h-80 sm:h-96 object-cover object-center"
+            />
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- 05. TRÊS EXPERIÊNCIAS. UM MESMO PADRÃO.                               -->
+      <!-- ===================================================================== -->
+      <div id="experiencias" class="pt-8 space-y-12">
+        <div class="max-w-2xl space-y-3">
+          <span class="text-xs uppercase tracking-[0.25em] font-semibold text-zinc-400">Três Experiências. Um Mesmo Padrão.</span>
+          <h3 class="text-3xl sm:text-4xl font-normal text-white tracking-tight">
+            O Essenza se adapta à <span class="font-serif-italic">sua necessidade.</span>
+          </h3>
+          <p class="text-sm text-zinc-400 font-light">
+            O protocolo está presente em todas as viagens, mas cada ocasião possui sua própria natureza. Por isso, oferecemos três níveis de personalização:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          <!-- Experiência 1: ESSENZA -->
+          <div class="glass-panel p-8 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-white/30 transition-all">
+            <div class="space-y-6">
+              <div>
+                <span class="text-xs uppercase tracking-widest text-zinc-400 font-semibold">Padrão Completo</span>
+                <h4 class="text-2xl font-bold text-white mt-1">ESSENZA</h4>
+                <p class="text-xs text-zinc-400 font-light mt-1">Transfer executivo | Aeroporto | Corporativo</p>
+              </div>
+              
+              <p class="text-xs text-zinc-300 font-light leading-relaxed border-t border-white/10 pt-4">
+                O padrão completo de hospitalidade para seus deslocamentos profissionais e particulares.
+              </p>
+
+              <ul class="space-y-2.5 text-xs text-zinc-300 font-light">
+                <li class="flex items-center gap-2">✓ <span>Protocolo Essenza completo</span></li>
+                <li class="flex items-center gap-2">✓ <span>Café especial premiado</span></li>
+                <li class="flex items-center gap-2">✓ <span>Água com e sem gás</span></li>
+                <li class="flex items-center gap-2">✓ <span>Guloseimas selecionadas</span></li>
+                <li class="flex items-center gap-2">✓ <span>Wi-Fi e carregador múltiplo</span></li>
+                <li class="flex items-center gap-2">✓ <span>Música ambiente personalizada</span></li>
+                <li class="flex items-center gap-2">✓ <span>Planejamento prévio da rota</span></li>
+                <li class="flex items-center gap-2">✓ <span>Cumprimento rigoroso dos horários</span></li>
+                <li class="flex items-center gap-2">✓ <span>Motorista com postura executiva</span></li>
+                <li class="flex items-center gap-2">✓ <span>Veículo climatizado e higienizado</span></li>
+                <li class="flex items-center gap-2">✓ <span>Discrição durante todo o atendimento</span></li>
+              </ul>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 mt-8">
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20solicitar%20o%20Protocolo%20ESSENZA%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-ghost w-full py-3.5 rounded-full text-xs font-semibold tracking-wider text-center block hover:bg-white hover:text-black transition-all">
+                Solicitar Essenza
+              </a>
+            </div>
+          </div>
+
+          <!-- Experiência 2: ESSENZA SELECT (Destaque VIP) -->
+          <div class="glass-panel p-8 rounded-3xl border-2 border-white/40 bg-white/[0.04] shadow-2xl flex flex-col justify-between relative transform lg:-translate-y-2">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-white text-black text-[10px] font-extrabold tracking-widest uppercase shadow-md">
+              Mais Recomendado
+            </div>
+
+            <div class="space-y-6">
+              <div>
+                <span class="text-xs uppercase tracking-widest text-zinc-300 font-semibold">Turismo & Experiência</span>
+                <h4 class="text-2xl font-bold text-white mt-1">ESSENZA SELECT</h4>
+                <p class="text-xs text-zinc-300 font-light mt-1">City tour | Turismo | Experiências personalizadas</p>
+              </div>
+
+              <p class="text-xs text-zinc-200 font-light leading-relaxed border-t border-white/15 pt-4">
+                Tudo do Essenza, com uma camada adicional de personalização para quem deseja aproveitar melhor cada destino.
+              </p>
+
+              <ul class="space-y-2.5 text-xs text-zinc-200 font-light">
+                <li class="flex items-center gap-2 font-medium text-white">★ <span>Todos os itens do Essenza inclusos</span></li>
+                <li class="flex items-center gap-2 font-medium text-white">★ <span>Roteiro 100% personalizado</span></li>
+                <li class="flex items-center gap-2">✓ <span>Indicações locais de acordo com sua preferência</span></li>
+                <li class="flex items-center gap-2">✓ <span>Atendimento bilíngue ativo</span></li>
+                <li class="flex items-center gap-2">✓ <span>Snacks extras especiais</span></li>
+                <li class="flex items-center gap-2">✓ <span>Paradas estratégicas e flexibilidade de tempo</span></li>
+                <li class="flex items-center gap-2">✓ <span>Deslocamento transformado em descoberta</span></li>
+              </ul>
+            </div>
+
+            <div class="pt-8 border-t border-white/15 mt-8">
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20solicitar%20o%20Protocolo%20ESSENZA%20SELECT%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary w-full py-3.5 rounded-full text-xs font-semibold tracking-wider text-center block shadow-xl hover:scale-105 transition-all">
+                Solicitar Essenza Select
+              </a>
+            </div>
+          </div>
+
+          <!-- Experiência 3: ESSENZA PRIME -->
+          <div class="glass-panel p-8 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-white/30 transition-all">
+            <div class="space-y-6">
+              <div>
+                <span class="text-xs uppercase tracking-widest text-zinc-400 font-semibold">Exclusividade & 24h</span>
+                <h4 class="text-2xl font-bold text-white mt-1">ESSENZA PRIME</h4>
+                <p class="text-xs text-zinc-400 font-light mt-1">Casamentos | Eventos VIP | Comitivas</p>
+              </div>
+
+              <p class="text-xs text-zinc-300 font-light leading-relaxed border-t border-white/10 pt-4">
+                A experiência mais completa da PH Transfer, desenvolvida para ocasiões que exigem coordenação e disponibilidade 24h.
+              </p>
+
+              <ul class="space-y-2.5 text-xs text-zinc-300 font-light">
+                <li class="flex items-center gap-2 font-medium text-white">★ <span>Tudo do Essenza Select incluso</span></li>
+                <li class="flex items-center gap-2 font-medium text-white">★ <span>Coordenação dedicada de comitiva</span></li>
+                <li class="flex items-center gap-2">✓ <span>Welcome message bilíngue (Português/Inglês)</span></li>
+                <li class="flex items-center gap-2">✓ <span>Comunicação e suporte operacional exclusivo</span></li>
+                <li class="flex items-center gap-2">✓ <span>Disponibilidade 24 horas garantida</span></li>
+                <li class="flex items-center gap-2">✓ <span>Acompanhamento em tempo real para contratantes</span></li>
+                <li class="flex items-center gap-2">✓ <span>Padrão cerimonial e institucional de alta gama</span></li>
+              </ul>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 mt-8">
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20solicitar%20o%20Protocolo%20ESSENZA%20PRIME%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-ghost w-full py-3.5 rounded-full text-xs font-semibold tracking-wider text-center block hover:bg-white hover:text-black transition-all">
+                Solicitar Essenza Prime
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 04. NOSSA FROTA — CONFORTO EM DIFERENTES DIMENSÕES                        -->
+  <!-- ========================================================================= -->
+  <section id="frota" class="py-24 sm:py-32 relative border-t border-white/5 bg-[#0a0a0c]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Cabeçalho Frota -->
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-3">
+          <span class="w-6 h-[1.5px] bg-white/60"></span>
+          <span class="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">Conforto em Diferentes Dimensões</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white leading-tight">
+          Não escolhemos apenas carros. <span class="font-serif-italic font-normal">Escolhemos a forma como você vai viajar.</span>
+        </h2>
+        <p class="text-base sm:text-lg text-zinc-300 font-light leading-relaxed pt-2">
+          Nossa frota é cuidadosamente selecionada para oferecer soluções de mobilidade que respeitam as particularidades de cada viagem. Sedans, SUVs, veículos blindados, ônibus e micro-ônibus: diferentes possibilidades, conectadas pelo mesmo compromisso com conforto, segurança e qualidade.
+        </p>
+      </div>
+
+      <!-- Imagem Heroica da Frota (2048 x 1246) -->
+      <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
+        <img 
+          src="assets/img/Foto_Frota_Completa.jpg" 
+          alt="Frota Completa PH Transfer - Sedans e Veículos Executivos" 
+          class="w-full h-80 sm:h-[460px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+          <div class="space-y-1">
+            <span class="text-xs uppercase tracking-widest text-zinc-300 font-semibold">Frota Oficial PH Transfer</span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white">Toyota Corolla, Jeep Commander, Tiggo 8 e Blindados</h3>
+          </div>
+          <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20consultar%20a%20disponibilidade%20da%20frota%20da%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap shadow-xl">
+            <span>Consultar disponibilidade da frota</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Grid de Categorias da Frota Oficial -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Categoria 1: Sedans Executivos -->
+        <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-3">
+            <span class="text-xs font-mono text-zinc-500 uppercase">Categoria 01</span>
+            <h4 class="text-lg font-bold text-white">Sedans Executivos</h4>
+            <p class="text-xs text-zinc-400 font-light leading-relaxed">
+              Elegância, discrição e conforto para compromissos profissionais, traslados e deslocamentos individuais.
+            </p>
+            <div class="pt-3 border-t border-white/10">
+              <span class="text-[11px] font-semibold text-white block">Modelo oficial:</span>
+              <span class="text-xs text-zinc-300 font-mono">Toyota Corolla 2023</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoria 2: SUVs de Luxo -->
+        <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-3">
+            <span class="text-xs font-mono text-zinc-500 uppercase">Categoria 02</span>
+            <h4 class="text-lg font-bold text-white">SUVs</h4>
+            <p class="text-xs text-zinc-400 font-light leading-relaxed">
+              Mais espaço, versatilidade e conforto para viagens, famílias, turismo e deslocamentos com bagagem.
+            </p>
+            <div class="pt-3 border-t border-white/10">
+              <span class="text-[11px] font-semibold text-white block">Modelos oficiais:</span>
+              <span class="text-xs text-zinc-300 font-mono">Jeep Commander 2026<br/>Chery Tiggo 8 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoria 3: Veículos Blindados -->
+        <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-3">
+            <span class="text-xs font-mono text-zinc-500 uppercase">Categoria 03</span>
+            <h4 class="text-lg font-bold text-white">Veículos Blindados</h4>
+            <p class="text-xs text-zinc-400 font-light leading-relaxed">
+              Uma alternativa para demandas que exigem uma configuração específica de proteção balística certificada e discrição.
+            </p>
+            <div class="pt-3 border-t border-white/10">
+              <span class="text-[11px] font-semibold text-white block">Configuração:</span>
+              <span class="text-xs text-zinc-300 font-mono">Blindagem Nível III-A</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoria 4: Ônibus e Micro-ônibus -->
+        <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-3">
+            <span class="text-xs font-mono text-zinc-500 uppercase">Categoria 04</span>
+            <h4 class="text-lg font-bold text-white">Ônibus & Micro-ônibus</h4>
+            <p class="text-xs text-zinc-400 font-light leading-relaxed">
+              Soluções para grupos, eventos, comitivas e deslocamentos coletivos com coordenação operacional pontual.
+            </p>
+            <div class="pt-3 border-t border-white/10">
+              <span class="text-[11px] font-semibold text-white block">Capacidade:</span>
+              <span class="text-xs text-zinc-300 font-mono">Grupos, Delegações e Eventos</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mini Galeria de Detalhes dos Veículos -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="rounded-2xl overflow-hidden border border-white/10 h-44 group">
+          <img src="assets/img/Foto_02_Interior_Banco_Sunset.jpg" alt="Interior em couro no pôr do sol" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-white/10 h-44 group">
+          <img src="assets/img/Foto_04_Carro_Sob_Arco_Noturno.jpg" alt="Corolla sob arco noturno" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-white/10 h-44 group">
+          <img src="assets/img/Foto_06_Roda_Dianteira.jpg" alt="Roda dianteira e manutenção impecável" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-white/10 h-44 group">
+          <img src="assets/img/Foto_07_Lateral_Traseira.jpg" alt="Design e acabamento premium" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 05. SOBRE A PH TRANSFER | NOSSA HISTÓRIA                                  -->
+  <!-- ========================================================================= -->
+  <section id="sobre" class="py-24 sm:py-32 relative border-t border-white/5 bg-[#0d0d0e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Cabeçalho Sobre -->
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-3">
+          <span class="w-6 h-[1.5px] bg-white/60"></span>
+          <span class="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">Nossa História | Nosso Propósito</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white leading-tight">
+          Por trás de cada trajeto, existe uma <span class="font-serif-italic font-normal">história de dedicação.</span>
+        </h2>
+      </div>
+
+      <!-- Conteúdo da História & Fundador -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <div class="lg:col-span-7 space-y-6 text-zinc-300 font-light leading-relaxed">
+          <p class="text-lg text-white font-normal leading-relaxed">
+            Fundada em <strong>agosto de 2021</strong> por <strong>Pedro Henrique Rabelo</strong>, a PH Transfer nasceu de uma visão: transformar a maneira como as pessoas vivenciam o transporte executivo.
+          </p>
+          <p class="text-sm">
+            Com experiência acumulada ao longo de anos de imersão no setor de transportes, Pedro identificou a possibilidade de construir algo diferente: uma empresa que não se limitasse à movimentação de pessoas, mas que realmente fizesse a diferença na experiência de cada passageiro.
+          </p>
+          <p class="text-sm">
+            O que começou como um propósito de oferecer um serviço diferenciado tornou-se um compromisso diário com a excelência, a confiança e a personalização. Não se trata apenas de chegar. Trata-se de como fazemos você chegar.
+          </p>
+          <p class="text-sm">
+            Mais do que conectar destinos, construímos relações. Mais do que transportar pessoas, entregamos experiências que fazem a diferença em cada percurso.
+          </p>
+
+          <!-- Três Compromissos da Liderança -->
+          <div class="pt-6 border-t border-white/10 space-y-3">
+            <span class="text-xs uppercase tracking-widest text-white font-semibold block">Sua visão se traduz em três compromissos:</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <h5 class="text-sm font-bold text-white">Excelência</h5>
+                <p class="text-[11px] text-zinc-400 font-light mt-1">Buscar qualidade em cada etapa da experiência.</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <h5 class="text-sm font-bold text-white">Inovação</h5>
+                <p class="text-[11px] text-zinc-400 font-light mt-1">Desenvolver soluções que acompanhem os clientes.</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <h5 class="text-sm font-bold text-white">Relacionamento</h5>
+                <p class="text-[11px] text-zinc-400 font-light mt-1">Construir conexões baseadas na confiança e respeito.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna da Direita: Card de Valores Oficiais -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="glass-panel p-8 rounded-3xl border border-white/10 space-y-6">
+            <span class="text-xs uppercase tracking-widest text-zinc-400 font-semibold block">A Base de Cada Decisão</span>
+            <h4 class="text-xl font-bold text-white">Nossos Valores</h4>
+
+            <div class="space-y-3 text-xs">
+              <div class="pb-3 border-b border-white/5">
+                <strong class="text-white block font-semibold">Confiança</strong>
+                <span class="text-zinc-400 font-light">Relações transparentes e duradouras valorizando a confiança depositada em nós.</span>
+              </div>
+              <div class="pb-3 border-b border-white/5">
+                <strong class="text-white block font-semibold">Comprometimento</strong>
+                <span class="text-zinc-400 font-light">Levamos a sério os horários, as necessidades e as expectativas de cada passageiro.</span>
+              </div>
+              <div class="pb-3 border-b border-white/5">
+                <strong class="text-white block font-semibold">Excelência</strong>
+                <span class="text-zinc-400 font-light">Buscamos qualidade em cada detalhe, desde o primeiro contato até o destino.</span>
+              </div>
+              <div class="pb-3 border-b border-white/5">
+                <strong class="text-white block font-semibold">Respeito</strong>
+                <span class="text-zinc-400 font-light">Valorizamos cada pessoa, sua individualidade, seu tempo e suas necessidades.</span>
+              </div>
+              <div class="pb-3 border-b border-white/5">
+                <strong class="text-white block font-semibold">Inovação</strong>
+                <span class="text-zinc-400 font-light">Atentos às transformações para aprimorar constantemente nossos serviços.</span>
+              </div>
+              <div>
+                <strong class="text-white block font-semibold">Personalização</strong>
+                <span class="text-zinc-400 font-light">Entendemos que cada viagem é única e adaptamos nosso atendimento à ocasião.</span>
+              </div>
+            </div>
+
+            <!-- Assinatura do Fundador -->
+            <div class="pt-6 border-t border-white/10">
+              <p class="font-serif italic text-lg text-white">"O verdadeiro diferencial está em nunca considerar a excelência um ponto de chegada."</p>
+              <div class="mt-3">
+                <span class="text-sm font-bold text-white block">Pedro Henrique Rabelo</span>
+                <span class="text-[11px] text-zinc-400 font-light uppercase tracking-wider">Fundador da PH Transfer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 06. ENCERRAMENTO — CONVERSÃO & CONTATO                                     -->
+  <!-- ========================================================================= -->
+  <section id="contato" class="py-24 sm:py-32 relative border-t border-white/5 bg-[#09090b]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
+      
+      <div class="space-y-4 max-w-3xl mx-auto">
+        <span class="text-xs uppercase tracking-[0.25em] font-semibold text-zinc-400">Experiência e Conversão</span>
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white leading-tight">
+          Seu próximo destino merece uma <span class="font-serif-italic font-normal">experiência à altura.</span>
+        </h2>
+        <p class="text-base sm:text-lg text-zinc-300 font-light leading-relaxed max-w-2xl mx-auto pt-2">
+          Não é ir do ponto A ao ponto B. É viver cada minuto do trajeto. Quando você está dentro de um carro com o padrão PH Transfer, o deslocamento deixa de ser apenas deslocamento: vira pausa, vira preparo, vira experiência.
+        </p>
+      </div>
+
+      <!-- Tagline Oficial -->
+      <div class="py-3 px-6 rounded-full border border-white/15 bg-white/5 inline-block">
+        <span class="text-xs sm:text-sm font-medium tracking-wide text-zinc-200">
+          PH Transfer — Mais que transporte. Uma experiência em cada trajeto.
+        </span>
+      </div>
+
+      <!-- Botões de Ação Principais -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-4 rounded-full text-xs sm:text-sm font-semibold tracking-wider flex items-center justify-center gap-2.5 shadow-2xl w-full sm:w-auto">
+          <svg class="w-4 h-4 text-emerald-600 fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.585 1.761.895 2.796.896h.001c3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.767-5.769-5.783zm3.393 8.307c-.144.405-.837.774-1.17.824-.312.045-.634.055-1.92-.477-1.52-.625-2.5-2.18-2.576-2.28-.076-.101-.617-.822-.617-1.568 0-.746.39-.112.528-.261.138-.149.301-.186.402-.186.101 0 .202.001.291.005.093.005.218-.035.341.261.127.306.435 1.059.473 1.136.038.077.064.167.013.268-.051.101-.077.164-.153.253-.076.089-.16.198-.228.266-.076.076-.156.16-.067.312.089.152.395.651.848 1.055.584.52 1.077.682 1.229.758.152.076.241.064.33-.038.089-.101.381-.444.483-.596.101-.152.203-.127.341-.076.138.051.875.412 1.027.488.152.076.253.114.291.177.038.064.038.368-.106.773z"/>
+          </svg>
+          <span>Solicitar meu orçamento pelo WhatsApp</span>
+        </a>
+
+        <a href="mailto:contato.phtransfer@gmail.com" class="btn-ghost px-8 py-4 rounded-full text-xs sm:text-sm font-semibold tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto">
+          <span>contato.phtransfer@gmail.com</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 07. RODAPÉ OFICIAL COM INFORMAÇÕES COMPLETAS                              -->
+  <!-- ========================================================================= -->
+  <footer class="pt-16 pb-12 border-t border-white/10 bg-[#080809] text-zinc-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/5">
+        
+        <!-- Coluna 1: Logo Oficial & Bio -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center">
+            <img 
+              src="assets/img/logo-ph-transfer.png" 
+              alt="PH Transfer Logo Oficial" 
+              class="h-16 sm:h-20 w-auto object-contain filter drop-shadow-md" 
+            />
+          </div>
+          <p class="text-xs text-zinc-300 font-medium">
+            Mais que transporte. Uma experiência em cada trajeto.
+          </p>
+          <p class="text-xs text-zinc-400 font-light leading-relaxed max-w-sm">
+            Mobilidade executiva com conforto, segurança e excelência em cada detalhe. Atendimento personalizado para viagens, transfers, turismo e eventos corporativos.
+          </p>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div class="md:col-span-3 space-y-4">
+          <h4 class="text-xs font-semibold text-white uppercase tracking-widest">Navegação</h4>
+          <ul class="space-y-2.5 text-xs font-light text-zinc-400">
+            <li><a href="#inicio" class="hover:text-white transition-colors">Início</a></li>
+            <li><a href="#servicos" class="hover:text-white transition-colors">Serviços</a></li>
+            <li><a href="#diferenciais" class="hover:text-white transition-colors">Diferenciais</a></li>
+            <li><a href="#essenza" class="hover:text-white transition-colors">Protocolo Essenza</a></li>
+            <li><a href="#frota" class="hover:text-white transition-colors">Nossa Frota</a></li>
+            <li><a href="#sobre" class="hover:text-white transition-colors">Sobre a PH Transfer</a></li>
+            <li><a href="#contato" class="hover:text-white transition-colors">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Atendimento & Contatos Oficiais -->
+        <div class="md:col-span-4 space-y-4">
+          <h4 class="text-xs font-semibold text-white uppercase tracking-widest">Contatos Oficiais</h4>
+          <ul class="space-y-3 text-xs font-light text-zinc-400">
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.585 1.761.895 2.796.896h.001c3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.767-5.769-5.783zm3.393 8.307c-.144.405-.837.774-1.17.824-.312.045-.634.055-1.92-.477-1.52-.625-2.5-2.18-2.576-2.28-.076-.101-.617-.822-.617-1.568 0-.746.39-.112.528-.261.138-.149.301-.186.402-.186.101 0 .202.001.291.005.093.005.218-.035.341.261.127.306.435 1.059.473 1.136.038.077.064.167.013.268-.051.101-.077.164-.153.253-.076.089-.16.198-.228.266-.076.076-.156.16-.067.312.089.152.395.651.848 1.055.584.52 1.077.682 1.229.758.152.076.241.064.33-.038.089-.101.381-.444.483-.596.101-.152.203-.127.341-.076.138.051.875.412 1.027.488.152.076.253.114.291.177.038.064.038.368-.106.773z"/>
+              </svg>
+              <a href="https://wa.me/5531988851520" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                (31) 98885-1520
+              </a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-zinc-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <a href="mailto:contato.phtransfer@gmail.com" class="hover:text-white transition-colors">
+                contato.phtransfer@gmail.com
+              </a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-pink-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <a href="https://instagram.com/ph.transfer" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                @ph.transfer
+              </a>
+            </li>
+            <li class="flex items-center gap-3 pt-2 text-[11px] text-zinc-500">
+              <svg class="w-4 h-4 text-zinc-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Belo Horizonte e Região Metropolitana — MG</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright e Assinatura -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
+        <p>© 2026 PH Transfer. Todos os direitos reservados.</p>
+        <p class="text-zinc-400 text-[11px]">Desenvolvido com excelência executiva e design editorial.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

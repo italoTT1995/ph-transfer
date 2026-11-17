@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-dark: #0d0d0e;
+  --bg-card: #151518;
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.28);
+  --text-main: #ffffff;
+  --text-muted: #a1a1aa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tipografia Editorial Instrument Serif */
+.font-serif-italic {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Sombra de texto para leitura perfeita mesmo com imagem de fundo clara */
+.hero-text-shadow {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Foto de Fundo Afastada (Enquadramento Aberto dos 3 Carros) e Mais Clara */
+.hero-bg-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 34%; /* Enquadra perfeitamente os 3 carros com a luz dourada do pôr do sol */
+  filter: brightness(0.92) contrast(1.02); /* Preserva a iluminação natural, nitidez e cores vibrantes */
+  transform: scale(1.01);
+  image-rendering: -webkit-optimize-contrast;
+  transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Gradiente Editorial Inteligente:
+   - Contraste direcional suave no lado esquerdo (0 a 45%) para leitura límpida dos textos brancos
+   - 100% aberto e radiante no centro e direita para os carros brilharem sob a luz do pôr do sol
+   - Transição suave na base para integrar com os cards e a seção seguinte */
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(
+      to right,
+      rgba(10, 10, 12, 0.80) 0%,
+      rgba(10, 10, 12, 0.58) 32%,
+      rgba(10, 10, 12, 0.18) 58%,
+      rgba(10, 10, 12, 0.05) 80%,
+      rgba(10, 10, 12, 0.20) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(10, 10, 12, 0.35) 0%,
+      transparent 22%,
+      transparent 65%,
+      rgba(13, 13, 14, 0.85) 90%,
+      #0d0d0e 100%
+    );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Glass Panels gerais */
+.glass-panel {
+  background: rgba(18, 18, 22, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-hover);
+  background: rgba(26, 26, 32, 0.85);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Glass Navbar inicial translúcida que ativa blur ao rolar */
+.glass-navbar {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: all 0.35s ease;
+}
+
+.glass-navbar.scrolled {
+  background: rgba(13, 13, 14, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Botão Hero CTA Translúcido com borda suave */
+.hero-cta-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.hero-cta-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.02);
+}
+
+/* Container Cápsula de 4 Cards na Base */
+.glass-pill-container {
+  background: rgba(15, 15, 18, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.3s ease;
+}
+
+/* Animações Scroll Reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0e;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Botões */
+.btn-primary {
+  background: #ffffff;
+  color: #0d0d0e;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+  transform: scale(1.02);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.14);
+  transform: scale(1.02);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+}
+
+.pulse-whatsapp {
+  animation: pulseGlow 2.5s infinite;
+}
