@@ -242,3 +242,20 @@ body {
   border: none !important;
   box-shadow: none !important;
 }
+
+/* Utilitário no-scrollbar para carrosséis horizontais fluidos no mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Otimizações Mobile & Tablet */
+@media (max-width: 768px) {
+  /* Suavizar toque em elementos clicáveis */
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}

@@ -278,16 +278,37 @@ document.addEventListener('DOMContentLoaded', () => {
     showcaseContainer.addEventListener('mouseleave', () => {
       startFleetAutoplay();
     });
+
+    // Suporte a gestos touch swipe no banner da frota
+    let fleetTouchStartX = 0;
+    showcaseContainer.addEventListener('touchstart', (e) => {
+      fleetTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    showcaseContainer.addEventListener('touchend', (e) => {
+      const fleetTouchEndX = e.changedTouches[0].screenX;
+      const diff = fleetTouchStartX - fleetTouchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          showFleetSlide(currentFleetIndex + 1);
+        } else {
+          showFleetSlide(currentFleetIndex - 1);
+        }
+        resetFleetAutoplay();
+      }
+    }, { passive: true });
+
     startFleetAutoplay();
   }
 
   // 8. Protocolo Essenza Interativo (Clique nas frases em cima -> Muda foto e detalhes embaixo)
   const essenzaCards = document.querySelectorAll('.essenza-card');
   const essenzaSlides = document.querySelectorAll('.essenza-slide');
+  let currentEssenzaIndex = 0;
 
   const showEssenzaSlide = (index) => {
     if (!essenzaSlides.length) return;
-    const safeIndex = (index + essenzaSlides.length) % essenzaSlides.length;
+    currentEssenzaIndex = (index + essenzaSlides.length) % essenzaSlides.length;
 
     // 1. Atualizar cards superiores
     essenzaCards.forEach((card, i) => {
@@ -295,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const dotSpan = card.querySelector('.essenza-dot');
       const hintSpan = card.querySelector('.essenza-hint');
 
-      if (i === safeIndex) {
+      if (i === currentEssenzaIndex) {
         card.classList.add('active', 'border-white/50', 'bg-white/10', 'shadow-lg', 'scale-[1.02]', 'ring-1', 'ring-white/20');
         if (numSpan) {
           numSpan.classList.add('text-white', 'font-bold');
@@ -308,6 +329,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (hintSpan) {
           hintSpan.textContent = 'Ativo agora';
           hintSpan.classList.add('text-emerald-400', 'font-medium');
+        }
+
+        // No mobile, rolar suavemente o card ativo para o centro da barra horizontal
+        if (window.innerWidth < 768) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
       } else {
         card.classList.remove('active', 'border-white/50', 'bg-white/10', 'shadow-lg', 'scale-[1.02]', 'ring-1', 'ring-white/20');
@@ -328,12 +354,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Atualizar slides inferiores com fade
     essenzaSlides.forEach((slide, i) => {
-      if (i === safeIndex) {
-        slide.classList.remove('opacity-0', 'pointer-events-none');
-        slide.classList.add('opacity-100', 'pointer-events-auto');
+      if (i === currentEssenzaIndex) {
+        slide.classList.remove('opacity-0', 'pointer-events-none', 'invisible');
+        slide.classList.add('opacity-100', 'pointer-events-auto', 'visible');
       } else {
-        slide.classList.remove('opacity-100', 'pointer-events-auto');
-        slide.classList.add('opacity-0', 'pointer-events-none');
+        slide.classList.remove('opacity-100', 'pointer-events-auto', 'visible');
+        slide.classList.add('opacity-0', 'pointer-events-none', 'invisible');
       }
     });
   };
@@ -344,4 +370,25 @@ document.addEventListener('DOMContentLoaded', () => {
       showEssenzaSlide(idx);
     });
   });
+
+  // Suporte a gestos touch swipe no painel de fotos do Essenza
+  const essenzaBox = document.getElementById('essenza-display-box');
+  if (essenzaBox) {
+    let essenzaTouchStartX = 0;
+    essenzaBox.addEventListener('touchstart', (e) => {
+      essenzaTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    essenzaBox.addEventListener('touchend', (e) => {
+      const essenzaTouchEndX = e.changedTouches[0].screenX;
+      const diff = essenzaTouchStartX - essenzaTouchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          showEssenzaSlide(currentEssenzaIndex + 1);
+        } else {
+          showEssenzaSlide(currentEssenzaIndex - 1);
+        }
+      }
+    }, { passive: true });
+  }
 });
