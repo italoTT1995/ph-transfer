@@ -561,107 +561,284 @@
         </p>
       </div>
 
-      <!-- Cinco Elementos que Transformam Cada Trajeto -->
+      <!-- Cinco Elementos Interativos que Transformam Cada Trajeto -->
       <div>
-        <div class="mb-8">
+        <div class="mb-8 flex items-center justify-between flex-wrap gap-4">
           <span class="text-xs uppercase tracking-[0.2em] font-semibold text-zinc-400">Cinco itens. Uma experiência inteira.</span>
+          <span class="text-[11px] text-emerald-400 flex items-center gap-1.5 font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Clique nos itens para ver fotos e detalhes de cada mimo</span>
+          </span>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6" id="essenza-cards">
           
           <!-- Item 01: Café -->
-          <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all">
+          <div class="essenza-card active glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/40 transition-all duration-300 cursor-pointer border-white/50 bg-white/10 shadow-lg scale-[1.02] ring-1 ring-white/20" data-essenza-index="0">
             <div class="space-y-3">
-              <span class="text-xs font-mono text-zinc-500">01</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-white essenza-num">01</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400 essenza-dot"></span>
+              </div>
               <h3 class="text-lg font-bold text-white tracking-tight">Café Mineiro Premiado</h3>
               <p class="text-xs text-zinc-300 font-light leading-relaxed">
                 Café de origem mineira, especial e premiado, selecionado pessoalmente por Pedro Henrique e servido a bordo em louça especial.
               </p>
             </div>
+            <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between text-[11px] text-zinc-400">
+              <span class="essenza-hint text-emerald-400 font-medium">Ativo agora</span>
+              <span>☕</span>
+            </div>
           </div>
 
           <!-- Item 02: Água -->
-          <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all">
+          <div class="essenza-card glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/40 transition-all duration-300 cursor-pointer" data-essenza-index="1">
             <div class="space-y-3">
-              <span class="text-xs font-mono text-zinc-500">02</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-zinc-500 essenza-num">02</span>
+                <span class="w-2 h-2 rounded-full bg-transparent essenza-dot"></span>
+              </div>
               <h3 class="text-lg font-bold text-white tracking-tight">Água com e sem gás</h3>
               <p class="text-xs text-zinc-300 font-light leading-relaxed">
                 Água mineral resfriada, com e sem gás. Porque conforto também significa ter opções e poder escolher.
               </p>
             </div>
+            <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between text-[11px] text-zinc-400">
+              <span class="essenza-hint">Clique para ver</span>
+              <span>💧</span>
+            </div>
           </div>
 
           <!-- Item 03: Guloseimas -->
-          <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all">
+          <div class="essenza-card glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/40 transition-all duration-300 cursor-pointer" data-essenza-index="2">
             <div class="space-y-3">
-              <span class="text-xs font-mono text-zinc-500">03</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-zinc-500 essenza-num">03</span>
+                <span class="w-2 h-2 rounded-full bg-transparent essenza-dot"></span>
+              </div>
               <h3 class="text-lg font-bold text-white tracking-tight">Guloseimas Selecionadas</h3>
               <p class="text-xs text-zinc-300 font-light leading-relaxed">
                 Balas recheadas, chocolates, amendoins, barras de cereal e outros mimos escolhidos com rigor para seu conforto.
               </p>
             </div>
+            <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between text-[11px] text-zinc-400">
+              <span class="essenza-hint">Clique para ver</span>
+              <span>🍫</span>
+            </div>
           </div>
 
           <!-- Item 04: Conexão -->
-          <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all">
+          <div class="essenza-card glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/40 transition-all duration-300 cursor-pointer" data-essenza-index="3">
             <div class="space-y-3">
-              <span class="text-xs font-mono text-zinc-500">04</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-zinc-500 essenza-num">04</span>
+                <span class="w-2 h-2 rounded-full bg-transparent essenza-dot"></span>
+              </div>
               <h3 class="text-lg font-bold text-white tracking-tight">Wi-Fi & Carregador</h3>
               <p class="text-xs text-zinc-300 font-light leading-relaxed">
                 Internet Wi-Fi de alta velocidade e carregadores compatíveis com todas as marcas para você nunca ficar desconectado.
               </p>
             </div>
+            <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between text-[11px] text-zinc-400">
+              <span class="essenza-hint">Clique para ver</span>
+              <span>⚡</span>
+            </div>
           </div>
 
           <!-- Item 05: Trilha Sonora -->
-          <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all">
+          <div class="essenza-card glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-white/40 transition-all duration-300 cursor-pointer" data-essenza-index="4">
             <div class="space-y-3">
-              <span class="text-xs font-mono text-zinc-500">05</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-zinc-500 essenza-num">05</span>
+                <span class="w-2 h-2 rounded-full bg-transparent essenza-dot"></span>
+              </div>
               <h3 class="text-lg font-bold text-white tracking-tight">Trilha Sonora Ambiente</h3>
               <p class="text-xs text-zinc-300 font-light leading-relaxed">
                 Música ambiente suave para relaxar ou trabalhar, customizada de acordo com seu gosto ou com silêncio absoluto.
               </p>
+            </div>
+            <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between text-[11px] text-zinc-400">
+              <span class="essenza-hint">Clique para ver</span>
+              <span>🎵</span>
             </div>
           </div>
 
         </div>
       </div>
 
-      <!-- Destaque Especial: O Café Que é Servido Para Você -->
-      <div class="p-8 sm:p-12 rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-md">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          <div class="lg:col-span-6 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs text-zinc-200">
-              <span>☕ Experiência Gastronômica a Bordo</span>
-            </div>
-            <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
-              O café que é servido para você: <span class="font-serif-italic">origem mineira e premiação nacional.</span>
-            </h3>
-            <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
-              Não é qualquer café. É um café de origem mineira, premiado, selecionado por Pedro Henrique com o mesmo critério que utiliza em cada detalhe da PH Transfer: oferecer o melhor que está ao seu alcance.
-            </p>
-            <div class="p-4 rounded-xl border-l-2 border-white bg-white/5">
-              <p class="text-sm font-serif italic text-white leading-relaxed">
-                "Tem gente que volta pela viagem. Tem gente que volta pelo café. Aqui você tem os dois."
+      <!-- Destaque Interativo: Painel Dinâmico que muda com cada clique -->
+      <div class="p-8 sm:p-12 rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-md relative min-h-[480px] sm:min-h-[460px] overflow-hidden" id="essenza-display-box">
+        
+        <!-- Slide 0: Café Mineiro Premiado -->
+        <div class="essenza-slide opacity-100 transition-opacity duration-500 pointer-events-auto" data-slide-index="0">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs text-zinc-200">
+                <span>☕ Experiência Gastronômica a Bordo</span>
+              </div>
+              <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
+                O café que é servido para você: <span class="font-serif-italic">origem mineira e premiação nacional.</span>
+              </h3>
+              <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+                Não é qualquer café. É um café de origem mineira, premiado, selecionado por Pedro Henrique com o mesmo critério que utiliza em cada detalhe da PH Transfer: oferecer o melhor que está ao seu alcance.
               </p>
-              <span class="text-xs uppercase tracking-widest text-zinc-400 font-sans block mt-2">— Eu pensei em você antes de você entrar.</span>
+              <div class="p-4 rounded-xl border-l-2 border-white bg-white/5">
+                <p class="text-sm font-serif italic text-white leading-relaxed">
+                  "Tem gente que volta pela viagem. Tem gente que volta pelo café. Aqui você tem os dois."
+                </p>
+                <span class="text-xs uppercase tracking-widest text-zinc-400 font-sans block mt-2">— Eu pensei em você antes de você entrar.</span>
+              </div>
+            </div>
+            <div class="lg:col-span-6 relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
+              <img 
+                src="assets/img/reais/protocolo-essenza-cafe-real.jpg" 
+                alt="Bandeja real do Protocolo Essenza com café especial Santiago servido a bordo" 
+                class="w-full h-80 sm:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                <span class="text-[11px] text-zinc-200 font-medium">Foto Real: Café Santiago servido a bordo</span>
+                <span class="text-[10px] uppercase font-mono tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Protocolo Ativo</span>
+              </div>
             </div>
           </div>
-
-          <div class="lg:col-span-6 relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
-            <img 
-              src="assets/img/reais/protocolo-essenza-cafe-real.jpg" 
-              alt="Bandeja real do Protocolo Essenza com café especial Santiago, água e amenidades a bordo" 
-              class="w-full h-80 sm:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            />
-            <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
-              <span class="text-[11px] text-zinc-200 font-medium">Foto Real: Bandeja oficial servida a bordo</span>
-              <span class="text-[10px] uppercase font-mono tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Protocolo Ativo</span>
-            </div>
-          </div>
-
         </div>
+
+        <!-- Slide 1: Água com e sem gás -->
+        <div class="essenza-slide absolute inset-0 p-8 sm:p-12 opacity-0 transition-opacity duration-500 pointer-events-none" data-slide-index="1">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs text-blue-200">
+                <span>💧 Hidratação & Frescor</span>
+              </div>
+              <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
+                Hidratação na temperatura ideal: <span class="font-serif-italic">água mineral com e sem gás resfriada.</span>
+              </h3>
+              <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+                Garrafas de água mineral servidas geladas no porta-copos do apoio de braço central. Porque conforto também significa ter opções e poder escolher livremente entre água mineral natural ou com gás para renovar suas energias.
+              </p>
+              <div class="p-4 rounded-xl border-l-2 border-blue-400 bg-white/5">
+                <p class="text-sm font-serif italic text-white leading-relaxed">
+                  "O verdadeiro conforto está nos detalhes pensados antes mesmo de você precisar pedir."
+                </p>
+                <span class="text-xs uppercase tracking-widest text-zinc-400 font-sans block mt-2">— Hidratação a bordo inclusa em 100% dos trajetos.</span>
+              </div>
+            </div>
+            <div class="lg:col-span-6 relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
+              <img 
+                src="assets/img/reais/essenza-agua-resfriada.jpg" 
+                alt="Águas minerais com e sem gás resfriadas no apoio de braço da PH Transfer" 
+                class="w-full h-80 sm:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                <span class="text-[11px] text-zinc-200 font-medium">Foto Real: Águas servidas no apoio de braço</span>
+                <span class="text-[10px] uppercase font-mono tracking-wider text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">Com e Sem Gás</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Guloseimas Selecionadas -->
+        <div class="essenza-slide absolute inset-0 p-8 sm:p-12 opacity-0 transition-opacity duration-500 pointer-events-none" data-slide-index="2">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200">
+                <span>🍫 Mimos & Cortesia</span>
+              </div>
+              <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
+                Mimos gastronômicos: <span class="font-serif-italic">chocolates nobres e guloseimas selecionadas.</span>
+              </h3>
+              <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+                Uma cesta completa de cortesia ao alcance das mãos: chocolates recheados Trento, bombons finos, amendoins, balas de hortelã e mimos escolhidos com rigor para tornar cada minuto de viagem mais leve, doce e acolhedor.
+              </p>
+              <div class="p-4 rounded-xl border-l-2 border-amber-400 bg-white/5">
+                <p class="text-sm font-serif italic text-white leading-relaxed">
+                  "Cada item da bandeja foi pensado para fazer você se sentir acolhido desde o primeiro instante."
+                </p>
+                <span class="text-xs uppercase tracking-widest text-zinc-400 font-sans block mt-2">— Cesta de cortesia renovada a cada viagem.</span>
+              </div>
+            </div>
+            <div class="lg:col-span-6 relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
+              <img 
+                src="assets/img/reais/protocolo-essenza-detalhes.jpg" 
+                alt="Cesta de amenidades executivas com chocolates Trento e guloseimas finas" 
+                class="w-full h-80 sm:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                <span class="text-[11px] text-zinc-200 font-medium">Foto Real: Cesta executiva de mimos a bordo</span>
+                <span class="text-[10px] uppercase font-mono tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">Sempre Fresco</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Wi-Fi & Carregador -->
+        <div class="essenza-slide absolute inset-0 p-8 sm:p-12 opacity-0 transition-opacity duration-500 pointer-events-none" data-slide-index="3">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-200">
+                <span>⚡ Conectividade & Produtividade</span>
+              </div>
+              <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
+                Sua rotina não para: <span class="font-serif-italic">Wi-Fi de alta velocidade e carregadores universais.</span>
+              </h3>
+              <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+                Cabine executiva equipada com internet rápida para reuniões de trabalho, envio de documentos ou navegação tranquila, além de cabos e carregadores rápidos compatíveis com iPhone (Lightning e USB-C) e Android.
+              </p>
+              <div class="p-4 rounded-xl border-l-2 border-emerald-400 bg-white/5">
+                <p class="text-sm font-serif italic text-white leading-relaxed">
+                  "Seja para responder um e-mail urgente ou relaxar conectado, sua bateria nunca fica no zero."
+                </p>
+                <span class="text-xs uppercase tracking-widest text-zinc-400 font-sans block mt-2">— Cabine executiva 100% conectada.</span>
+              </div>
+            </div>
+            <div class="lg:col-span-6 relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
+              <img 
+                src="assets/img/reais/essenza-cabine-conectada.jpg" 
+                alt="Cabine traseira executiva com bancos em couro e conectividade a bordo" 
+                class="w-full h-80 sm:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                <span class="text-[11px] text-zinc-200 font-medium">Foto Real: Cabine com tomadas e conexão digital</span>
+                <span class="text-[10px] uppercase font-mono tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Wi-Fi & Cabos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Trilha Sonora Ambiente -->
+        <div class="essenza-slide absolute inset-0 p-8 sm:p-12 opacity-0 transition-opacity duration-500 pointer-events-none" data-slide-index="4">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs text-purple-200">
+                <span>🎵 Conforto Acústico & Relaxamento</span>
+              </div>
+              <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
+                A atmosfera perfeita: <span class="font-serif-italic">trilha sonora suave ou silêncio absoluto.</span>
+              </h3>
+              <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+                Isolamento acústico de alto padrão e climatização digital perfeita. Conecte sua playlist favorita via Bluetooth, desfrute da nossa seleção de jazz e lounge sereno, ou simplesmente aproveite o silêncio da cabine para descansar.
+              </p>
+              <div class="p-4 rounded-xl border-l-2 border-purple-400 bg-white/5">
+                <p class="text-sm font-serif italic text-white leading-relaxed">
+                  "O som do silêncio ou a sua música favorita: no seu trajeto, quem escolhe o ritmo é você."
+                </p>
+                <span class="text-xs uppercase tracking-widest text-zinc-400 font-sans block mt-2">— Conforto acústico e climatização dual zone.</span>
+              </div>
+            </div>
+            <div class="lg:col-span-6 relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
+              <img 
+                src="assets/img/Foto_02_Interior_Banco_Sunset.jpg" 
+                alt="Interior acústico em couro nobre com luz do pôr do sol e tranquilidade a bordo" 
+                class="w-full h-80 sm:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                <span class="text-[11px] text-zinc-200 font-medium">Foto Real: Cabine com isolamento acústico</span>
+                <span class="text-[10px] uppercase font-mono tracking-wider text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">Som & Silêncio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- ===================================================================== -->
@@ -1055,8 +1232,8 @@
         <!-- Card 2: Cabine & Amenidades -->
         <div class="rounded-3xl overflow-hidden border border-white/10 h-[380px] sm:h-[420px] relative group shadow-2xl bg-zinc-900/60">
           <img 
-            src="assets/img/reais/protocolo-essenza-detalhes.jpg" 
-            alt="Interior em couro com cesta de amenidades do Protocolo Essenza" 
+            src="assets/img/reais/frota-cabine-amenidades-real.jpg" 
+            alt="Interior em couro nobre com cesta de amenidades e águas resfriadas" 
             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>

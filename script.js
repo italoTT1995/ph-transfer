@@ -280,4 +280,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     startFleetAutoplay();
   }
+
+  // 8. Protocolo Essenza Interativo (Clique nas frases em cima -> Muda foto e detalhes embaixo)
+  const essenzaCards = document.querySelectorAll('.essenza-card');
+  const essenzaSlides = document.querySelectorAll('.essenza-slide');
+
+  const showEssenzaSlide = (index) => {
+    if (!essenzaSlides.length) return;
+    const safeIndex = (index + essenzaSlides.length) % essenzaSlides.length;
+
+    // 1. Atualizar cards superiores
+    essenzaCards.forEach((card, i) => {
+      const numSpan = card.querySelector('.essenza-num');
+      const dotSpan = card.querySelector('.essenza-dot');
+      const hintSpan = card.querySelector('.essenza-hint');
+
+      if (i === safeIndex) {
+        card.classList.add('active', 'border-white/50', 'bg-white/10', 'shadow-lg', 'scale-[1.02]', 'ring-1', 'ring-white/20');
+        if (numSpan) {
+          numSpan.classList.add('text-white', 'font-bold');
+          numSpan.classList.remove('text-zinc-500');
+        }
+        if (dotSpan) {
+          dotSpan.classList.remove('bg-transparent');
+          dotSpan.classList.add('bg-emerald-400');
+        }
+        if (hintSpan) {
+          hintSpan.textContent = 'Ativo agora';
+          hintSpan.classList.add('text-emerald-400', 'font-medium');
+        }
+      } else {
+        card.classList.remove('active', 'border-white/50', 'bg-white/10', 'shadow-lg', 'scale-[1.02]', 'ring-1', 'ring-white/20');
+        if (numSpan) {
+          numSpan.classList.remove('text-white', 'font-bold');
+          numSpan.classList.add('text-zinc-500');
+        }
+        if (dotSpan) {
+          dotSpan.classList.remove('bg-emerald-400');
+          dotSpan.classList.add('bg-transparent');
+        }
+        if (hintSpan) {
+          hintSpan.textContent = 'Clique para ver';
+          hintSpan.classList.remove('text-emerald-400', 'font-medium');
+        }
+      }
+    });
+
+    // 2. Atualizar slides inferiores com fade
+    essenzaSlides.forEach((slide, i) => {
+      if (i === safeIndex) {
+        slide.classList.remove('opacity-0', 'pointer-events-none');
+        slide.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        slide.classList.remove('opacity-100', 'pointer-events-auto');
+        slide.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+  };
+
+  essenzaCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const idx = parseInt(card.getAttribute('data-essenza-index'), 10);
+      showEssenzaSlide(idx);
+    });
+  });
 });
