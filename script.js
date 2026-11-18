@@ -198,4 +198,86 @@ document.addEventListener('DOMContentLoaded', () => {
   if (savedLang !== 'pt') {
     applyLanguage(savedLang, false);
   }
+
+  // 7. Seletor Interativo da Frota Real (Tabs, Slides e Autoplay)
+  const fleetTabs = document.querySelectorAll('.fleet-tab');
+  const fleetSlides = document.querySelectorAll('.fleet-slide');
+  const fleetPrevBtn = document.getElementById('fleet-prev');
+  const fleetNextBtn = document.getElementById('fleet-next');
+  let currentFleetIndex = 0;
+  let fleetAutoPlayInterval = null;
+
+  const showFleetSlide = (index) => {
+    if (!fleetSlides.length) return;
+    currentFleetIndex = (index + fleetSlides.length) % fleetSlides.length;
+
+    // Atualizar slides com fade suave
+    fleetSlides.forEach((slide, i) => {
+      if (i === currentFleetIndex) {
+        slide.classList.remove('opacity-0', 'pointer-events-none');
+        slide.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        slide.classList.remove('opacity-100', 'pointer-events-auto');
+        slide.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+
+    // Atualizar abas de navegação
+    fleetTabs.forEach((tab, i) => {
+      if (i === currentFleetIndex) {
+        tab.classList.add('bg-white', 'text-black', 'shadow-lg');
+        tab.classList.remove('bg-white/5', 'text-zinc-300');
+      } else {
+        tab.classList.remove('bg-white', 'text-black', 'shadow-lg');
+        tab.classList.add('bg-white/5', 'text-zinc-300');
+      }
+    });
+  };
+
+  fleetTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const idx = parseInt(tab.getAttribute('data-fleet-index'), 10);
+      showFleetSlide(idx);
+      resetFleetAutoplay();
+    });
+  });
+
+  if (fleetPrevBtn) {
+    fleetPrevBtn.addEventListener('click', () => {
+      showFleetSlide(currentFleetIndex - 1);
+      resetFleetAutoplay();
+    });
+  }
+
+  if (fleetNextBtn) {
+    fleetNextBtn.addEventListener('click', () => {
+      showFleetSlide(currentFleetIndex + 1);
+      resetFleetAutoplay();
+    });
+  }
+
+  const startFleetAutoplay = () => {
+    if (fleetAutoPlayInterval) clearInterval(fleetAutoPlayInterval);
+    fleetAutoPlayInterval = setInterval(() => {
+      showFleetSlide(currentFleetIndex + 1);
+    }, 6000);
+  };
+
+  const resetFleetAutoplay = () => {
+    if (fleetAutoPlayInterval) {
+      clearInterval(fleetAutoPlayInterval);
+      startFleetAutoplay();
+    }
+  };
+
+  const showcaseContainer = document.getElementById('fleet-showcase-container');
+  if (showcaseContainer) {
+    showcaseContainer.addEventListener('mouseenter', () => {
+      if (fleetAutoPlayInterval) clearInterval(fleetAutoPlayInterval);
+    });
+    showcaseContainer.addEventListener('mouseleave', () => {
+      startFleetAutoplay();
+    });
+    startFleetAutoplay();
+  }
 });

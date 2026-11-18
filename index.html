@@ -807,22 +807,165 @@
         </p>
       </div>
 
-      <!-- Imagem Heroica da Frota (2048 x 1246) -->
-      <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
-        <img 
-          src="assets/img/Foto_Frota_Completa.jpg" 
-          alt="Frota Completa PH Transfer - Sedans e Veículos Executivos" 
-          class="w-full h-80 sm:h-[460px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-        <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
-          <div class="space-y-1">
-            <span class="text-xs uppercase tracking-widest text-zinc-300 font-semibold">Frota Oficial PH Transfer</span>
-            <h3 class="text-2xl sm:text-3xl font-bold text-white">Toyota Corolla, Jeep Commander, Tiggo 8 e Blindados</h3>
+      <!-- Showcase Interativo da Frota Real (Tabs & Slides) -->
+      <div class="space-y-4">
+        
+        <!-- Abas de Seleção da Frota Real -->
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-2 overflow-x-auto pb-1 max-w-full" id="fleet-tabs">
+            <button type="button" class="fleet-tab active px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 bg-white text-black shadow-lg flex items-center gap-2 whitespace-nowrap cursor-pointer" data-fleet-index="0">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <span>Sedan Executivo · Corolla</span>
+            </button>
+            <button type="button" class="fleet-tab px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white border border-white/5 flex items-center gap-2 whitespace-nowrap cursor-pointer" data-fleet-index="1">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <span>SUV Blindado Nível III-A</span>
+            </button>
+            <button type="button" class="fleet-tab px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white border border-white/5 flex items-center gap-2 whitespace-nowrap cursor-pointer" data-fleet-index="2">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+              <span>Viagens & Resorts · Tauá</span>
+            </button>
           </div>
-          <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20consultar%20a%20disponibilidade%20da%20frota%20da%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap shadow-xl">
-            <span>Consultar disponibilidade da frota</span>
-          </a>
+
+          <div class="hidden sm:flex items-center gap-2 text-[11px] text-zinc-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Fotos reais de campo · 100% da frota</span>
+          </div>
+        </div>
+
+        <!-- Banner com Transição dos Slides Reais -->
+        <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-[440px] sm:h-[500px] group bg-black" id="fleet-showcase-container">
+          
+          <!-- Slide 0: Sedan Executivo (Premier Parc Hotel) -->
+          <div class="fleet-slide absolute inset-0 opacity-100 transition-opacity duration-700 pointer-events-auto" data-slide-index="0">
+            <img 
+              src="assets/img/reais/frota-sedan-premier-hotel.jpg" 
+              alt="Toyota Corolla Sedan Executivo - Operação Noturna no Premier Parc Hotel" 
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              style="object-position: center 75%;"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
+            
+            <div class="absolute top-6 left-6 right-6 flex items-center justify-between">
+              <span class="text-[11px] uppercase font-mono tracking-widest text-emerald-400 bg-emerald-950/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-emerald-500/30 font-semibold">
+                Sedan Oficial · Toyota Corolla
+              </span>
+              <span class="text-xs text-zinc-300 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 font-light hidden sm:inline-block">
+                Premier Parc Hotel · Operação VIP Noturna
+              </span>
+            </div>
+
+            <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
+              <div class="space-y-2 max-w-2xl">
+                <span class="text-xs uppercase tracking-widest text-zinc-300 font-semibold block">Mobilidade Corporativa & Traslados</span>
+                <h3 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">Toyota Corolla Executivo</h3>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                  Conforto acústico superior, interior em couro, ar-condicionado digital dual zone, kit amenidades Essenza resfriado e motorista trajado.
+                </p>
+                <div class="flex items-center gap-3 pt-1 flex-wrap text-[11px] text-zinc-300 font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Até 3 passageiros</span>
+                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">2 Malas G + 2 M</span>
+                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Wi-Fi & Carregadores</span>
+                </div>
+              </div>
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20consultar%20a%20disponibilidade%20do%20Sedan%20Executivo%20Toyota%20Corolla%20da%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap shadow-xl flex items-center gap-2">
+                <span>Reservar Sedan Executivo</span>
+                <span class="text-sm">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 1: SUV Blindado (Volvo XC90) -->
+          <div class="fleet-slide absolute inset-0 opacity-0 transition-opacity duration-700 pointer-events-none" data-slide-index="1">
+            <img 
+              src="assets/img/reais/frota-suv-volvo-blindado.jpg" 
+              alt="Veículo Blindado Nível III-A - SUV Volvo XC90 Proteção Balística" 
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              style="object-position: center 65%;"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
+            
+            <div class="absolute top-6 left-6 right-6 flex items-center justify-between">
+              <span class="text-[11px] uppercase font-mono tracking-widest text-amber-300 bg-amber-950/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-amber-500/30 font-semibold">
+                Proteção Balística Nível III-A Certificada
+              </span>
+              <span class="text-xs text-zinc-300 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 font-light hidden sm:inline-block">
+                Volvo XC90 & SUVs · Segurança Máxima
+              </span>
+            </div>
+
+            <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
+              <div class="space-y-2 max-w-2xl">
+                <span class="text-xs uppercase tracking-widest text-zinc-300 font-semibold block">Segurança Pessoal & Autoridades</span>
+                <h3 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">SUV Blindado Nível III-A</h3>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                  Vidros e carroceria resistentes a disparos de armas curtas e submetralhadoras (inclusive 9mm e .44 Magnum), motorista treinado em direção defensiva e evasiva.
+                </p>
+                <div class="flex items-center gap-3 pt-1 flex-wrap text-[11px] text-zinc-300 font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Blindagem Nível III-A</span>
+                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">4 a 6 passageiros</span>
+                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Rotas Estratégicas</span>
+                </div>
+              </div>
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20consultar%20a%20disponibilidade%20de%20veículo%20blindado%20Nível%20III-A%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap shadow-xl flex items-center gap-2">
+                <span>Consultar Blindado</span>
+                <span class="text-sm">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 2: Viagens & Resorts (Tauá Resort Araxá) -->
+          <div class="fleet-slide absolute inset-0 opacity-0 transition-opacity duration-700 pointer-events-none" data-slide-index="2">
+            <img 
+              src="assets/img/reais/frota-resort-taua-araxa.jpg" 
+              alt="Transporte Executivo para Resorts e Hotéis de Charme - Tauá Resort Araxá" 
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              style="object-position: center 60%;"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
+            
+            <div class="absolute top-6 left-6 right-6 flex items-center justify-between">
+              <span class="text-[11px] uppercase font-mono tracking-widest text-blue-400 bg-blue-950/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-blue-500/30 font-semibold">
+                Viagens Intermunicipais & Destinos VIP
+              </span>
+              <span class="text-xs text-zinc-300 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 font-light hidden sm:inline-block">
+                Tauá Resort & Convention Araxá
+              </span>
+            </div>
+
+            <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
+              <div class="space-y-2 max-w-2xl">
+                <span class="text-xs uppercase tracking-widest text-zinc-300 font-semibold block">Turismo de Luxo & Viagens Longas</span>
+                <h3 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">Viagens & Resorts de Charme</h3>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                  Deslocamentos privativos com tranquilidade para cidades históricas, resorts termais e condomínios de alto padrão com paradas flexíveis e conforto ininterrupto.
+                </p>
+                <div class="flex items-center gap-3 pt-1 flex-wrap text-[11px] text-zinc-300 font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Araxá · Ouro Preto · Tiradentes</span>
+                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Motorista Exclusivo</span>
+                </div>
+              </div>
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20viagem%20intermunicipal%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap shadow-xl flex items-center gap-2">
+                <span>Planejar Viagem</span>
+                <span class="text-sm">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Controles de Navegação (Setas Anterior/Próximo) -->
+          <div class="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 hidden lg:flex items-center gap-2 z-20">
+            <button type="button" id="fleet-prev" class="w-9 h-9 rounded-full bg-black/60 hover:bg-white text-white hover:text-black border border-white/20 flex items-center justify-center transition-all duration-300 backdrop-blur-md cursor-pointer" aria-label="Veículo anterior">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button type="button" id="fleet-next" class="w-9 h-9 rounded-full bg-black/60 hover:bg-white text-white hover:text-black border border-white/20 flex items-center justify-center transition-all duration-300 backdrop-blur-md cursor-pointer" aria-label="Próximo veículo">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
         </div>
       </div>
 
@@ -1071,26 +1214,27 @@
           </div>
         </div>
 
-        <!-- Card 4: Transporte Blindado Convoy -->
+        <!-- Card 4: Transporte Blindado Convoy (Foto Única) -->
         <div class="glass-panel rounded-3xl overflow-hidden border border-white/10 group flex flex-col">
           <div class="relative h-72 sm:h-80 overflow-hidden">
             <img 
-              src="assets/img/reais/servico-blindado-real.jpg" 
-              alt="Transporte Executivo Blindado de Alta Segurança" 
+              src="assets/img/reais/galeria-blindado-comboio.jpg" 
+              alt="Comboio de Veículos Blindados e Executivos em Operação Privativa" 
               class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              style="object-position: center 60%;"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div class="absolute top-4 left-4">
               <span class="text-[10px] uppercase font-mono tracking-wider text-amber-300 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/30 backdrop-blur-md">
-                Blindado Nível III-A
+                Comboio & Blindados
               </span>
             </div>
           </div>
           <div class="p-6 space-y-2 flex-1 flex flex-col justify-between">
             <div>
-              <h4 class="text-base font-bold text-white">Segurança Operacional e Discrição</h4>
+              <h4 class="text-base font-bold text-white">Comboio de Segurança e Comitivas</h4>
               <p class="text-xs text-zinc-400 font-light leading-relaxed mt-1">
-                Frota de utilitários e sedans blindados com proteção balística certificada, vidros de alta resistência e motoristas com direção evasiva defensiva.
+                Logística integrada de segurança para diretorias e autoridades em comboio operacional coordenado com proteção balística e discrição total.
               </p>
             </div>
             <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-zinc-400">
@@ -1100,31 +1244,32 @@
           </div>
         </div>
 
-        <!-- Card 5: Protocolo Essenza Real a Bordo -->
+        <!-- Card 5: Recepção Corporativa Hoteleira (Foto Única) -->
         <div class="glass-panel rounded-3xl overflow-hidden border border-white/10 group flex flex-col">
           <div class="relative h-72 sm:h-80 overflow-hidden">
             <img 
-              src="assets/img/reais/protocolo-essenza-cafe-real.jpg" 
-              alt="Bandeja servida com café Santiago e amenidades a bordo da PH Transfer" 
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              src="assets/img/reais/galeria-nobile-inn-pampulha.jpg" 
+              alt="Recepção Executiva no Nobile Inn Pampulha com Toyota Corolla" 
+              class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-700"
+              style="object-position: center 75%;"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div class="absolute top-4 left-4">
               <span class="text-[10px] uppercase font-mono tracking-wider text-emerald-300 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30 backdrop-blur-md">
-                Protocolo Essenza
+                Hotelaria & Negócios
               </span>
             </div>
           </div>
           <div class="p-6 space-y-2 flex-1 flex flex-col justify-between">
             <div>
-              <h4 class="text-base font-bold text-white">O Famoso Café Mineiro a Bordo</h4>
+              <h4 class="text-base font-bold text-white">Recepção no Nobile Inn Pampulha</h4>
               <p class="text-xs text-zinc-400 font-light leading-relaxed mt-1">
-                O legítimo café Santiago premiado servido quente em louça especial, com água resfriada e guloseimas selecionadas na bandeja executiva.
+                Atendimento executivo em hotéis de negócios com recepção pontual de hóspedes, conexões corporativas e traslados para cidades polo de Minas.
               </p>
             </div>
             <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-zinc-400">
-              <span>A Bordo</span>
-              <span class="text-emerald-400 font-medium">100% dos Trajetos</span>
+              <span>Pampulha / BH</span>
+              <span class="text-emerald-400 font-medium">Hotelaria Executiva</span>
             </div>
           </div>
         </div>
