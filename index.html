@@ -60,11 +60,64 @@
         <a href="#sobre" class="hover:text-white transition-colors duration-200 whitespace-nowrap">Sobre</a>
         <a href="#avaliacoes" class="hover:text-white transition-colors duration-200 whitespace-nowrap">Avaliações</a>
         <a href="#contato" class="hover:text-white transition-colors duration-200 whitespace-nowrap">Contato</a>
-        <div class="flex items-center gap-1.5 text-zinc-300 font-medium pl-3 border-l border-white/20 whitespace-nowrap shrink-0">
-          <svg class="w-3.5 h-3.5 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span class="text-[10px]">PT/BR</span>
+
+        <!-- Seletor de Idioma Dropdown (PT, EN, ES) -->
+        <div class="relative pl-3 border-l border-white/20 shrink-0" id="lang-switcher-container">
+          <button 
+            id="lang-btn" 
+            type="button"
+            class="flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors duration-200 py-1 px-2 rounded-lg hover:bg-white/10" 
+            aria-label="Selecionar Idioma" 
+            aria-expanded="false"
+          >
+            <svg class="w-3.5 h-3.5 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span id="current-lang-text" class="text-[11px] font-semibold font-mono tracking-wider">PT/BR</span>
+            <svg id="lang-arrow" class="w-2.5 h-2.5 text-zinc-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Menu Flutuante de Idiomas -->
+          <div 
+            id="lang-dropdown" 
+            class="hidden absolute right-0 mt-2 w-40 rounded-2xl p-1.5 glass-panel border border-white/15 shadow-2xl z-50 space-y-1"
+          >
+            <button 
+              type="button"
+              data-lang="pt" 
+              class="lang-option w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold text-white bg-white/10 hover:bg-white/20 transition-all text-left"
+            >
+              <span class="flex items-center gap-2">
+                <span>🇧🇷</span>
+                <span>Português</span>
+              </span>
+              <span class="text-[10px] text-zinc-400 font-mono">PT</span>
+            </button>
+            <button 
+              type="button"
+              data-lang="en" 
+              class="lang-option w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/10 transition-all text-left"
+            >
+              <span class="flex items-center gap-2">
+                <span>🇺🇸</span>
+                <span>English</span>
+              </span>
+              <span class="text-[10px] text-zinc-400 font-mono">EN</span>
+            </button>
+            <button 
+              type="button"
+              data-lang="es" 
+              class="lang-option w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/10 transition-all text-left"
+            >
+              <span class="flex items-center gap-2">
+                <span>🇪🇸</span>
+                <span>Español</span>
+              </span>
+              <span class="text-[10px] text-zinc-400 font-mono">ES</span>
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -89,13 +142,33 @@
         <a href="#avaliacoes" class="mobile-nav-link hover:text-white py-1">Avaliações Google</a>
         <a href="#contato" class="mobile-nav-link hover:text-white py-1">Contato</a>
       </nav>
-      <div class="pt-3 border-t border-white/10">
+
+      <!-- Seletor de Idioma Mobile (PT, EN, ES) -->
+      <div class="pt-4 border-t border-white/10">
+        <span class="text-[10px] uppercase tracking-widest text-zinc-400 font-semibold block mb-2">Idioma / Language / Idioma</span>
+        <div class="grid grid-cols-3 gap-2">
+          <button type="button" data-lang="pt" class="mobile-lang-btn active py-2 rounded-xl text-xs font-semibold text-white bg-white/20 border border-white/25 flex items-center justify-center gap-1.5 transition-all">
+            <span>🇧🇷</span> <span>PT</span>
+          </button>
+          <button type="button" data-lang="en" class="mobile-lang-btn py-2 rounded-xl text-xs font-semibold text-zinc-400 hover:text-white bg-white/5 border border-white/10 flex items-center justify-center gap-1.5 transition-all">
+            <span>🇺🇸</span> <span>EN</span>
+          </button>
+          <button type="button" data-lang="es" class="mobile-lang-btn py-2 rounded-xl text-xs font-semibold text-zinc-400 hover:text-white bg-white/5 border border-white/10 flex items-center justify-center gap-1.5 transition-all">
+            <span>🇪🇸</span> <span>ES</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-2 border-t border-white/10">
         <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center py-3 rounded-full text-xs font-semibold tracking-wider flex items-center justify-center gap-2">
           <span>Solicitar meu orçamento</span>
         </a>
       </div>
     </div>
   </header>
+
+  <!-- Container invisível para Google Translate API -->
+  <div id="google_translate_element" class="hidden"></div>
 
   <!-- ========================================================================= -->
   <!-- 01. HERO — PRIMEIRA DOBRA                                                 -->
@@ -1644,7 +1717,17 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Scripts & Google Translate Integration -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'pt',
+        includedLanguages: 'pt,en,es',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="script.js"></script>
 </body>
 </html>

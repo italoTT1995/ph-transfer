@@ -77,4 +77,125 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 6. Seletor de Idioma Multi-língua (Português, Inglês e Espanhol)
+  const langBtn = document.getElementById('lang-btn');
+  const langDropdown = document.getElementById('lang-dropdown');
+  const langArrow = document.getElementById('lang-arrow');
+  const currentLangText = document.getElementById('current-lang-text');
+  const desktopOptions = document.querySelectorAll('.lang-option');
+  const mobileOptions = document.querySelectorAll('.mobile-lang-btn');
+
+  // Alternar Dropdown no Desktop
+  if (langBtn && langDropdown) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isHidden = langDropdown.classList.contains('hidden');
+      if (isHidden) {
+        langDropdown.classList.remove('hidden');
+        if (langArrow) langArrow.classList.add('rotate-180');
+        langBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        langDropdown.classList.add('hidden');
+        if (langArrow) langArrow.classList.remove('rotate-180');
+        langBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Fechar ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#lang-switcher-container')) {
+        langDropdown.classList.add('hidden');
+        if (langArrow) langArrow.classList.remove('rotate-180');
+        langBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Função para aplicar o idioma
+  const applyLanguage = (lang, triggerTranslate = true) => {
+    // 1. Atualizar rótulo visível
+    const labels = { pt: 'PT/BR', en: 'EN', es: 'ES' };
+    if (currentLangText) {
+      currentLangText.textContent = labels[lang] || 'PT/BR';
+    }
+
+    // 2. Atualizar estado ativo nos botões desktop
+    desktopOptions.forEach(opt => {
+      const optLang = opt.getAttribute('data-lang');
+      if (optLang === lang) {
+        opt.classList.add('bg-white/10', 'text-white', 'font-semibold');
+        opt.classList.remove('text-zinc-300', 'font-medium');
+      } else {
+        opt.classList.remove('bg-white/10', 'text-white', 'font-semibold');
+        opt.classList.add('text-zinc-300', 'font-medium');
+      }
+    });
+
+    // 3. Atualizar estado ativo nos botões mobile
+    mobileOptions.forEach(btn => {
+      const btnLang = btn.getAttribute('data-lang');
+      if (btnLang === lang) {
+        btn.classList.add('active', 'bg-white/20', 'text-white');
+        btn.classList.remove('bg-white/5', 'text-zinc-400');
+      } else {
+        btn.classList.remove('active', 'bg-white/20', 'text-white');
+        btn.classList.add('bg-white/5', 'text-zinc-400');
+      }
+    });
+
+    // 4. Salvar preferência
+    localStorage.setItem('ph_transfer_lang', lang);
+
+    // 5. Configurar Google Translate Cookie
+    if (triggerTranslate) {
+      if (lang === 'pt') {
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
+      } else {
+        document.cookie = `googtrans=/pt/${lang}; path=/;`;
+        document.cookie = `googtrans=/pt/${lang}; path=/; domain=${window.location.hostname}`;
+      }
+
+      // Disparar combo se disponível
+      const combo = document.querySelector('.goog-te-combo');
+      if (combo) {
+        combo.value = lang;
+        combo.dispatchEvent(new Event('change'));
+      } else {
+        // Se ainda não inicializou o combo do Google Translate, recarregar para aplicar o cookie
+        setTimeout(() => {
+          window.location.reload();
+        }, 150);
+      }
+    }
+
+    // Fechar dropdown
+    if (langDropdown) {
+      langDropdown.classList.add('hidden');
+      if (langArrow) langArrow.classList.remove('rotate-180');
+    }
+  };
+
+  // Event Listeners nos Botões Desktop
+  desktopOptions.forEach(opt => {
+    opt.addEventListener('click', () => {
+      const selected = opt.getAttribute('data-lang');
+      applyLanguage(selected, true);
+    });
+  });
+
+  // Event Listeners nos Botões Mobile
+  mobileOptions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selected = btn.getAttribute('data-lang');
+      applyLanguage(selected, true);
+    });
+  });
+
+  // Inicialização no carregamento
+  const savedLang = localStorage.getItem('ph_transfer_lang') || 'pt';
+  if (savedLang !== 'pt') {
+    applyLanguage(savedLang, false);
+  }
 });
