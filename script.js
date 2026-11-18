@@ -199,11 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLanguage(savedLang, false);
   }
 
-  // 7. Seletor Interativo da Frota Real (Tabs, Slides e Autoplay)
+  // 7. Seletor Interativo da Frota Real (Tabs, Slides, Touch Swipe e Autoplay)
   const fleetTabs = document.querySelectorAll('.fleet-tab');
   const fleetSlides = document.querySelectorAll('.fleet-slide');
-  const fleetPrevBtn = document.getElementById('fleet-prev');
-  const fleetNextBtn = document.getElementById('fleet-next');
   let currentFleetIndex = 0;
   let fleetAutoPlayInterval = null;
 
@@ -241,20 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
       resetFleetAutoplay();
     });
   });
-
-  if (fleetPrevBtn) {
-    fleetPrevBtn.addEventListener('click', () => {
-      showFleetSlide(currentFleetIndex - 1);
-      resetFleetAutoplay();
-    });
-  }
-
-  if (fleetNextBtn) {
-    fleetNextBtn.addEventListener('click', () => {
-      showFleetSlide(currentFleetIndex + 1);
-      resetFleetAutoplay();
-    });
-  }
 
   const startFleetAutoplay = () => {
     if (fleetAutoPlayInterval) clearInterval(fleetAutoPlayInterval);
