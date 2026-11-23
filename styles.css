@@ -259,3 +259,41 @@ body {
     -webkit-tap-highlight-color: transparent;
   }
 }
+
+/* Ambient Lighting, Atmospheric Depth & Fluidity (Item 8 da Penha) */
+.ambient-glow-blue {
+  background: radial-gradient(ellipse 75% 60% at 50% 40%, rgba(37, 99, 235, 0.22) 0%, rgba(30, 58, 138, 0.08) 55%, transparent 85%);
+  pointer-events: none;
+}
+
+.ambient-glow-amber {
+  background: radial-gradient(ellipse 75% 60% at 50% 40%, rgba(245, 158, 11, 0.20) 0%, rgba(180, 83, 9, 0.07) 55%, transparent 85%);
+  pointer-events: none;
+}
+
+.section-divider-fluid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Translucidez dos Painéis com Glassmorphism Refinado */
+.glass-panel-translucent {
+  background: rgba(18, 20, 28, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-translucent:hover {
+  background: rgba(26, 30, 42, 0.75);
+  border-color: rgba(96, 165, 250, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.6);
+}
