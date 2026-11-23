@@ -463,11 +463,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (dotSpan) {
           dotSpan.classList.remove('bg-transparent');
-          dotSpan.classList.add('bg-emerald-400');
+          dotSpan.classList.add('bg-[#00B4D8]');
         }
         if (hintSpan) {
           hintSpan.textContent = 'Ativo agora';
-          hintSpan.classList.add('text-emerald-400', 'font-medium');
+          hintSpan.classList.add('text-[#90E0EF]', 'font-medium');
         }
 
         // No mobile, rolar suavemente o card ativo para o centro da barra horizontal
@@ -481,12 +481,12 @@ document.addEventListener('DOMContentLoaded', () => {
           numSpan.classList.add('text-zinc-500');
         }
         if (dotSpan) {
-          dotSpan.classList.remove('bg-emerald-400');
+          dotSpan.classList.remove('bg-[#00B4D8]', 'bg-emerald-400');
           dotSpan.classList.add('bg-transparent');
         }
         if (hintSpan) {
           hintSpan.textContent = 'Clique para ver';
-          hintSpan.classList.remove('text-emerald-400', 'font-medium');
+          hintSpan.classList.remove('text-[#90E0EF]', 'text-emerald-400', 'font-medium');
         }
       }
     });

@@ -260,9 +260,9 @@ body {
   }
 }
 
-/* Ambient Lighting, Atmospheric Depth & Fluidity (Item 8 da Penha) */
+/* Ambient Lighting, Atmospheric Depth & Fluidity (Item 7 & 8 da Penha - Tons de Azul Nobre) */
 .ambient-glow-blue {
-  background: radial-gradient(ellipse 75% 60% at 50% 40%, rgba(37, 99, 235, 0.22) 0%, rgba(30, 58, 138, 0.08) 55%, transparent 85%);
+  background: radial-gradient(ellipse 75% 60% at 50% 40%, rgba(0, 119, 182, 0.25) 0%, rgba(2, 62, 138, 0.10) 55%, transparent 85%);
   pointer-events: none;
 }
 

@@ -16,6 +16,17 @@
             brandDark: '#0d0d0e',
             brandCard: '#151518',
             brandBorder: 'rgba(255, 255, 255, 0.08)',
+            pht: {
+              navy: '#03045E',
+              sapphire: '#023E8A',
+              cobalt: '#0077B6',
+              pacific: '#0096C7',
+              cyan: '#00B4D8',
+              sky: '#48CAE4',
+              crystal: '#90E0EF',
+              glacial: '#ADE8F4',
+              ice: '#CAF0F8',
+            }
           },
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
@@ -73,7 +84,7 @@
             <svg class="w-3.5 h-3.5 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span id="current-lang-text" class="text-[11px] font-semibold font-mono tracking-wider">PT/BR</span>
+            <span id="current-lang-text" class="text-[11px] font-semibold font-sans tracking-wider">PT/BR</span>
             <svg id="lang-arrow" class="w-2.5 h-2.5 text-zinc-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
@@ -93,7 +104,7 @@
                 <span>🇧🇷</span>
                 <span>Português</span>
               </span>
-              <span class="text-[10px] text-zinc-400 font-mono">PT</span>
+              <span class="text-[10px] text-zinc-400 font-sans">PT</span>
             </button>
             <button 
               type="button"
@@ -104,7 +115,7 @@
                 <span>🇺🇸</span>
                 <span>English</span>
               </span>
-              <span class="text-[10px] text-zinc-400 font-mono">EN</span>
+              <span class="text-[10px] text-zinc-400 font-sans">EN</span>
             </button>
             <button 
               type="button"
@@ -115,7 +126,7 @@
                 <span>🇪🇸</span>
                 <span>Español</span>
               </span>
-              <span class="text-[10px] text-zinc-400 font-mono">ES</span>
+              <span class="text-[10px] text-zinc-400 font-sans">ES</span>
             </button>
           </div>
         </div>
@@ -291,7 +302,7 @@
         <div class="glass-panel p-6 sm:p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-zinc-500 tracking-wider">01</span>
+              <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">01</span>
               <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -303,7 +314,7 @@
               Sua viagem começa antes mesmo do embarque. Deslocamentos para Confins e Pampulha com pontualidade rigorosa e livre circulação pelas pistas de BRT/Move.
             </p>
             <div class="flex items-center gap-2 pt-2 text-xs text-zinc-300 font-light">
-              <span class="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0096C7] shrink-0"></span>
               <span>Faixas de BRT/Move autorizadas · Sem trânsito</span>
             </div>
           </div>
@@ -319,7 +330,7 @@
         <div class="glass-panel p-6 sm:p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-zinc-500 tracking-wider">02</span>
+              <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">02</span>
               <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -331,7 +342,7 @@
               Conheça Belo Horizonte e região (Inhotim, Ouro Preto, Tiradentes) com roteiros personalizados, comodidade e indicações locais especiais.
             </p>
             <div class="flex items-center gap-2 pt-2 text-xs text-zinc-400 font-light">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0096C7] shrink-0"></span>
               <span>Roteiros sob medida · Paradas estratégicas</span>
             </div>
           </div>
@@ -347,7 +358,7 @@
         <div class="glass-panel p-6 sm:p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-zinc-500 tracking-wider">03</span>
+              <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">03</span>
               <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -359,7 +370,7 @@
               Deslocamentos urbanos e corporativos com discrição, pontualidade britânica e agilidade pelos principais corredores expressos da capital.
             </p>
             <div class="flex items-center gap-2 pt-2 text-xs text-zinc-300 font-light">
-              <span class="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0096C7] shrink-0"></span>
               <span>Corredores expressos liberados · Pontualidade</span>
             </div>
           </div>
@@ -375,7 +386,7 @@
         <div class="glass-panel p-6 sm:p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-zinc-500 tracking-wider">04</span>
+              <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">04</span>
               <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -387,7 +398,7 @@
               Uma experiência de transporte planejada para acompanhar noivas, famílias e convidados com elegância, pontualidade e atendimento cerimonial.
             </p>
             <div class="flex items-center gap-2 pt-2 text-xs text-zinc-400 font-light">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0096C7] shrink-0"></span>
               <span>Atendimento cerimonial · Postura discreta</span>
             </div>
           </div>
@@ -403,7 +414,7 @@
         <div class="glass-panel p-6 sm:p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-zinc-500 tracking-wider">05</span>
+              <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">05</span>
               <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
@@ -415,7 +426,7 @@
               Percursos intermunicipais e interestaduais com segurança de alto nível, conforto extremo, climatização perfeita e planejamento prévio de rota.
             </p>
             <div class="flex items-center gap-2 pt-2 text-xs text-zinc-400 font-light">
-              <span class="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0096C7] shrink-0"></span>
               <span>Segurança rodoviária · Planejamento prévio</span>
             </div>
           </div>
@@ -431,7 +442,7 @@
         <div class="glass-panel p-6 sm:p-8 rounded-2xl flex flex-col justify-between group hover:border-white/30 transition-all duration-300">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-zinc-500 tracking-wider">06</span>
+              <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">06</span>
               <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-300 group-hover:bg-white group-hover:text-black transition-colors duration-300">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -443,7 +454,7 @@
               Mobilidade organizada para empresas, grupos, executivos, delegações e eventos empresariais, com coordenação dedicada e faturamento corporativo.
             </p>
             <div class="flex items-center gap-2 pt-2 text-xs text-zinc-400 font-light">
-              <span class="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0096C7] shrink-0"></span>
               <span>Coordenação dedicada · Faturamento corporativo</span>
             </div>
           </div>
@@ -596,8 +607,8 @@
       <div>
         <div class="mb-8 flex items-center justify-between flex-wrap gap-4">
           <span class="text-xs uppercase tracking-[0.2em] font-semibold text-zinc-400">Cinco itens. Uma experiência inteira.</span>
-          <span class="text-[11px] text-emerald-400 flex items-center gap-1.5 font-medium">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-[11px] text-[#48CAE4] flex items-center gap-1.5 font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#00B4D8] animate-pulse"></span>
             <span>Clique nos itens para ver fotos e detalhes de cada mimo</span>
           </span>
         </div>
@@ -608,8 +619,8 @@
           <div class="essenza-card active glass-panel p-5 sm:p-6 rounded-2xl shrink-0 w-[240px] sm:w-[260px] md:w-auto snap-start flex flex-col justify-between group hover:border-white/40 transition-all duration-300 cursor-pointer border-white/50 bg-white/10 shadow-lg scale-[1.02] ring-1 ring-white/20" data-essenza-index="0">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono font-bold text-white essenza-num">01</span>
-                <span class="w-2 h-2 rounded-full bg-emerald-400 essenza-dot"></span>
+                <span class="text-xs font-sans font-bold text-white essenza-num">01</span>
+                <span class="w-2 h-2 rounded-full bg-[#00B4D8] essenza-dot"></span>
               </div>
               <h3 class="text-lg font-bold text-white tracking-tight">Café Mineiro Premiado</h3>
               <p class="text-xs text-zinc-300 font-light leading-relaxed">
@@ -617,7 +628,7 @@
               </p>
             </div>
             <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between text-[11px] text-zinc-400">
-              <span class="essenza-hint text-emerald-400 font-medium">Ativo agora</span>
+              <span class="essenza-hint text-[#90E0EF] font-medium">Ativo agora</span>
               <span>☕</span>
             </div>
           </div>
@@ -626,7 +637,7 @@
           <div class="essenza-card glass-panel p-5 sm:p-6 rounded-2xl shrink-0 w-[240px] sm:w-[260px] md:w-auto snap-start flex flex-col justify-between group hover:border-white/40 transition-all duration-300 cursor-pointer" data-essenza-index="1">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-500 essenza-num">02</span>
+                <span class="text-xs font-sans text-zinc-500 essenza-num">02</span>
                 <span class="w-2 h-2 rounded-full bg-transparent essenza-dot"></span>
               </div>
               <h3 class="text-lg font-bold text-white tracking-tight">Água com e sem gás</h3>
@@ -644,7 +655,7 @@
           <div class="essenza-card glass-panel p-5 sm:p-6 rounded-2xl shrink-0 w-[240px] sm:w-[260px] md:w-auto snap-start flex flex-col justify-between group hover:border-white/40 transition-all duration-300 cursor-pointer" data-essenza-index="2">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-500 essenza-num">03</span>
+                <span class="text-xs font-sans text-zinc-500 essenza-num">03</span>
                 <span class="w-2 h-2 rounded-full bg-transparent essenza-dot"></span>
               </div>
               <h3 class="text-lg font-bold text-white tracking-tight">Guloseimas Selecionadas</h3>
@@ -662,7 +673,7 @@
           <div class="essenza-card glass-panel p-5 sm:p-6 rounded-2xl shrink-0 w-[240px] sm:w-[260px] md:w-auto snap-start flex flex-col justify-between group hover:border-white/40 transition-all duration-300 cursor-pointer" data-essenza-index="3">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-500 essenza-num">04</span>
+                <span class="text-xs font-sans text-zinc-500 essenza-num">04</span>
                 <span class="w-2 h-2 rounded-full bg-transparent essenza-dot"></span>
               </div>
               <h3 class="text-lg font-bold text-white tracking-tight">Wi-Fi & Carregador</h3>
@@ -680,7 +691,7 @@
           <div class="essenza-card glass-panel p-5 sm:p-6 rounded-2xl shrink-0 w-[240px] sm:w-[260px] md:w-auto snap-start flex flex-col justify-between group hover:border-white/40 transition-all duration-300 cursor-pointer" data-essenza-index="4">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-500 essenza-num">05</span>
+                <span class="text-xs font-sans text-zinc-500 essenza-num">05</span>
                 <span class="w-2 h-2 rounded-full bg-transparent essenza-dot"></span>
               </div>
               <h3 class="text-lg font-bold text-white tracking-tight">Trilha Sonora Ambiente</h3>
@@ -749,7 +760,7 @@
 
               <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
                 <span class="text-[11px] text-zinc-200 font-medium">Foto Oficial: Café Santiago servido a bordo</span>
-                <span class="text-[10px] uppercase font-mono tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Café Premiado</span>
+                <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-2.5 py-0.5 rounded border border-[#0077B6]/40">Café Premiado</span>
               </div>
             </div>
           </div>
@@ -759,7 +770,7 @@
         <div class="essenza-slide col-start-1 row-start-1 w-full opacity-0 transition-opacity duration-500 pointer-events-none invisible" data-slide-index="1">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div class="lg:col-span-6 space-y-6">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs text-blue-200">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#023E8A]/30 border border-[#0077B6]/40 text-xs text-[#90E0EF]">
                 <span>💧 Hidratação & Frescor</span>
               </div>
               <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
@@ -768,7 +779,7 @@
               <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
                 Garrafas de água mineral servidas geladas no porta-copos do apoio de braço central. Porque conforto também significa ter opções e poder escolher livremente entre água mineral natural ou com gás para renovar suas energias.
               </p>
-              <div class="p-4 rounded-xl border-l-2 border-blue-400 bg-white/5">
+              <div class="p-4 rounded-xl border-l-2 border-[#0077B6] bg-white/5">
                 <p class="text-sm font-serif italic text-white leading-relaxed">
                   "O verdadeiro conforto está nos detalhes pensados antes mesmo de você precisar pedir."
                 </p>
@@ -783,7 +794,7 @@
               />
               <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
                 <span class="text-[11px] text-zinc-200 font-medium">Foto Real: Águas servidas no apoio de braço</span>
-                <span class="text-[10px] uppercase font-mono tracking-wider text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">Com e Sem Gás</span>
+                <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-2.5 py-0.5 rounded border border-[#0077B6]/40">Com e Sem Gás</span>
               </div>
             </div>
           </div>
@@ -793,7 +804,7 @@
         <div class="essenza-slide col-start-1 row-start-1 w-full opacity-0 transition-opacity duration-500 pointer-events-none invisible" data-slide-index="2">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div class="lg:col-span-6 space-y-6">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#023E8A]/30 border border-[#0077B6]/40 text-xs text-[#90E0EF]">
                 <span>🍫 Mimos & Cortesia</span>
               </div>
               <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
@@ -802,7 +813,7 @@
               <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
                 Uma cesta completa de cortesia ao alcance das mãos: chocolates recheados Trento, bombons finos, amendoins, balas de hortelã e mimos escolhidos com rigor para tornar cada minuto de viagem mais leve, doce e acolhedor.
               </p>
-              <div class="p-4 rounded-xl border-l-2 border-amber-400 bg-white/5">
+              <div class="p-4 rounded-xl border-l-2 border-[#0077B6] bg-white/5">
                 <p class="text-sm font-serif italic text-white leading-relaxed">
                   "Cada item da bandeja foi pensado para fazer você se sentir acolhido desde o primeiro instante."
                 </p>
@@ -817,7 +828,7 @@
               />
               <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
                 <span class="text-[11px] text-zinc-200 font-medium">Foto Real: Bandeja de guloseimas a bordo</span>
-                <span class="text-[10px] uppercase font-mono tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">Mimos Selecionados</span>
+                <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-2.5 py-0.5 rounded border border-[#0077B6]/40">Mimos Selecionados</span>
               </div>
             </div>
           </div>
@@ -827,7 +838,7 @@
         <div class="essenza-slide col-start-1 row-start-1 w-full opacity-0 transition-opacity duration-500 pointer-events-none invisible" data-slide-index="3">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div class="lg:col-span-6 space-y-6">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-200">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#023E8A]/30 border border-[#0077B6]/40 text-xs text-[#90E0EF]">
                 <span>⚡ Conectividade & Produtividade</span>
               </div>
               <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
@@ -836,7 +847,7 @@
               <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
                 Cabine executiva equipada com internet rápida para reuniões de trabalho, envio de documentos ou navegação tranquila, além de cabos e carregadores rápidos compatíveis com iPhone (Lightning e USB-C) e Android.
               </p>
-              <div class="p-4 rounded-xl border-l-2 border-emerald-400 bg-white/5">
+              <div class="p-4 rounded-xl border-l-2 border-[#0077B6] bg-white/5">
                 <p class="text-sm font-serif italic text-white leading-relaxed">
                   "Seja para responder um e-mail urgente ou relaxar conectado, sua bateria nunca fica no zero."
                 </p>
@@ -851,7 +862,7 @@
               />
               <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
                 <span class="text-[11px] text-zinc-200 font-medium">Foto Real: Wi-Fi de alta velocidade e cabos a bordo</span>
-                <span class="text-[10px] uppercase font-mono tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Wi-Fi & Cabos</span>
+                <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-2.5 py-0.5 rounded border border-[#0077B6]/40">Wi-Fi & Cabos</span>
               </div>
             </div>
           </div>
@@ -861,7 +872,7 @@
         <div class="essenza-slide col-start-1 row-start-1 w-full opacity-0 transition-opacity duration-500 pointer-events-none invisible" data-slide-index="4">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div class="lg:col-span-6 space-y-6">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs text-purple-200">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#023E8A]/30 border border-[#0077B6]/40 text-xs text-[#90E0EF]">
                 <span>🎵 Conforto Acústico & Relaxamento</span>
               </div>
               <h3 class="text-2xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
@@ -870,7 +881,7 @@
               <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
                 Isolamento acústico de alto padrão e climatização digital perfeita. Conecte sua playlist favorita via Bluetooth, desfrute da nossa seleção de jazz e lounge sereno, ou simplesmente aproveite o silêncio da cabine para descansar.
               </p>
-              <div class="p-4 rounded-xl border-l-2 border-purple-400 bg-white/5">
+              <div class="p-4 rounded-xl border-l-2 border-[#0077B6] bg-white/5">
                 <p class="text-sm font-serif italic text-white leading-relaxed">
                   "O som do silêncio ou a sua música favorita: no seu trajeto, quem escolhe o ritmo é você."
                 </p>
@@ -885,7 +896,7 @@
               />
               <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
                 <span class="text-[11px] text-zinc-200 font-medium">Foto Real: Cabine com isolamento acústico</span>
-                <span class="text-[10px] uppercase font-mono tracking-wider text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">Som & Silêncio</span>
+                <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-2.5 py-0.5 rounded border border-[#0077B6]/40">Som & Silêncio</span>
               </div>
             </div>
           </div>
@@ -1098,7 +1109,7 @@
               <!-- Topo: Categoria & Identificação Oficial -->
               <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
                 <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">Sedan Executivo</span>
-                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
+                <span class="text-zinc-500 font-sans font-medium text-[10px] tracking-wide">Táxi Oficial</span>
               </div>
 
               <!-- Imagem do Veículo em Estúdio -->
@@ -1135,7 +1146,7 @@
                 <div class="flex items-center gap-1.5">
                   <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Ônix" data-color-name="1 Preto Ônix" data-color-param="Preto%20Ônix"></button>
                   <button type="button" class="fleet-color-btn w-3 h-3 rounded-full bg-[#1b3a60] border border-transparent hover:border-white/60 transition-all cursor-pointer" title="Azul Safira" data-color-name="1 Azul Safira" data-color-param="Azul%20Safira"></button>
-                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">1 Preto · 1 Azul</span>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-sans font-medium ml-1">1 Preto · 1 Azul</span>
                 </div>
               </div>
 
@@ -1159,7 +1170,7 @@
               <!-- Topo: Categoria & Identificação Oficial -->
               <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
                 <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">SUV Executivo</span>
-                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
+                <span class="text-zinc-500 font-sans font-medium text-[10px] tracking-wide">Táxi Oficial</span>
               </div>
 
               <!-- Imagem do Veículo em Estúdio -->
@@ -1196,7 +1207,7 @@
                 <div class="flex items-center gap-1.5">
                   <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Ônix" data-color-name="1 Preto Ônix" data-color-param="Preto%20Ônix"></button>
                   <button type="button" class="fleet-color-btn w-3 h-3 rounded-full bg-zinc-100 border border-transparent hover:border-white/60 transition-all cursor-pointer" title="Branco Polar" data-color-name="1 Branco Polar" data-color-param="Branco%20Polar"></button>
-                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">1 Preto · 1 Branco</span>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-sans font-medium ml-1">1 Preto · 1 Branco</span>
                 </div>
               </div>
 
@@ -1220,7 +1231,7 @@
               <!-- Topo: Categoria & Identificação Oficial -->
               <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
                 <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">SUV 7 Lugares</span>
-                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
+                <span class="text-zinc-500 font-sans font-medium text-[10px] tracking-wide">Táxi Oficial</span>
               </div>
 
               <!-- Imagem do Veículo em Estúdio -->
@@ -1256,7 +1267,7 @@
                 <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
                 <div class="flex items-center gap-1.5">
                   <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Shadow" data-color-name="Preto Shadow" data-color-param="Preto%20Shadow"></button>
-                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">Preto · 7 Lugares</span>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-sans font-medium ml-1">Preto · 7 Lugares</span>
                 </div>
               </div>
 
@@ -1280,7 +1291,7 @@
               <!-- Topo: Categoria & Identificação Oficial -->
               <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
                 <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">SUV Premium 7L</span>
-                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
+                <span class="text-zinc-500 font-sans font-medium text-[10px] tracking-wide">Táxi Oficial</span>
               </div>
 
               <!-- Imagem do Veículo em Estúdio -->
@@ -1316,7 +1327,7 @@
                 <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
                 <div class="flex items-center gap-1.5">
                   <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Vulcano" data-color-name="Preto Vulcano" data-color-param="Preto%20Vulcano"></button>
-                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">Preto · SUV Premium</span>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-sans font-medium ml-1">Preto · SUV Premium</span>
                 </div>
               </div>
 
@@ -1340,7 +1351,7 @@
               <!-- Topo: Categoria & Identificação Oficial -->
               <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
                 <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">SUV Híbrido</span>
-                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
+                <span class="text-zinc-500 font-sans font-medium text-[10px] tracking-wide">Táxi Oficial</span>
               </div>
 
               <!-- Imagem do Veículo em Estúdio -->
@@ -1376,7 +1387,7 @@
                 <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
                 <div class="flex items-center gap-1.5">
                   <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Absoluto" data-color-name="Preto Absoluto" data-color-param="Preto%20Absoluto"></button>
-                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">Preto · Híbrido</span>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-sans font-medium ml-1">Preto · Híbrido</span>
                 </div>
               </div>
 
@@ -1400,7 +1411,7 @@
               <!-- Topo: Categoria & Identificação Oficial -->
               <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
                 <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">SUV Híbrido</span>
-                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
+                <span class="text-zinc-500 font-sans font-medium text-[10px] tracking-wide">Táxi Oficial</span>
               </div>
 
               <!-- Imagem do Veículo em Estúdio -->
@@ -1436,7 +1447,7 @@
                 <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
                 <div class="flex items-center gap-1.5">
                   <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Estelar" data-color-name="Preto Estelar" data-color-param="Preto%20Estelar"></button>
-                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">Preto · Tecnologia</span>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-sans font-medium ml-1">Preto · Tecnologia</span>
                 </div>
               </div>
 
@@ -1460,7 +1471,7 @@
               <!-- Topo: Categoria & Identificação Oficial -->
               <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
                 <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">Sedan Executivo</span>
-                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
+                <span class="text-zinc-500 font-sans font-medium text-[10px] tracking-wide">Táxi Oficial</span>
               </div>
 
               <!-- Imagem do Veículo em Estúdio -->
@@ -1497,7 +1508,7 @@
                 <div class="flex items-center gap-1.5">
                   <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Ônix" data-color-name="1 Preto Ônix" data-color-param="Preto%20Ônix"></button>
                   <button type="button" class="fleet-color-btn w-3 h-3 rounded-full bg-zinc-100 border border-transparent hover:border-white/60 transition-all cursor-pointer" title="Branco Diamante" data-color-name="1 Branco Diamante" data-color-param="Branco%20Diamante"></button>
-                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">1 Preto · 1 Branco</span>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-sans font-medium ml-1">1 Preto · 1 Branco</span>
                 </div>
               </div>
 
@@ -1527,14 +1538,14 @@
         <!-- Categoria 1: Sedans Executivos -->
         <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
           <div class="space-y-3">
-            <span class="text-xs font-mono text-zinc-500 uppercase">Categoria 01</span>
+            <span class="text-xs font-sans font-semibold text-zinc-400 uppercase tracking-widest">Categoria 01</span>
             <h4 class="text-lg font-bold text-white">Sedans Executivos</h4>
             <p class="text-xs text-zinc-400 font-light leading-relaxed">
               Elegância, discrição e conforto para compromissos profissionais, traslados e deslocamentos individuais.
             </p>
             <div class="pt-3 border-t border-white/10">
               <span class="text-[11px] font-semibold text-white block">Modelo oficial:</span>
-              <span class="text-xs text-zinc-300 font-mono">Toyota Corolla 2023</span>
+              <span class="text-xs text-zinc-300 font-sans">Toyota Corolla 2023</span>
             </div>
           </div>
         </div>
@@ -1542,14 +1553,14 @@
         <!-- Categoria 2: SUVs de Luxo -->
         <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
           <div class="space-y-3">
-            <span class="text-xs font-mono text-zinc-500 uppercase">Categoria 02</span>
+            <span class="text-xs font-sans font-semibold text-zinc-400 uppercase tracking-widest">Categoria 02</span>
             <h4 class="text-lg font-bold text-white">SUVs</h4>
             <p class="text-xs text-zinc-400 font-light leading-relaxed">
               Mais espaço, versatilidade e conforto para viagens, famílias, turismo e deslocamentos com bagagem.
             </p>
             <div class="pt-3 border-t border-white/10">
               <span class="text-[11px] font-semibold text-white block">Modelos oficiais:</span>
-              <span class="text-xs text-zinc-300 font-mono">Jeep Commander 2026<br/>Chery Tiggo 8 2025</span>
+              <span class="text-xs text-zinc-300 font-sans">Jeep Commander 2026<br/>Chery Tiggo 8 2025</span>
             </div>
           </div>
         </div>
@@ -1557,14 +1568,14 @@
         <!-- Categoria 3: Veículos Blindados -->
         <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
           <div class="space-y-3">
-            <span class="text-xs font-mono text-zinc-500 uppercase">Categoria 03</span>
+            <span class="text-xs font-sans font-semibold text-zinc-400 uppercase tracking-widest">Categoria 03</span>
             <h4 class="text-lg font-bold text-white">Veículos Blindados</h4>
             <p class="text-xs text-zinc-400 font-light leading-relaxed">
               Uma alternativa para demandas que exigem uma configuração específica de proteção balística certificada e discrição.
             </p>
             <div class="pt-3 border-t border-white/10">
               <span class="text-[11px] font-semibold text-white block">Configuração:</span>
-              <span class="text-xs text-zinc-300 font-mono">Blindagem Nível III-A</span>
+              <span class="text-xs text-zinc-300 font-sans">Blindagem Nível III-A</span>
             </div>
           </div>
         </div>
@@ -1572,14 +1583,14 @@
         <!-- Categoria 4: Ônibus e Micro-ônibus -->
         <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
           <div class="space-y-3">
-            <span class="text-xs font-mono text-zinc-500 uppercase">Categoria 04</span>
+            <span class="text-xs font-sans font-semibold text-zinc-400 uppercase tracking-widest">Categoria 04</span>
             <h4 class="text-lg font-bold text-white">Ônibus & Micro-ônibus</h4>
             <p class="text-xs text-zinc-400 font-light leading-relaxed">
               Soluções para grupos, eventos, comitivas e deslocamentos coletivos com coordenação operacional pontual.
             </p>
             <div class="pt-3 border-t border-white/10">
               <span class="text-[11px] font-semibold text-white block">Capacidade:</span>
-              <span class="text-xs text-zinc-300 font-mono">Grupos, Delegações e Eventos</span>
+              <span class="text-xs text-zinc-300 font-sans">Grupos, Delegações e Eventos</span>
             </div>
           </div>
         </div>
@@ -1598,7 +1609,7 @@
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
           <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-black/70 backdrop-blur-md border border-white/10">
-            <span class="text-[10px] uppercase font-mono tracking-wider text-emerald-400 block font-semibold">Trajeto Real · CNF</span>
+            <span class="inline-block text-[10px] uppercase font-sans tracking-widest text-[#90E0EF] bg-[#023E8A]/40 border border-[#0077B6]/40 px-2.5 py-0.5 rounded font-semibold mb-1">Trajeto Real · CNF</span>
             <span class="text-sm text-white font-bold block mt-0.5">Transfer Aeroporto Confins</span>
             <span class="text-[11px] text-zinc-300 font-light mt-0.5 block">Sedan executivo com pontualidade e faixa preferencial.</span>
           </div>
@@ -1613,7 +1624,7 @@
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
           <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-black/70 backdrop-blur-md border border-white/10">
-            <span class="text-[10px] uppercase font-mono tracking-wider text-emerald-400 block font-semibold">Padrão de Bordo</span>
+            <span class="inline-block text-[10px] uppercase font-sans tracking-widest text-[#90E0EF] bg-[#023E8A]/40 border border-[#0077B6]/40 px-2.5 py-0.5 rounded font-semibold mb-1">Padrão de Bordo</span>
             <span class="text-sm text-white font-bold block mt-0.5">Cabine & Amenidades</span>
             <span class="text-[11px] text-zinc-300 font-light mt-0.5 block">Snacks, água mineral resfriada e carregadores a bordo.</span>
           </div>
@@ -1629,7 +1640,7 @@
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
           <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-black/70 backdrop-blur-md border border-white/10">
-            <span class="text-[10px] uppercase font-mono tracking-wider text-amber-300 block font-semibold">Segurança Máxima</span>
+            <span class="inline-block text-[10px] uppercase font-sans tracking-widest text-[#90E0EF] bg-[#023E8A]/40 border border-[#0077B6]/40 px-2.5 py-0.5 rounded font-semibold mb-1">Segurança Máxima</span>
             <span class="text-sm text-white font-bold block mt-0.5">Blindado Nível III-A</span>
             <span class="text-[11px] text-zinc-300 font-light mt-0.5 block">Proteção balística e direção evasiva defensiva.</span>
           </div>
@@ -1645,7 +1656,7 @@
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
           <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-black/70 backdrop-blur-md border border-white/10">
-            <span class="text-[10px] uppercase font-mono tracking-wider text-blue-400 block font-semibold">Hospitalidade de Luxo</span>
+            <span class="inline-block text-[10px] uppercase font-sans tracking-widest text-[#90E0EF] bg-[#023E8A]/40 border border-[#0077B6]/40 px-2.5 py-0.5 rounded font-semibold mb-1">Hospitalidade de Luxo</span>
             <span class="text-sm text-white font-bold block mt-0.5">Morro do Chapéu / Resorts</span>
             <span class="text-[11px] text-zinc-300 font-light mt-0.5 block">Atendimento vip em hotéis, condomínios e eventos.</span>
           </div>
@@ -1691,7 +1702,7 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div class="absolute top-4 left-4">
-              <span class="text-[10px] uppercase font-mono tracking-wider text-white bg-black/60 px-3 py-1 rounded-full border border-white/15 backdrop-blur-md">
+              <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-3 py-1 rounded-full border border-[#0077B6]/40 backdrop-blur-md">
                 Receptivo Bilíngue
               </span>
             </div>
@@ -1720,7 +1731,7 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div class="absolute top-4 left-4">
-              <span class="text-[10px] uppercase font-mono tracking-wider text-white bg-black/60 px-3 py-1 rounded-full border border-white/15 backdrop-blur-md">
+              <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-3 py-1 rounded-full border border-[#0077B6]/40 backdrop-blur-md">
                 City Tour Histórico
               </span>
             </div>
@@ -1749,7 +1760,7 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div class="absolute top-4 left-4">
-              <span class="text-[10px] uppercase font-mono tracking-wider text-white bg-black/60 px-3 py-1 rounded-full border border-white/15 backdrop-blur-md">
+              <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-3 py-1 rounded-full border border-[#0077B6]/40 backdrop-blur-md">
                 Roteiro Panorâmico
               </span>
             </div>
@@ -1779,7 +1790,7 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div class="absolute top-4 left-4">
-              <span class="text-[10px] uppercase font-mono tracking-wider text-amber-300 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/30 backdrop-blur-md">
+              <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-3 py-1 rounded-full border border-[#0077B6]/40 backdrop-blur-md">
                 Comboio & Blindados
               </span>
             </div>
@@ -1809,7 +1820,7 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div class="absolute top-4 left-4">
-              <span class="text-[10px] uppercase font-mono tracking-wider text-emerald-300 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30 backdrop-blur-md">
+              <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-3 py-1 rounded-full border border-[#0077B6]/40 backdrop-blur-md">
                 Hotelaria & Negócios
               </span>
             </div>
@@ -1823,7 +1834,7 @@
             </div>
             <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-zinc-400">
               <span>Pampulha / BH</span>
-              <span class="text-emerald-400 font-medium">Hotelaria Executiva</span>
+              <span class="text-[#90E0EF] font-medium">Hotelaria Executiva</span>
             </div>
           </div>
         </div>
@@ -1838,7 +1849,7 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div class="absolute top-4 left-4">
-              <span class="text-[10px] uppercase font-mono tracking-wider text-white bg-black/60 px-3 py-1 rounded-full border border-white/15 backdrop-blur-md">
+              <span class="text-[10px] uppercase font-sans tracking-widest font-semibold text-[#90E0EF] bg-[#023E8A]/40 px-3 py-1 rounded-full border border-[#0077B6]/40 backdrop-blur-md">
                 Padrão Executivo
               </span>
             </div>
@@ -1943,7 +1954,7 @@
                   <span class="text-sm sm:text-base font-bold text-white block">Pedro Henrique Rabelo</span>
                   <span class="text-[11px] uppercase tracking-wider text-zinc-300">Fundador da PH Transfer</span>
                 </div>
-                <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20 font-medium font-mono">
+                <span class="text-[10px] text-[#90E0EF] bg-[#023E8A]/40 px-3 py-1.5 rounded-full border border-[#0077B6]/40 font-medium font-sans tracking-wide">
                   Fundada em 2021
                 </span>
               </div>
@@ -1976,7 +1987,7 @@
           <div class="glass-panel p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group flex flex-col justify-between">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-500">01</span>
+                <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">01</span>
                 <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:bg-white/10 transition-colors">
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -1994,7 +2005,7 @@
           <div class="glass-panel p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group flex flex-col justify-between">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-500">02</span>
+                <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">02</span>
                 <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:bg-white/10 transition-colors">
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -2012,7 +2023,7 @@
           <div class="glass-panel p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group flex flex-col justify-between">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-500">03</span>
+                <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">03</span>
                 <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:bg-white/10 transition-colors">
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -2030,7 +2041,7 @@
           <div class="glass-panel p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group flex flex-col justify-between">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-500">04</span>
+                <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">04</span>
                 <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:bg-white/10 transition-colors">
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -2048,7 +2059,7 @@
           <div class="glass-panel p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group flex flex-col justify-between">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-500">05</span>
+                <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">05</span>
                 <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:bg-white/10 transition-colors">
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -2066,7 +2077,7 @@
           <div class="glass-panel p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group flex flex-col justify-between">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-500">06</span>
+                <span class="text-[11px] font-sans font-semibold text-zinc-400 tracking-widest">06</span>
                 <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:bg-white/10 transition-colors">
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
@@ -2131,7 +2142,7 @@
           </div>
           <div class="space-y-1">
             <span class="text-xs font-semibold text-white block">34 Avaliações no Google</span>
-            <span class="text-[11px] text-emerald-400 font-mono">100% de satisfação dos clientes</span>
+            <span class="text-[11px] text-[#90E0EF] font-sans font-medium tracking-wide">100% de satisfação dos clientes</span>
           </div>
           <div class="pt-3 border-t border-white/10">
             <a 
@@ -2168,7 +2179,7 @@
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex text-amber-400 gap-0.5 text-sm">★★★★★</div>
-              <span class="text-[10px] text-zinc-500 font-mono">11 meses atrás</span>
+              <span class="text-[10px] text-zinc-500 font-sans">11 meses atrás</span>
             </div>
             <p class="text-xs sm:text-[13px] text-zinc-200 font-light leading-relaxed">
               "Sempre que preciso o Pedro me atende super bem com o melhor transfer da cidade. Seguindo em faixa preferencial e com um café extraordinário. Cara fera demais. Super indico pra qualquer demanda executiva."
@@ -2190,19 +2201,19 @@
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex text-amber-400 gap-0.5 text-sm">★★★★★</div>
-              <span class="text-[10px] text-zinc-500 font-mono">11 meses atrás</span>
+              <span class="text-[10px] text-zinc-500 font-sans">11 meses atrás</span>
             </div>
             <p class="text-xs sm:text-[13px] text-zinc-200 font-light leading-relaxed">
               "Excelente serviço! O Pedro foi pontual, organizado e muito profissional. Viagem tranquila, confortável e com atendimento impecável do início ao fim. Dá pra perceber o cuidado com o cliente. Com certeza recomendo e usaria novamente."
             </p>
           </div>
           <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 text-white font-bold text-xs flex items-center justify-center shrink-0">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#023E8A] to-[#0077B6] text-white font-bold text-xs flex items-center justify-center shrink-0">
               DE
             </div>
             <div>
               <span class="text-xs font-bold text-white block">Débora Elen</span>
-              <span class="text-[10px] text-emerald-400 font-medium">Local Guide · 8 avaliações</span>
+              <span class="text-[10px] text-[#48CAE4] font-medium font-sans">Local Guide · 8 avaliações</span>
             </div>
           </div>
         </div>
@@ -2212,14 +2223,14 @@
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex text-amber-400 gap-0.5 text-sm">★★★★★</div>
-              <span class="text-[10px] text-zinc-500 font-mono">5 meses atrás</span>
+              <span class="text-[10px] text-zinc-500 font-sans">5 meses atrás</span>
             </div>
             <p class="text-xs sm:text-[13px] text-zinc-200 font-light leading-relaxed">
               "Pedro Henrique é um profissional incrível. Tive a oportunidade de ser atendido por ele em minha ida a BH, super indico. Carro higienizado, confortável e um atendimento que foge do padrão dos demais. Parabéns pelo profissionalismo e competência."
             </p>
           </div>
           <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 text-white font-bold text-xs flex items-center justify-center shrink-0">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#03045E] to-[#023E8A] text-white font-bold text-xs flex items-center justify-center shrink-0">
               VM
             </div>
             <div>
@@ -2234,14 +2245,14 @@
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex text-amber-400 gap-0.5 text-sm">★★★★★</div>
-              <span class="text-[10px] text-zinc-500 font-mono">11 meses atrás</span>
+              <span class="text-[10px] text-zinc-500 font-sans">11 meses atrás</span>
             </div>
             <p class="text-xs sm:text-[13px] text-zinc-200 font-light leading-relaxed">
               "Já solicitei os serviços do Pedro 2x. Carro limpo, novo, confortável e ainda tem o famoso café mineiro. Indico sempre e até hoje estou muito satisfeito com os atendimentos."
             </p>
           </div>
           <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 text-white font-bold text-xs flex items-center justify-center shrink-0">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#0077B6] to-[#0096C7] text-white font-bold text-xs flex items-center justify-center shrink-0">
               FD
             </div>
             <div>
@@ -2256,7 +2267,7 @@
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex text-amber-400 gap-0.5 text-sm">★★★★★</div>
-              <span class="text-[10px] text-zinc-500 font-mono">11 meses atrás</span>
+              <span class="text-[10px] text-zinc-500 font-sans">11 meses atrás</span>
             </div>
             <p class="text-xs sm:text-[13px] text-zinc-200 font-light leading-relaxed">
               "Motorista muito educado, pontual e atencioso. Condução tranquila e segura, carro limpo e bem cuidado. Super recomendo."
@@ -2278,7 +2289,7 @@
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex text-amber-400 gap-0.5 text-sm">★★★★★</div>
-              <span class="text-[10px] text-zinc-500 font-mono">11 meses atrás</span>
+              <span class="text-[10px] text-zinc-500 font-sans">11 meses atrás</span>
             </div>
             <p class="text-xs sm:text-[13px] text-zinc-200 font-light leading-relaxed">
               "Excelente profissional! Super indico para quem quer um transporte de qualidade. Super pontual, educado, carro limpíssimo. Um serviço diferenciado."
@@ -2300,14 +2311,14 @@
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex text-amber-400 gap-0.5 text-sm">★★★★★</div>
-              <span class="text-[10px] text-zinc-500 font-mono">11 meses atrás</span>
+              <span class="text-[10px] text-zinc-500 font-sans">11 meses atrás</span>
             </div>
             <p class="text-xs sm:text-[13px] text-zinc-200 font-light leading-relaxed">
               "Excelente motorista. Dirige com responsabilidade tornando a viagem agradável, além de oferecer o melhor cafezinho mineiro. Carro limpo e novo."
             </p>
           </div>
           <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-600 to-green-700 text-white font-bold text-xs flex items-center justify-center shrink-0">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#023E8A] to-[#0096C7] text-white font-bold text-xs flex items-center justify-center shrink-0">
               RL
             </div>
             <div>
@@ -2322,14 +2333,14 @@
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex text-amber-400 gap-0.5 text-sm">★★★★★</div>
-              <span class="text-[10px] text-zinc-500 font-mono">11 meses atrás</span>
+              <span class="text-[10px] text-zinc-500 font-sans">11 meses atrás</span>
             </div>
             <p class="text-xs sm:text-[13px] text-zinc-200 font-light leading-relaxed">
               "A viagem com Pedro foi muito confortável, sempre educado e gentil, além de oferecer um cafezinho de primeira qualidade. Agradeço muito pelo excelente atendimento e recomendo."
             </p>
           </div>
           <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-violet-500 to-purple-700 text-white font-bold text-xs flex items-center justify-center shrink-0">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#03045E] to-[#0077B6] text-white font-bold text-xs flex items-center justify-center shrink-0">
               GS
             </div>
             <div>
@@ -2344,7 +2355,7 @@
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex text-amber-400 gap-0.5 text-sm">★★★★★</div>
-              <span class="text-[10px] text-zinc-500 font-mono">11 meses atrás</span>
+              <span class="text-[10px] text-zinc-500 font-sans">11 meses atrás</span>
             </div>
             <p class="text-xs sm:text-[13px] text-zinc-200 font-light leading-relaxed">
               "Atendimento diferenciado desde a chegada até a saída, café muito bom. Motorista pontual e educado."
