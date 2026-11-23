@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < totalFleetCards; i++) {
         const dot = document.createElement('button');
         dot.type = 'button';
-        dot.className = `h-2 rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? 'w-6 bg-white' : 'w-2 bg-white/20 hover:bg-white/50'}`;
+        dot.className = `h-1 rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? 'w-6 bg-white' : 'w-2 bg-white/20 hover:bg-white/40'}`;
         dot.setAttribute('aria-label', `Ir para veículo ${i + 1}`);
         dot.addEventListener('click', () => {
           scrollToFleetCard(i);
@@ -232,9 +232,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const dots = fleetDotsContainer.querySelectorAll('button');
       dots.forEach((dot, i) => {
         if (i === index) {
-          dot.className = 'w-6 h-2 rounded-full bg-white transition-all duration-300 cursor-pointer';
+          dot.className = 'w-6 h-1 rounded-full bg-white transition-all duration-300 cursor-pointer';
         } else {
-          dot.className = 'w-2 h-2 rounded-full bg-white/20 hover:bg-white/50 transition-all duration-300 cursor-pointer';
+          dot.className = 'w-2 h-1 rounded-full bg-white/20 hover:bg-white/40 transition-all duration-300 cursor-pointer';
         }
       });
     };
@@ -316,7 +316,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetFleetAutoPlay = () => {
       if (fleetAutoPlayTimer) {
         clearInterval(fleetAutoPlayTimer);
-        startFleetAutoPlay();
+        // Seletor Interativo de Cores da Frota
+    const fleetColorCards = fleetTrack.querySelectorAll('[data-vehicle]');
+    fleetColorCards.forEach((cardFooter) => {
+      const vehicleName = cardFooter.getAttribute('data-vehicle');
+      const colorBtns = cardFooter.querySelectorAll('.fleet-color-btn');
+      const colorLabel = cardFooter.querySelector('.fleet-color-label');
+      const reserveBtn = cardFooter.querySelector('.fleet-reserve-btn');
+
+      colorBtns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          colorBtns.forEach((b) => {
+            b.classList.remove('active', 'border-white', 'ring-2', 'ring-blue-500/50');
+            b.classList.add('border-transparent');
+          });
+          btn.classList.add('active', 'border-white', 'ring-2', 'ring-blue-500/50');
+          btn.classList.remove('border-transparent');
+
+          const colorName = btn.getAttribute('data-color-name');
+          const colorParam = btn.getAttribute('data-color-param');
+          if (colorLabel && colorName) {
+            colorLabel.textContent = colorName;
+          }
+          if (reserveBtn && colorParam) {
+            reserveBtn.href = `https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20${encodeURIComponent(vehicleName)}%20(Cor:%20${encodeURIComponent(colorParam)})%20com%20a%20PH%20Transfer.`;
+          }
+        });
+      });
+    });
+
+    startFleetAutoPlay();
       }
     };
 
@@ -324,7 +354,37 @@ document.addEventListener('DOMContentLoaded', () => {
       if (fleetAutoPlayTimer) clearInterval(fleetAutoPlayTimer);
     });
     fleetTrack.addEventListener('mouseleave', () => {
-      startFleetAutoPlay();
+      // Seletor Interativo de Cores da Frota
+    const fleetColorCards = fleetTrack.querySelectorAll('[data-vehicle]');
+    fleetColorCards.forEach((cardFooter) => {
+      const vehicleName = cardFooter.getAttribute('data-vehicle');
+      const colorBtns = cardFooter.querySelectorAll('.fleet-color-btn');
+      const colorLabel = cardFooter.querySelector('.fleet-color-label');
+      const reserveBtn = cardFooter.querySelector('.fleet-reserve-btn');
+
+      colorBtns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          colorBtns.forEach((b) => {
+            b.classList.remove('active', 'border-white', 'ring-2', 'ring-blue-500/50');
+            b.classList.add('border-transparent');
+          });
+          btn.classList.add('active', 'border-white', 'ring-2', 'ring-blue-500/50');
+          btn.classList.remove('border-transparent');
+
+          const colorName = btn.getAttribute('data-color-name');
+          const colorParam = btn.getAttribute('data-color-param');
+          if (colorLabel && colorName) {
+            colorLabel.textContent = colorName;
+          }
+          if (reserveBtn && colorParam) {
+            reserveBtn.href = `https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20${encodeURIComponent(vehicleName)}%20(Cor:%20${encodeURIComponent(colorParam)})%20com%20a%20PH%20Transfer.`;
+          }
+        });
+      });
+    });
+
+    startFleetAutoPlay();
     });
 
     // Touch swipe support
@@ -346,6 +406,36 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       resetFleetAutoPlay();
     }, { passive: true });
+
+    // Seletor Interativo de Cores da Frota
+    const fleetColorCards = fleetTrack.querySelectorAll('[data-vehicle]');
+    fleetColorCards.forEach((cardFooter) => {
+      const vehicleName = cardFooter.getAttribute('data-vehicle');
+      const colorBtns = cardFooter.querySelectorAll('.fleet-color-btn');
+      const colorLabel = cardFooter.querySelector('.fleet-color-label');
+      const reserveBtn = cardFooter.querySelector('.fleet-reserve-btn');
+
+      colorBtns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          colorBtns.forEach((b) => {
+            b.classList.remove('active', 'border-white', 'ring-2', 'ring-blue-500/50');
+            b.classList.add('border-transparent');
+          });
+          btn.classList.add('active', 'border-white', 'ring-2', 'ring-blue-500/50');
+          btn.classList.remove('border-transparent');
+
+          const colorName = btn.getAttribute('data-color-name');
+          const colorParam = btn.getAttribute('data-color-param');
+          if (colorLabel && colorName) {
+            colorLabel.textContent = colorName;
+          }
+          if (reserveBtn && colorParam) {
+            reserveBtn.href = `https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20${encodeURIComponent(vehicleName)}%20(Cor:%20${encodeURIComponent(colorParam)})%20com%20a%20PH%20Transfer.`;
+          }
+        });
+      });
+    });
 
     startFleetAutoPlay();
   }

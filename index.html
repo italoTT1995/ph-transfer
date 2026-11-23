@@ -1012,8 +1012,12 @@
   <!-- ========================================================================= -->
   <!-- 04. NOSSA FROTA — CONFORTO EM DIFERENTES DIMENSÕES                        -->
   <!-- ========================================================================= -->
-  <section id="frota" class="py-16 sm:py-24 lg:py-32 relative border-t border-white/5 bg-[#0a0a0c]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <section id="frota" class="py-16 sm:py-24 lg:py-32 relative border-t border-white/5 bg-[#08080a]">
+    
+    <!-- Ambient Backdrop Muito Suave (Sem exageros) -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-blue-950/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16 relative z-10">
       
       <!-- Cabeçalho Oficial (Fiel ao Mockup da Penha) -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-white/10">
@@ -1033,7 +1037,7 @@
         </div>
       </div>
 
-      <!-- Carrossel Fluido da Frota (7 Modelos Oficiais - Táxis Executivos) -->
+      <!-- Carrossel da Frota (Design Minimalista & Profissional - Sem Emojis) -->
       <div class="relative group/carousel">
         
         <!-- Botão Navegação Anterior (Esquerda) -->
@@ -1041,10 +1045,10 @@
           type="button" 
           id="fleet-prev-btn" 
           aria-label="Veículo anterior" 
-          class="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/85 hover:bg-white text-zinc-300 hover:text-black border border-white/20 flex items-center justify-center transition-all duration-300 shadow-2xl backdrop-blur-md cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+          class="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-zinc-950/90 hover:bg-white text-zinc-400 hover:text-black border border-white/15 hover:border-white flex items-center justify-center transition-all duration-300 shadow-xl backdrop-blur-md cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
         >
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
@@ -1053,146 +1057,440 @@
           type="button" 
           id="fleet-next-btn" 
           aria-label="Próximo veículo" 
-          class="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/85 hover:bg-white text-zinc-300 hover:text-black border border-white/20 flex items-center justify-center transition-all duration-300 shadow-2xl backdrop-blur-md cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+          class="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-zinc-950/90 hover:bg-white text-zinc-400 hover:text-black border border-white/15 hover:border-white flex items-center justify-center transition-all duration-300 shadow-xl backdrop-blur-md cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
         >
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 5l7 7-7 7" />
           </svg>
         </button>
 
-        <!-- Trilho do Carrossel com Scroll Suave e Snap -->
+        <!-- Trilho do Carrossel -->
         <div 
           id="fleet-carousel-track" 
-          class="flex gap-4 sm:gap-5 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-4 px-1"
+          class="flex gap-5 sm:gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-4 px-1"
         >
           
           <!-- Card 1: Toyota Corolla -->
-          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
-            <div class="relative overflow-hidden p-3 pb-0">
-              <img 
-                src="assets/img/frota/toyota-corolla-card.png" 
-                alt="Toyota Corolla - Táxi Executivo PH Transfer" 
-                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
-              />
-            </div>
-            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
-              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-blue-700 border border-blue-400 inline-block" title="Cor Azul"></span>
-                <span class="text-[10px] text-zinc-400 ml-1">1 Preto · 1 Azul</span>
+          <div class="fleet-carousel-card snap-start shrink-0 w-[285px] sm:w-[310px] rounded-2xl border border-white/10 hover:border-white/25 transition-all duration-300 bg-[#0c0d10] shadow-xl flex flex-col justify-between group">
+            
+            <div>
+              <!-- Topo: Categoria & Identificação Oficial -->
+              <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
+                <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">Sedan Executivo</span>
+                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
               </div>
-              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Toyota%20Corolla%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+
+              <!-- Imagem do Veículo em Estúdio -->
+              <div class="relative px-4 py-3 flex items-center justify-center min-h-[155px]">
+                <img 
+                  src="assets/img/frota/toyota-corolla-clean.png" 
+                  alt="Toyota Corolla - Frota Executiva PH Transfer" 
+                  class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" 
+                />
+              </div>
+
+              <!-- Informações Principais -->
+              <div class="px-5 space-y-2">
+                <div class="flex items-baseline justify-between">
+                  <h3 class="text-xl font-medium tracking-tight text-white">Toyota Corolla</h3>
+                  <span class="text-[10px] text-zinc-500">BH / Região</span>
+                </div>
+                <p class="text-xs text-zinc-400 font-light leading-relaxed">
+                  Discrição, rodagem silenciosa e conforto clássico para traslados e compromissos.
+                </p>
+
+                <!-- Linha de Especificações Técnicas (Sem emojis, editorial) -->
+                <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400 font-light">
+                  <span>4 passageiros · 3 malas</span>
+                  <span class="text-zinc-300 font-medium text-[11px]">Faixa BRT/Move</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Rodapé: Cores & Botão de Reserva -->
+            <div class="p-5 pt-3.5 border-t border-white/5 mt-4 space-y-3 bg-black/20" data-vehicle="Toyota Corolla">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Ônix" data-color-name="1 Preto Ônix" data-color-param="Preto%20Ônix"></button>
+                  <button type="button" class="fleet-color-btn w-3 h-3 rounded-full bg-[#1b3a60] border border-transparent hover:border-white/60 transition-all cursor-pointer" title="Azul Safira" data-color-name="1 Azul Safira" data-color-param="Azul%20Safira"></button>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">1 Preto · 1 Azul</span>
+                </div>
+              </div>
+
+              <a 
+                href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Toyota%20Corolla%20com%20a%20PH%20Transfer." 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="fleet-reserve-btn w-full py-2.5 px-4 rounded-xl border border-white/15 hover:border-white text-zinc-200 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] text-xs font-medium tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Reservar Veículo</span>
+                <span class="text-zinc-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all text-sm">→</span>
+              </a>
+            </div>
+
           </div>
 
           <!-- Card 2: Toyota Corolla Cross -->
-          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
-            <div class="relative overflow-hidden p-3 pb-0">
-              <img 
-                src="assets/img/frota/toyota-corolla-cross-card.png" 
-                alt="Toyota Corolla Cross - Táxi Executivo PH Transfer" 
-                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
-              />
-            </div>
-            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
-              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-zinc-100 border border-zinc-300 inline-block" title="Cor Branco"></span>
-                <span class="text-[10px] text-zinc-400 ml-1">1 Preto · 1 Branco</span>
+          <div class="fleet-carousel-card snap-start shrink-0 w-[285px] sm:w-[310px] rounded-2xl border border-white/10 hover:border-white/25 transition-all duration-300 bg-[#0c0d10] shadow-xl flex flex-col justify-between group">
+            
+            <div>
+              <!-- Topo: Categoria & Identificação Oficial -->
+              <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
+                <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">SUV Executivo</span>
+                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
               </div>
-              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Toyota%20Corolla%20Cross%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+
+              <!-- Imagem do Veículo em Estúdio -->
+              <div class="relative px-4 py-3 flex items-center justify-center min-h-[155px]">
+                <img 
+                  src="assets/img/frota/toyota-corolla-cross-clean.png" 
+                  alt="Toyota Corolla Cross - Frota Executiva PH Transfer" 
+                  class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" 
+                />
+              </div>
+
+              <!-- Informações Principais -->
+              <div class="px-5 space-y-2">
+                <div class="flex items-baseline justify-between">
+                  <h3 class="text-xl font-medium tracking-tight text-white">Corolla Cross</h3>
+                  <span class="text-[10px] text-zinc-500">BH / Região</span>
+                </div>
+                <p class="text-xs text-zinc-400 font-light leading-relaxed">
+                  Posição elevada de condução, amplo porta-malas e versatilidade em viagens.
+                </p>
+
+                <!-- Linha de Especificações Técnicas -->
+                <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400 font-light">
+                  <span>4 passageiros · 4 malas</span>
+                  <span class="text-zinc-300 font-medium text-[11px]">Faixa BRT/Move</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Rodapé: Cores & Botão de Reserva -->
+            <div class="p-5 pt-3.5 border-t border-white/5 mt-4 space-y-3 bg-black/20" data-vehicle="Toyota Corolla Cross">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Ônix" data-color-name="1 Preto Ônix" data-color-param="Preto%20Ônix"></button>
+                  <button type="button" class="fleet-color-btn w-3 h-3 rounded-full bg-zinc-100 border border-transparent hover:border-white/60 transition-all cursor-pointer" title="Branco Polar" data-color-name="1 Branco Polar" data-color-param="Branco%20Polar"></button>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">1 Preto · 1 Branco</span>
+                </div>
+              </div>
+
+              <a 
+                href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Toyota%20Corolla%20Cross%20com%20a%20PH%20Transfer." 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="fleet-reserve-btn w-full py-2.5 px-4 rounded-xl border border-white/15 hover:border-white text-zinc-200 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] text-xs font-medium tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Reservar Veículo</span>
+                <span class="text-zinc-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all text-sm">→</span>
+              </a>
+            </div>
+
           </div>
 
           <!-- Card 3: Chery Tiggo 8 -->
-          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
-            <div class="relative overflow-hidden p-3 pb-0">
-              <img 
-                src="assets/img/frota/chery-tiggo-8-card.png" 
-                alt="Chery Tiggo 8 - Táxi Executivo PH Transfer" 
-                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
-              />
-            </div>
-            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
-              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
-                <span class="text-[10px] text-zinc-400 ml-1">Preto · 7 Lugares</span>
+          <div class="fleet-carousel-card snap-start shrink-0 w-[285px] sm:w-[310px] rounded-2xl border border-white/10 hover:border-white/25 transition-all duration-300 bg-[#0c0d10] shadow-xl flex flex-col justify-between group">
+            
+            <div>
+              <!-- Topo: Categoria & Identificação Oficial -->
+              <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
+                <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">SUV 7 Lugares</span>
+                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
               </div>
-              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Chery%20Tiggo%208%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+
+              <!-- Imagem do Veículo em Estúdio -->
+              <div class="relative px-4 py-3 flex items-center justify-center min-h-[155px]">
+                <img 
+                  src="assets/img/frota/chery-tiggo-8-clean.png" 
+                  alt="Chery Tiggo 8 - Frota Executiva PH Transfer" 
+                  class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" 
+                />
+              </div>
+
+              <!-- Informações Principais -->
+              <div class="px-5 space-y-2">
+                <div class="flex items-baseline justify-between">
+                  <h3 class="text-xl font-medium tracking-tight text-white">Chery Tiggo 8</h3>
+                  <span class="text-[10px] text-zinc-500">BH / Região</span>
+                </div>
+                <p class="text-xs text-zinc-400 font-light leading-relaxed">
+                  Configuração para até 7 ocupantes com amplo espaço interno para famílias e equipes.
+                </p>
+
+                <!-- Linha de Especificações Técnicas -->
+                <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400 font-light">
+                  <span>Até 7 passageiros · 5 malas</span>
+                  <span class="text-zinc-300 font-medium text-[11px]">Faixa BRT/Move</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Rodapé: Cores & Botão de Reserva -->
+            <div class="p-5 pt-3.5 border-t border-white/5 mt-4 space-y-3 bg-black/20" data-vehicle="Chery Tiggo 8">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Shadow" data-color-name="Preto Shadow" data-color-param="Preto%20Shadow"></button>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">Preto · 7 Lugares</span>
+                </div>
+              </div>
+
+              <a 
+                href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Chery%20Tiggo%208%20(7%20Lugares)%20com%20a%20PH%20Transfer." 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="fleet-reserve-btn w-full py-2.5 px-4 rounded-xl border border-white/15 hover:border-white text-zinc-200 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] text-xs font-medium tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Reservar Veículo</span>
+                <span class="text-zinc-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all text-sm">→</span>
+              </a>
+            </div>
+
           </div>
 
           <!-- Card 4: Jeep Commander -->
-          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
-            <div class="relative overflow-hidden p-3 pb-0">
-              <img 
-                src="assets/img/frota/jeep-commander-card.png" 
-                alt="Jeep Commander - Táxi Executivo PH Transfer" 
-                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
-              />
-            </div>
-            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
-              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
-                <span class="text-[10px] text-zinc-400 ml-1">Preto · SUV Premium</span>
+          <div class="fleet-carousel-card snap-start shrink-0 w-[285px] sm:w-[310px] rounded-2xl border border-white/10 hover:border-white/25 transition-all duration-300 bg-[#0c0d10] shadow-xl flex flex-col justify-between group">
+            
+            <div>
+              <!-- Topo: Categoria & Identificação Oficial -->
+              <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
+                <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">SUV Premium 7L</span>
+                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
               </div>
-              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Jeep%20Commander%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+
+              <!-- Imagem do Veículo em Estúdio -->
+              <div class="relative px-4 py-3 flex items-center justify-center min-h-[155px]">
+                <img 
+                  src="assets/img/frota/jeep-commander-clean.png" 
+                  alt="Jeep Commander - Frota Executiva PH Transfer" 
+                  class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" 
+                />
+              </div>
+
+              <!-- Informações Principais -->
+              <div class="px-5 space-y-2">
+                <div class="flex items-baseline justify-between">
+                  <h3 class="text-xl font-medium tracking-tight text-white">Jeep Commander</h3>
+                  <span class="text-[10px] text-zinc-500">BH / Região</span>
+                </div>
+                <p class="text-xs text-zinc-400 font-light leading-relaxed">
+                  Design imponente, sofisticação interior de alto padrão e capacidade estendida.
+                </p>
+
+                <!-- Linha de Especificações Técnicas -->
+                <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400 font-light">
+                  <span>Até 7 passageiros · 5 malas</span>
+                  <span class="text-zinc-300 font-medium text-[11px]">Faixa BRT/Move</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Rodapé: Cores & Botão de Reserva -->
+            <div class="p-5 pt-3.5 border-t border-white/5 mt-4 space-y-3 bg-black/20" data-vehicle="Jeep Commander">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Vulcano" data-color-name="Preto Vulcano" data-color-param="Preto%20Vulcano"></button>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">Preto · SUV Premium</span>
+                </div>
+              </div>
+
+              <a 
+                href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Jeep%20Commander%20com%20a%20PH%20Transfer." 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="fleet-reserve-btn w-full py-2.5 px-4 rounded-xl border border-white/15 hover:border-white text-zinc-200 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] text-xs font-medium tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Reservar Veículo</span>
+                <span class="text-zinc-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all text-sm">→</span>
+              </a>
+            </div>
+
           </div>
 
           <!-- Card 5: BYD Song -->
-          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
-            <div class="relative overflow-hidden p-3 pb-0">
-              <img 
-                src="assets/img/frota/byd-song-card.png" 
-                alt="BYD Song - Táxi Executivo PH Transfer" 
-                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
-              />
-            </div>
-            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
-              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
-                <span class="text-[10px] text-zinc-400 ml-1">Preto · Híbrido Silencioso</span>
+          <div class="fleet-carousel-card snap-start shrink-0 w-[285px] sm:w-[310px] rounded-2xl border border-white/10 hover:border-white/25 transition-all duration-300 bg-[#0c0d10] shadow-xl flex flex-col justify-between group">
+            
+            <div>
+              <!-- Topo: Categoria & Identificação Oficial -->
+              <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
+                <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">SUV Híbrido</span>
+                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
               </div>
-              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20BYD%20Song%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+
+              <!-- Imagem do Veículo em Estúdio -->
+              <div class="relative px-4 py-3 flex items-center justify-center min-h-[155px]">
+                <img 
+                  src="assets/img/frota/byd-song-clean.png" 
+                  alt="BYD Song - Frota Executiva PH Transfer" 
+                  class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" 
+                />
+              </div>
+
+              <!-- Informações Principais -->
+              <div class="px-5 space-y-2">
+                <div class="flex items-baseline justify-between">
+                  <h3 class="text-xl font-medium tracking-tight text-white">BYD Song</h3>
+                  <span class="text-[10px] text-zinc-500">BH / Região</span>
+                </div>
+                <p class="text-xs text-zinc-400 font-light leading-relaxed">
+                  Propulsão híbrida com isolamento acústico superior e rodagem suave e silenciosa.
+                </p>
+
+                <!-- Linha de Especificações Técnicas -->
+                <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400 font-light">
+                  <span>4 passageiros · 4 malas</span>
+                  <span class="text-zinc-300 font-medium text-[11px]">Híbrido Silencioso</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Rodapé: Cores & Botão de Reserva -->
+            <div class="p-5 pt-3.5 border-t border-white/5 mt-4 space-y-3 bg-black/20" data-vehicle="BYD Song">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Absoluto" data-color-name="Preto Absoluto" data-color-param="Preto%20Absoluto"></button>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">Preto · Híbrido</span>
+                </div>
+              </div>
+
+              <a 
+                href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20BYD%20Song%20com%20a%20PH%20Transfer." 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="fleet-reserve-btn w-full py-2.5 px-4 rounded-xl border border-white/15 hover:border-white text-zinc-200 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] text-xs font-medium tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Reservar Veículo</span>
+                <span class="text-zinc-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all text-sm">→</span>
+              </a>
+            </div>
+
           </div>
 
           <!-- Card 6: Haval H6 -->
-          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
-            <div class="relative overflow-hidden p-3 pb-0">
-              <img 
-                src="assets/img/frota/haval-h6-card.png" 
-                alt="Haval H6 - Táxi Executivo PH Transfer" 
-                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
-              />
-            </div>
-            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
-              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
-                <span class="text-[10px] text-zinc-400 ml-1">Preto · Tecnologia & Conforto</span>
+          <div class="fleet-carousel-card snap-start shrink-0 w-[285px] sm:w-[310px] rounded-2xl border border-white/10 hover:border-white/25 transition-all duration-300 bg-[#0c0d10] shadow-xl flex flex-col justify-between group">
+            
+            <div>
+              <!-- Topo: Categoria & Identificação Oficial -->
+              <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
+                <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">SUV Híbrido</span>
+                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
               </div>
-              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Haval%20H6%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+
+              <!-- Imagem do Veículo em Estúdio -->
+              <div class="relative px-4 py-3 flex items-center justify-center min-h-[155px]">
+                <img 
+                  src="assets/img/frota/haval-h6-clean.png" 
+                  alt="Haval H6 - Frota Executiva PH Transfer" 
+                  class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" 
+                />
+              </div>
+
+              <!-- Informações Principais -->
+              <div class="px-5 space-y-2">
+                <div class="flex items-baseline justify-between">
+                  <h3 class="text-xl font-medium tracking-tight text-white">Haval H6</h3>
+                  <span class="text-[10px] text-zinc-500">BH / Região</span>
+                </div>
+                <p class="text-xs text-zinc-400 font-light leading-relaxed">
+                  Tecnologia avançada de assistência, dinâmica de rodagem suave e cabine refinada.
+                </p>
+
+                <!-- Linha de Especificações Técnicas -->
+                <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400 font-light">
+                  <span>4 passageiros · 4 malas</span>
+                  <span class="text-zinc-300 font-medium text-[11px]">Tecnologia Híbrida</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Rodapé: Cores & Botão de Reserva -->
+            <div class="p-5 pt-3.5 border-t border-white/5 mt-4 space-y-3 bg-black/20" data-vehicle="Haval H6">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Estelar" data-color-name="Preto Estelar" data-color-param="Preto%20Estelar"></button>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">Preto · Tecnologia</span>
+                </div>
+              </div>
+
+              <a 
+                href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Haval%20H6%20com%20a%20PH%20Transfer." 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="fleet-reserve-btn w-full py-2.5 px-4 rounded-xl border border-white/15 hover:border-white text-zinc-200 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] text-xs font-medium tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Reservar Veículo</span>
+                <span class="text-zinc-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all text-sm">→</span>
+              </a>
+            </div>
+
           </div>
 
           <!-- Card 7: Nissan Sentra -->
-          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
-            <div class="relative overflow-hidden p-3 pb-0">
-              <img 
-                src="assets/img/frota/nissan-sentra-card.png" 
-                alt="Nissan Sentra - Táxi Executivo PH Transfer" 
-                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
-              />
-            </div>
-            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
-              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-zinc-100 border border-zinc-300 inline-block" title="Cor Branco"></span>
-                <span class="text-[10px] text-zinc-400 ml-1">1 Preto · 1 Branco</span>
+          <div class="fleet-carousel-card snap-start shrink-0 w-[285px] sm:w-[310px] rounded-2xl border border-white/10 hover:border-white/25 transition-all duration-300 bg-[#0c0d10] shadow-xl flex flex-col justify-between group">
+            
+            <div>
+              <!-- Topo: Categoria & Identificação Oficial -->
+              <div class="p-5 pb-0 flex items-center justify-between text-[11px] tracking-wide">
+                <span class="text-xs uppercase tracking-[0.18em] text-zinc-400 font-medium">Sedan Executivo</span>
+                <span class="text-zinc-500 font-mono text-[10px]">Táxi Oficial</span>
               </div>
-              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Nissan%20Sentra%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+
+              <!-- Imagem do Veículo em Estúdio -->
+              <div class="relative px-4 py-3 flex items-center justify-center min-h-[155px]">
+                <img 
+                  src="assets/img/frota/nissan-sentra-clean.png" 
+                  alt="Nissan Sentra - Frota Executiva PH Transfer" 
+                  class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" 
+                />
+              </div>
+
+              <!-- Informações Principais -->
+              <div class="px-5 space-y-2">
+                <div class="flex items-baseline justify-between">
+                  <h3 class="text-xl font-medium tracking-tight text-white">Nissan Sentra</h3>
+                  <span class="text-[10px] text-zinc-500">BH / Região</span>
+                </div>
+                <p class="text-xs text-zinc-400 font-light leading-relaxed">
+                  Silhueta aerodinâmica refinada, bancos ergonômicos e excelente isolamento acústico.
+                </p>
+
+                <!-- Linha de Especificações Técnicas -->
+                <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400 font-light">
+                  <span>4 passageiros · 3 malas</span>
+                  <span class="text-zinc-300 font-medium text-[11px]">Faixa BRT/Move</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Rodapé: Cores & Botão de Reserva -->
+            <div class="p-5 pt-3.5 border-t border-white/5 mt-4 space-y-3 bg-black/20" data-vehicle="Nissan Sentra">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-zinc-500 text-[11px] font-light">Disponibilidade:</span>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" class="fleet-color-btn active w-3 h-3 rounded-full bg-zinc-950 border border-white/80 ring-1 ring-white/50 transition-all cursor-pointer" title="Preto Ônix" data-color-name="1 Preto Ônix" data-color-param="Preto%20Ônix"></button>
+                  <button type="button" class="fleet-color-btn w-3 h-3 rounded-full bg-zinc-100 border border-transparent hover:border-white/60 transition-all cursor-pointer" title="Branco Diamante" data-color-name="1 Branco Diamante" data-color-param="Branco%20Diamante"></button>
+                  <span class="fleet-color-label text-[11px] text-zinc-300 font-mono ml-1">1 Preto · 1 Branco</span>
+                </div>
+              </div>
+
+              <a 
+                href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Nissan%20Sentra%20com%20a%20PH%20Transfer." 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="fleet-reserve-btn w-full py-2.5 px-4 rounded-xl border border-white/15 hover:border-white text-zinc-200 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] text-xs font-medium tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Reservar Veículo</span>
+                <span class="text-zinc-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all text-sm">→</span>
+              </a>
+            </div>
+
           </div>
 
         </div>
