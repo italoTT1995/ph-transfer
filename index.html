@@ -1015,166 +1015,191 @@
   <section id="frota" class="py-16 sm:py-24 lg:py-32 relative border-t border-white/5 bg-[#0a0a0c]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       
-      <!-- Cabeçalho Frota -->
-      <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-3">
-          <span class="w-6 h-[1.5px] bg-white/60"></span>
-          <span class="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">Conforto em Diferentes Dimensões</span>
+      <!-- Cabeçalho Oficial (Fiel ao Mockup da Penha) -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-white/10">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-3">
+            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">Nossa Frota</span>
+            <span class="w-12 h-[1px] bg-white/40"></span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white leading-tight">
+            Conheça nossos <span class="font-serif-italic font-normal">veículos.</span>
+          </h2>
         </div>
-        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white leading-tight">
-          Não escolhemos apenas carros. <span class="font-serif-italic font-normal">Escolhemos a forma como você vai viajar.</span>
-        </h2>
-        <p class="text-base sm:text-lg text-zinc-300 font-light leading-relaxed pt-2">
-          Nossa frota é cuidadosamente selecionada para oferecer soluções de mobilidade que respeitam as particularidades de cada viagem. Sedans, SUVs, veículos blindados, ônibus e micro-ônibus: diferentes possibilidades, conectadas pelo mesmo compromisso com conforto, segurança e qualidade.
-        </p>
+        <div class="lg:max-w-md border-l-0 lg:border-l border-white/20 lg:pl-8">
+          <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+            Nossos táxis executivos são veículos modernos, confortáveis e com alto padrão de segurança para cada trajeto.
+          </p>
+        </div>
       </div>
 
-      <!-- Showcase Interativo da Frota Real (Tabs & Slides) -->
-      <div class="space-y-4">
+      <!-- Carrossel Fluido da Frota (7 Modelos Oficiais - Táxis Executivos) -->
+      <div class="relative group/carousel">
         
-        <!-- Abas de Seleção da Frota Real -->
-        <div class="flex items-center justify-between flex-wrap gap-3">
-          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 max-w-full" id="fleet-tabs">
-            <button type="button" class="fleet-tab active px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 bg-white text-black shadow-lg flex items-center gap-2 whitespace-nowrap cursor-pointer" data-fleet-index="0">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              <span>Sedan Executivo · Corolla</span>
-            </button>
-            <button type="button" class="fleet-tab px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white border border-white/5 flex items-center gap-2 whitespace-nowrap cursor-pointer" data-fleet-index="1">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              <span>SUV Blindado Nível III-A</span>
-            </button>
-            <button type="button" class="fleet-tab px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white border border-white/5 flex items-center gap-2 whitespace-nowrap cursor-pointer" data-fleet-index="2">
-              <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-              <span>Viagens & Resorts · Tauá</span>
-            </button>
-          </div>
+        <!-- Botão Navegação Anterior (Esquerda) -->
+        <button 
+          type="button" 
+          id="fleet-prev-btn" 
+          aria-label="Veículo anterior" 
+          class="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/85 hover:bg-white text-zinc-300 hover:text-black border border-white/20 flex items-center justify-center transition-all duration-300 shadow-2xl backdrop-blur-md cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
 
-          <div class="hidden sm:flex items-center gap-2 text-[11px] text-zinc-400">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Fotos reais de campo · 100% da frota</span>
-          </div>
-        </div>
+        <!-- Botão Navegação Próximo (Direita) -->
+        <button 
+          type="button" 
+          id="fleet-next-btn" 
+          aria-label="Próximo veículo" 
+          class="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/85 hover:bg-white text-zinc-300 hover:text-black border border-white/20 flex items-center justify-center transition-all duration-300 shadow-2xl backdrop-blur-md cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
 
-        <!-- Banner com Transição dos Slides Reais -->
-        <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-[480px] sm:h-[500px] md:h-[520px] group bg-black" id="fleet-showcase-container">
+        <!-- Trilho do Carrossel com Scroll Suave e Snap -->
+        <div 
+          id="fleet-carousel-track" 
+          class="flex gap-4 sm:gap-5 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-4 px-1"
+        >
           
-          <!-- Slide 0: Sedan Executivo (Premier Parc Hotel) -->
-          <div class="fleet-slide absolute inset-0 opacity-100 transition-opacity duration-700 pointer-events-auto" data-slide-index="0">
-            <img 
-              src="assets/img/reais/frota-sedan-premier-hotel.jpg" 
-              alt="Toyota Corolla Sedan Executivo - Operação Noturna no Premier Parc Hotel" 
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              style="object-position: center 75%;"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
-            
-            <div class="absolute top-6 left-6 right-6 flex items-center justify-between">
-              <span class="text-[11px] uppercase font-mono tracking-widest text-emerald-400 bg-emerald-950/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-emerald-500/30 font-semibold">
-                Sedan Oficial · Toyota Corolla
-              </span>
-              <span class="text-xs text-zinc-300 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 font-light hidden sm:inline-block">
-                Premier Parc Hotel · Operação VIP Noturna
-              </span>
+          <!-- Card 1: Toyota Corolla -->
+          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
+            <div class="relative overflow-hidden p-3 pb-0">
+              <img 
+                src="assets/img/frota/toyota-corolla-card.png" 
+                alt="Toyota Corolla - Táxi Executivo PH Transfer" 
+                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
+              />
             </div>
-
-            <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
-              <div class="space-y-2 max-w-2xl">
-                <span class="text-xs uppercase tracking-widest text-zinc-300 font-semibold block">Mobilidade Corporativa & Traslados</span>
-                <h3 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">Toyota Corolla Executivo</h3>
-                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
-                  Conforto acústico superior, interior em couro, ar-condicionado digital dual zone, kit amenidades Essenza resfriado e motorista trajado.
-                </p>
-                <div class="flex items-center gap-3 pt-1 flex-wrap text-[11px] text-zinc-300 font-mono">
-                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Até 3 passageiros</span>
-                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">2 Malas G + 2 M</span>
-                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Wi-Fi & Carregadores</span>
-                </div>
+            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
+              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-700 border border-blue-400 inline-block" title="Cor Azul"></span>
+                <span class="text-[10px] text-zinc-400 ml-1">1 Preto · 1 Azul</span>
               </div>
-              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20consultar%20a%20disponibilidade%20do%20Sedan%20Executivo%20Toyota%20Corolla%20da%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap shadow-xl flex items-center gap-2">
-                <span>Reservar Sedan Executivo</span>
-                <span class="text-sm">→</span>
-              </a>
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Toyota%20Corolla%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
             </div>
           </div>
 
-          <!-- Slide 1: SUV Blindado (Volvo XC90) -->
-          <div class="fleet-slide absolute inset-0 opacity-0 transition-opacity duration-700 pointer-events-none" data-slide-index="1">
-            <img 
-              src="assets/img/reais/frota-suv-volvo-blindado.jpg" 
-              alt="Veículo Blindado Nível III-A - SUV Volvo XC90 Proteção Balística" 
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              style="object-position: center 65%;"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
-            
-            <div class="absolute top-6 left-6 right-6 flex items-center justify-between">
-              <span class="text-[11px] uppercase font-mono tracking-widest text-amber-300 bg-amber-950/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-amber-500/30 font-semibold">
-                Proteção Balística Nível III-A Certificada
-              </span>
-              <span class="text-xs text-zinc-300 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 font-light hidden sm:inline-block">
-                Volvo XC90 & SUVs · Segurança Máxima
-              </span>
+          <!-- Card 2: Toyota Corolla Cross -->
+          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
+            <div class="relative overflow-hidden p-3 pb-0">
+              <img 
+                src="assets/img/frota/toyota-corolla-cross-card.png" 
+                alt="Toyota Corolla Cross - Táxi Executivo PH Transfer" 
+                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
+              />
             </div>
-
-            <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
-              <div class="space-y-2 max-w-2xl">
-                <span class="text-xs uppercase tracking-widest text-zinc-300 font-semibold block">Segurança Pessoal & Autoridades</span>
-                <h3 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">SUV Blindado Nível III-A</h3>
-                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
-                  Vidros e carroceria resistentes a disparos de armas curtas e submetralhadoras (inclusive 9mm e .44 Magnum), motorista treinado em direção defensiva e evasiva.
-                </p>
-                <div class="flex items-center gap-3 pt-1 flex-wrap text-[11px] text-zinc-300 font-mono">
-                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Blindagem Nível III-A</span>
-                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">4 a 6 passageiros</span>
-                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Rotas Estratégicas</span>
-                </div>
+            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
+              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-100 border border-zinc-300 inline-block" title="Cor Branco"></span>
+                <span class="text-[10px] text-zinc-400 ml-1">1 Preto · 1 Branco</span>
               </div>
-              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20consultar%20a%20disponibilidade%20de%20veículo%20blindado%20Nível%20III-A%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap shadow-xl flex items-center gap-2">
-                <span>Consultar Blindado</span>
-                <span class="text-sm">→</span>
-              </a>
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Toyota%20Corolla%20Cross%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
             </div>
           </div>
 
-          <!-- Slide 2: Viagens & Resorts (Tauá Resort Araxá) -->
-          <div class="fleet-slide absolute inset-0 opacity-0 transition-opacity duration-700 pointer-events-none" data-slide-index="2">
-            <img 
-              src="assets/img/reais/frota-resort-taua-araxa.jpg" 
-              alt="Transporte Executivo para Resorts e Hotéis de Charme - Tauá Resort Araxá" 
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              style="object-position: center 60%;"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
-            
-            <div class="absolute top-6 left-6 right-6 flex items-center justify-between">
-              <span class="text-[11px] uppercase font-mono tracking-widest text-blue-400 bg-blue-950/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-blue-500/30 font-semibold">
-                Viagens Intermunicipais & Destinos VIP
-              </span>
-              <span class="text-xs text-zinc-300 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 font-light hidden sm:inline-block">
-                Tauá Resort & Convention Araxá
-              </span>
+          <!-- Card 3: Chery Tiggo 8 -->
+          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
+            <div class="relative overflow-hidden p-3 pb-0">
+              <img 
+                src="assets/img/frota/chery-tiggo-8-card.png" 
+                alt="Chery Tiggo 8 - Táxi Executivo PH Transfer" 
+                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
+              />
             </div>
-
-            <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
-              <div class="space-y-2 max-w-2xl">
-                <span class="text-xs uppercase tracking-widest text-zinc-300 font-semibold block">Turismo de Luxo & Viagens Longas</span>
-                <h3 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">Viagens & Resorts de Charme</h3>
-                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
-                  Deslocamentos privativos com tranquilidade para cidades históricas, resorts termais e condomínios de alto padrão com paradas flexíveis e conforto ininterrupto.
-                </p>
-                <div class="flex items-center gap-3 pt-1 flex-wrap text-[11px] text-zinc-300 font-mono">
-                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Araxá · Ouro Preto · Tiradentes</span>
-                  <span class="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/5">Motorista Exclusivo</span>
-                </div>
+            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
+              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
+                <span class="text-[10px] text-zinc-400 ml-1">Preto · 7 Lugares</span>
               </div>
-              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20viagem%20intermunicipal%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap shadow-xl flex items-center gap-2">
-                <span>Planejar Viagem</span>
-                <span class="text-sm">→</span>
-              </a>
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Chery%20Tiggo%208%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+            </div>
+          </div>
+
+          <!-- Card 4: Jeep Commander -->
+          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
+            <div class="relative overflow-hidden p-3 pb-0">
+              <img 
+                src="assets/img/frota/jeep-commander-card.png" 
+                alt="Jeep Commander - Táxi Executivo PH Transfer" 
+                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
+              />
+            </div>
+            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
+              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
+                <span class="text-[10px] text-zinc-400 ml-1">Preto · SUV Premium</span>
+              </div>
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Jeep%20Commander%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+            </div>
+          </div>
+
+          <!-- Card 5: BYD Song -->
+          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
+            <div class="relative overflow-hidden p-3 pb-0">
+              <img 
+                src="assets/img/frota/byd-song-card.png" 
+                alt="BYD Song - Táxi Executivo PH Transfer" 
+                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
+              />
+            </div>
+            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
+              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
+                <span class="text-[10px] text-zinc-400 ml-1">Preto · Híbrido Silencioso</span>
+              </div>
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20BYD%20Song%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+            </div>
+          </div>
+
+          <!-- Card 6: Haval H6 -->
+          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
+            <div class="relative overflow-hidden p-3 pb-0">
+              <img 
+                src="assets/img/frota/haval-h6-card.png" 
+                alt="Haval H6 - Táxi Executivo PH Transfer" 
+                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
+              />
+            </div>
+            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
+              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
+                <span class="text-[10px] text-zinc-400 ml-1">Preto · Tecnologia & Conforto</span>
+              </div>
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Haval%20H6%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
+            </div>
+          </div>
+
+          <!-- Card 7: Nissan Sentra -->
+          <div class="fleet-carousel-card snap-start shrink-0 w-[240px] sm:w-[270px] rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 bg-[#0d0d0f] shadow-2xl flex flex-col justify-between group">
+            <div class="relative overflow-hidden p-3 pb-0">
+              <img 
+                src="assets/img/frota/nissan-sentra-card.png" 
+                alt="Nissan Sentra - Táxi Executivo PH Transfer" 
+                class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
+              />
+            </div>
+            <div class="p-4 pt-1 flex items-center justify-between border-t border-white/5 mt-2">
+              <div class="flex items-center gap-1.5 text-[11px] text-zinc-400">
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-600 inline-block" title="Cor Preto"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-zinc-100 border border-zinc-300 inline-block" title="Cor Branco"></span>
+                <span class="text-[10px] text-zinc-400 ml-1">1 Preto · 1 Branco</span>
+              </div>
+              <a href="https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20Nissan%20Sentra%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="text-[11px] text-white hover:text-zinc-300 font-medium">Reservar →</a>
             </div>
           </div>
 
         </div>
+
+        <!-- Indicadores de Paginação (Dots) -->
+        <div class="flex items-center justify-center gap-2 pt-6" id="fleet-dots"></div>
+
       </div>
 
       <!-- Grid de Categorias da Frota Oficial -->

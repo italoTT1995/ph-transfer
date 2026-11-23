@@ -199,90 +199,155 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLanguage(savedLang, false);
   }
 
-  // 7. Seletor Interativo da Frota Real (Tabs, Slides, Touch Swipe e Autoplay)
-  const fleetTabs = document.querySelectorAll('.fleet-tab');
-  const fleetSlides = document.querySelectorAll('.fleet-slide');
-  let currentFleetIndex = 0;
-  let fleetAutoPlayInterval = null;
+  // 7. Carrossel Oficial da Frota (7 Modelos Oficiais - Táxis Executivos)
+  const fleetTrack = document.getElementById('fleet-carousel-track');
+  const fleetPrevBtn = document.getElementById('fleet-prev-btn');
+  const fleetNextBtn = document.getElementById('fleet-next-btn');
+  const fleetDotsContainer = document.getElementById('fleet-dots');
 
-  const showFleetSlide = (index) => {
-    if (!fleetSlides.length) return;
-    currentFleetIndex = (index + fleetSlides.length) % fleetSlides.length;
+  if (fleetTrack) {
+    const fleetCards = fleetTrack.querySelectorAll('.fleet-carousel-card');
+    const totalFleetCards = fleetCards.length;
+    let activeFleetIndex = 0;
+    let fleetAutoPlayTimer = null;
 
-    // Atualizar slides com fade suave
-    fleetSlides.forEach((slide, i) => {
-      if (i === currentFleetIndex) {
-        slide.classList.remove('opacity-0', 'pointer-events-none');
-        slide.classList.add('opacity-100', 'pointer-events-auto');
-      } else {
-        slide.classList.remove('opacity-100', 'pointer-events-auto');
-        slide.classList.add('opacity-0', 'pointer-events-none');
+    // Gerar dots indicadores dinamicamente
+    if (fleetDotsContainer) {
+      fleetDotsContainer.innerHTML = '';
+      for (let i = 0; i < totalFleetCards; i++) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `h-2 rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? 'w-6 bg-white' : 'w-2 bg-white/20 hover:bg-white/50'}`;
+        dot.setAttribute('aria-label', `Ir para veículo ${i + 1}`);
+        dot.addEventListener('click', () => {
+          scrollToFleetCard(i);
+          resetFleetAutoPlay();
+        });
+        fleetDotsContainer.appendChild(dot);
       }
-    });
-
-    // Atualizar abas de navegação
-    fleetTabs.forEach((tab, i) => {
-      if (i === currentFleetIndex) {
-        tab.classList.add('bg-white', 'text-black', 'shadow-lg');
-        tab.classList.remove('bg-white/5', 'text-zinc-300');
-      } else {
-        tab.classList.remove('bg-white', 'text-black', 'shadow-lg');
-        tab.classList.add('bg-white/5', 'text-zinc-300');
-      }
-    });
-  };
-
-  fleetTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const idx = parseInt(tab.getAttribute('data-fleet-index'), 10);
-      showFleetSlide(idx);
-      resetFleetAutoplay();
-    });
-  });
-
-  const startFleetAutoplay = () => {
-    if (fleetAutoPlayInterval) clearInterval(fleetAutoPlayInterval);
-    fleetAutoPlayInterval = setInterval(() => {
-      showFleetSlide(currentFleetIndex + 1);
-    }, 6000);
-  };
-
-  const resetFleetAutoplay = () => {
-    if (fleetAutoPlayInterval) {
-      clearInterval(fleetAutoPlayInterval);
-      startFleetAutoplay();
     }
-  };
 
-  const showcaseContainer = document.getElementById('fleet-showcase-container');
-  if (showcaseContainer) {
-    showcaseContainer.addEventListener('mouseenter', () => {
-      if (fleetAutoPlayInterval) clearInterval(fleetAutoPlayInterval);
-    });
-    showcaseContainer.addEventListener('mouseleave', () => {
-      startFleetAutoplay();
-    });
+    const updateFleetDots = (index) => {
+      if (!fleetDotsContainer) return;
+      const dots = fleetDotsContainer.querySelectorAll('button');
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.className = 'w-6 h-2 rounded-full bg-white transition-all duration-300 cursor-pointer';
+        } else {
+          dot.className = 'w-2 h-2 rounded-full bg-white/20 hover:bg-white/50 transition-all duration-300 cursor-pointer';
+        }
+      });
+    };
 
-    // Suporte a gestos touch swipe no banner da frota
-    let fleetTouchStartX = 0;
-    showcaseContainer.addEventListener('touchstart', (e) => {
-      fleetTouchStartX = e.changedTouches[0].screenX;
+    const getCardStep = () => {
+      const firstCard = fleetCards[0];
+      return firstCard ? firstCard.getBoundingClientRect().width + 20 : 290;
+    };
+
+    const scrollToFleetCard = (index) => {
+      activeFleetIndex = (index + totalFleetCards) % totalFleetCards;
+      const targetCard = fleetCards[activeFleetIndex];
+      if (targetCard) {
+        const cardRect = targetCard.getBoundingClientRect();
+        const trackRect = fleetTrack.getBoundingClientRect();
+        const scrollDelta = cardRect.left - trackRect.left;
+        fleetTrack.scrollBy({ left: scrollDelta, behavior: 'smooth' });
+        updateFleetDots(activeFleetIndex);
+      }
+    };
+
+    if (fleetPrevBtn) {
+      fleetPrevBtn.addEventListener('click', () => {
+        const cardStep = getCardStep();
+        if (fleetTrack.scrollLeft <= 10) {
+          fleetTrack.scrollTo({ left: fleetTrack.scrollWidth, behavior: 'smooth' });
+        } else {
+          fleetTrack.scrollBy({ left: -cardStep, behavior: 'smooth' });
+        }
+        resetFleetAutoPlay();
+      });
+    }
+
+    if (fleetNextBtn) {
+      fleetNextBtn.addEventListener('click', () => {
+        const cardStep = getCardStep();
+        const maxScroll = fleetTrack.scrollWidth - fleetTrack.clientWidth;
+        if (fleetTrack.scrollLeft >= maxScroll - 10) {
+          fleetTrack.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          fleetTrack.scrollBy({ left: cardStep, behavior: 'smooth' });
+        }
+        resetFleetAutoPlay();
+      });
+    }
+
+    // Atualiza indicador ao scrollar pelo mouse ou swipe
+    fleetTrack.addEventListener('scroll', () => {
+      const scrollLeft = fleetTrack.scrollLeft;
+      let closestIdx = 0;
+      let minDiff = Infinity;
+      fleetCards.forEach((card, i) => {
+        const diff = Math.abs((card.offsetLeft - fleetTrack.offsetLeft - 16) - scrollLeft);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIdx = i;
+        }
+      });
+      if (closestIdx !== activeFleetIndex) {
+        activeFleetIndex = closestIdx;
+        updateFleetDots(activeFleetIndex);
+      }
     }, { passive: true });
 
-    showcaseContainer.addEventListener('touchend', (e) => {
-      const fleetTouchEndX = e.changedTouches[0].screenX;
-      const diff = fleetTouchStartX - fleetTouchEndX;
+    // Autoplay fluido com pausa no hover
+    const startFleetAutoPlay = () => {
+      if (fleetAutoPlayTimer) clearInterval(fleetAutoPlayTimer);
+      fleetAutoPlayTimer = setInterval(() => {
+        const cardStep = getCardStep();
+        const maxScroll = fleetTrack.scrollWidth - fleetTrack.clientWidth;
+        if (fleetTrack.scrollLeft >= maxScroll - 10) {
+          fleetTrack.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          fleetTrack.scrollBy({ left: cardStep, behavior: 'smooth' });
+        }
+      }, 4000);
+    };
+
+    const resetFleetAutoPlay = () => {
+      if (fleetAutoPlayTimer) {
+        clearInterval(fleetAutoPlayTimer);
+        startFleetAutoPlay();
+      }
+    };
+
+    fleetTrack.addEventListener('mouseenter', () => {
+      if (fleetAutoPlayTimer) clearInterval(fleetAutoPlayTimer);
+    });
+    fleetTrack.addEventListener('mouseleave', () => {
+      startFleetAutoPlay();
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    fleetTrack.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      if (fleetAutoPlayTimer) clearInterval(fleetAutoPlayTimer);
+    }, { passive: true });
+
+    fleetTrack.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
       if (Math.abs(diff) > 40) {
         if (diff > 0) {
-          showFleetSlide(currentFleetIndex + 1);
+          scrollToFleetCard(activeFleetIndex + 1);
         } else {
-          showFleetSlide(currentFleetIndex - 1);
+          scrollToFleetCard(activeFleetIndex - 1);
         }
-        resetFleetAutoplay();
       }
+      resetFleetAutoPlay();
     }, { passive: true });
 
-    startFleetAutoplay();
+    startFleetAutoPlay();
   }
 
   // 8. Protocolo Essenza Interativo (Clique nas frases em cima -> Muda foto e detalhes embaixo)
