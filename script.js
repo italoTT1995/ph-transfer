@@ -336,8 +336,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const colorName = btn.getAttribute('data-color-name');
           const colorParam = btn.getAttribute('data-color-param');
+          const colorImg = btn.getAttribute('data-color-img');
           if (colorLabel && colorName) {
             colorLabel.textContent = colorName;
+          }
+          if (colorImg) {
+            const cardEl = cardFooter.closest('.fleet-carousel-card');
+            const cardImg = cardEl ? cardEl.querySelector('.fleet-vehicle-img') : null;
+            if (cardImg) {
+              cardImg.src = colorImg;
+            }
           }
           if (reserveBtn && colorParam) {
             reserveBtn.href = `https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20${encodeURIComponent(vehicleName)}%20(Cor:%20${encodeURIComponent(colorParam)})%20com%20a%20PH%20Transfer.`;
@@ -374,8 +382,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const colorName = btn.getAttribute('data-color-name');
           const colorParam = btn.getAttribute('data-color-param');
+          const colorImg = btn.getAttribute('data-color-img');
           if (colorLabel && colorName) {
             colorLabel.textContent = colorName;
+          }
+          if (colorImg) {
+            const cardEl = cardFooter.closest('.fleet-carousel-card');
+            const cardImg = cardEl ? cardEl.querySelector('.fleet-vehicle-img') : null;
+            if (cardImg) {
+              cardImg.src = colorImg;
+            }
           }
           if (reserveBtn && colorParam) {
             reserveBtn.href = `https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20${encodeURIComponent(vehicleName)}%20(Cor:%20${encodeURIComponent(colorParam)})%20com%20a%20PH%20Transfer.`;
@@ -427,8 +443,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const colorName = btn.getAttribute('data-color-name');
           const colorParam = btn.getAttribute('data-color-param');
+          const colorImg = btn.getAttribute('data-color-img');
           if (colorLabel && colorName) {
             colorLabel.textContent = colorName;
+          }
+          if (colorImg) {
+            const cardEl = cardFooter.closest('.fleet-carousel-card');
+            const cardImg = cardEl ? cardEl.querySelector('.fleet-vehicle-img') : null;
+            if (cardImg) {
+              cardImg.src = colorImg;
+            }
           }
           if (reserveBtn && colorParam) {
             reserveBtn.href = `https://wa.me/5531988851520?text=Olá!%20Gostaria%20de%20reservar%20o%20${encodeURIComponent(vehicleName)}%20(Cor:%20${encodeURIComponent(colorParam)})%20com%20a%20PH%20Transfer.`;
