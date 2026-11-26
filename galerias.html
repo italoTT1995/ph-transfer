@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeria de Fotos e Vídeos | PH Transfer Executivo</title>
+  <meta name="description" content="Acervo oficial de fotos e vídeos reais da PH Transfer em Belo Horizonte, Confins, Ouro Preto, Inhotim, Pampulha e serviços blindados." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandDark: '#0d0d0e',
+            brandCard: '#151518',
+            brandBorder: 'rgba(255, 255, 255, 0.08)',
+            pht: {
+              navy: '#03045E',
+              sapphire: '#023E8A',
+              cobalt: '#0077B6',
+              pacific: '#0096C7',
+              cyan: '#00B4D8',
+              sky: '#48CAE4',
+              crystal: '#90E0EF',
+              glacial: '#ADE8F4',
+              ice: '#CAF0F8',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="assets/img/logo-ph-transfer.png" />
+  <style>
+    .ph-galeria-panel { display: none; }
+    .ph-galeria-panel.active { display: block; animation: phFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes phFadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .ph-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(5, 6, 8, 0.94);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .ph-lightbox.open { opacity: 1; visibility: visible; }
+  </style>
+</head>
+<body class="bg-brandDark text-[#f4f4f6] selection:bg-white selection:text-black overflow-x-hidden">
+
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-navbar">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center group shrink-0 pr-2 sm:pr-4">
+        <img src="assets/img/logo-ph-transfer.png" alt="PH Transfer Logotipo Oficial" class="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-md" />
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold tracking-[0.14em] text-zinc-300 uppercase">
+        <a href="index.html#inicio" class="hover:text-white transition-colors">Início</a>
+        <a href="index.html#servicos" class="hover:text-white transition-colors">Serviços</a>
+        <a href="index.html#frota" class="hover:text-white transition-colors">Frota</a>
+        <a href="galerias.html" class="text-white border-b border-[#90E0EF] pb-0.5">Fotos &amp; Vídeos</a>
+        <a href="index.html#sobre" class="hover:text-white transition-colors">Sobre</a>
+        <a href="index.html#contato" class="hover:text-white transition-colors">Contato</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="index.html" class="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-semibold text-zinc-200 transition-all">
+          ← Voltar ao site
+        </a>
+        <a href="https://wa.me/5531988851520?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20PH%20Transfer." target="_blank" rel="noopener noreferrer" class="btn-primary px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider">
+          Solicitar orçamento
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10" aria-label="Abrir Menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-white/10 px-6 py-5 space-y-3">
+      <nav class="flex flex-col gap-3 text-xs font-medium tracking-widest uppercase text-zinc-200">
+        <a href="index.html#inicio" class="hover:text-white py-1">Início</a>
+        <a href="index.html#servicos" class="hover:text-white py-1">Serviços</a>
+        <a href="index.html#frota" class="hover:text-white py-1">Frota</a>
+        <a href="galerias.html" class="text-[#90E0EF] py-1">Fotos &amp; Vídeos</a>
+        <a href="index.html#contato" class="hover:text-white py-1">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-28 sm:pt-32 pb-20">
+    <section class="relative py-12 sm:py-16 overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[350px] ambient-glow-blue pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 relative z-10">
+        <div class="inline-flex items-center gap-3">
+          <span class="w-6 h-[1.5px] bg-[#90E0EF]/70"></span>
+          <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[#90E0EF]">Acervo Selecionado · 41 Fotos &amp; 13 Vídeos</span>
+          <span class="w-6 h-[1.5px] bg-[#90E0EF]/70"></span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white leading-tight">
+          Registros reais da <span class="font-serif-italic font-normal">nossa operação.</span>
+        </h1>
+        <p class="text-sm sm:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">
+          Explore atendimentos blindados, roteiros históricos em Ouro Preto, experiências em Inhotim, Pampulha, aeroportos e bastidores em vídeo da PH Transfer.
+        </p>
+      </div>
+    </section>
+
+    <section class="pb-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-center gap-2.5 sm:gap-3 mb-10 sm:mb-12" id="ph-galeria-tabs">
+          <button type="button" class="ph-galeria-tab px-5 py-2.5 rounded-full border text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-white text-[#0d0d0e] font-bold shadow-[0_0_24px_rgba(144,224,239,0.22)] border-white" data-galeria="blindado">Serviço Blindado <span class="opacity-65 ml-1">(11)</span></button><button type="button" class="ph-galeria-tab px-5 py-2.5 rounded-full border text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-white/5 text-zinc-300 border-white/10 hover:border-[#90E0EF]/50 hover:text-white font-semibold" data-galeria="ouropreto">Ouro Preto & Históricas <span class="opacity-65 ml-1">(8)</span></button><button type="button" class="ph-galeria-tab px-5 py-2.5 rounded-full border text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-white/5 text-zinc-300 border-white/10 hover:border-[#90E0EF]/50 hover:text-white font-semibold" data-galeria="inhotim">Inhotim & Resorts <span class="opacity-65 ml-1">(13)</span></button><button type="button" class="ph-galeria-tab px-5 py-2.5 rounded-full border text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-white/5 text-zinc-300 border-white/10 hover:border-[#90E0EF]/50 hover:text-white font-semibold" data-galeria="pampulha">Pampulha & Mirantes <span class="opacity-65 ml-1">(10)</span></button><button type="button" class="ph-galeria-tab px-5 py-2.5 rounded-full border text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-white/5 text-zinc-300 border-white/10 hover:border-[#90E0EF]/50 hover:text-white font-semibold" data-galeria="aeroportos">Aeroportos & Equipe <span class="opacity-65 ml-1">(9)</span></button><button type="button" class="ph-galeria-tab px-5 py-2.5 rounded-full border text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer bg-white/5 text-zinc-300 border-white/10 hover:border-[#90E0EF]/50 hover:text-white font-semibold" data-galeria="videos">Vídeos Operacionais <span class="opacity-65 ml-1">(13)</span></button>
+        </div>
+
+        <div id="ph-galeria-panels">
+          <div class="ph-galeria-panel active" data-galeria="blindado">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+            <figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/blindado/blindado-09-servico-blindado-1.jpeg" data-caption="Logística de Eventos · Operação Blindada" data-galeria="blindado">
+                  <img src="assets/galerias/blindado/blindado-09-servico-blindado-1.jpeg" alt="Logística de Eventos · Operação Blindada - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Logística de Eventos · Operação Blindada
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/blindado/blindado-10-servico-blindado-11.jpeg" data-caption="SUV Blindado Nível III-A · Volvo XC90" data-galeria="blindado">
+                  <img src="assets/galerias/blindado/blindado-10-servico-blindado-11.jpeg" alt="SUV Blindado Nível III-A · Volvo XC90 - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    SUV Blindado Nível III-A · Volvo XC90
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/blindado/blindado-11-servico-blindado-13.jpeg" data-caption="Atendimento Noturno · Evento Corporativo" data-galeria="blindado">
+                  <img src="assets/galerias/blindado/blindado-11-servico-blindado-13.jpeg" alt="Atendimento Noturno · Evento Corporativo - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Atendimento Noturno · Evento Corporativo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/blindado/blindado-12-servico-blindado-14.jpeg" data-caption="Volvo XC90 Blindado · Visão Lateral" data-galeria="blindado">
+                  <img src="assets/galerias/blindado/blindado-12-servico-blindado-14.jpeg" alt="Volvo XC90 Blindado · Visão Lateral - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Volvo XC90 Blindado · Visão Lateral
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/blindado/blindado-13-servico-blindado-16.jpeg" data-caption="Desembarque Noturno · Aeroporto de Confins" data-galeria="blindado">
+                  <img src="assets/galerias/blindado/blindado-13-servico-blindado-16.jpeg" alt="Desembarque Noturno · Aeroporto de Confins - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Desembarque Noturno · Aeroporto de Confins
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/blindado/blindado-14-servico-blindado-18.jpeg" data-caption="Embarque Executivo · Aeroporto de Confins" data-galeria="blindado">
+                  <img src="assets/galerias/blindado/blindado-14-servico-blindado-18.jpeg" alt="Embarque Executivo · Aeroporto de Confins - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Embarque Executivo · Aeroporto de Confins
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/blindado/blindado-15-servico-blindado-5.jpeg" data-caption="Fim de Tarde em Atendimento Externo" data-galeria="blindado">
+                  <img src="assets/galerias/blindado/blindado-15-servico-blindado-5.jpeg" alt="Fim de Tarde em Atendimento Externo - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Fim de Tarde em Atendimento Externo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/blindado/blindado-16-servico-blindado-6.jpeg" data-caption="Volvo XC90 Blindado · Segurança Nível III-A" data-galeria="blindado">
+                  <img src="assets/galerias/blindado/blindado-16-servico-blindado-6.jpeg" alt="Volvo XC90 Blindado · Segurança Nível III-A - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Volvo XC90 Blindado · Segurança Nível III-A
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/blindado/blindado-17-servico-blindado-7.jpeg" data-caption="Operação Blindada · Final de Tarde" data-galeria="blindado">
+                  <img src="assets/galerias/blindado/blindado-17-servico-blindado-7.jpeg" alt="Operação Blindada · Final de Tarde - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Operação Blindada · Final de Tarde
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/blindado/servico-blindado-1-servico-blindado-1.mp4" data-caption="Serviço Blindado · Operação Executiva (Vídeo)" data-galeria="blindado">
+                  <video src="assets/galerias/blindado/servico-blindado-1-servico-blindado-1.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Serviço Blindado · Operação Executiva (Vídeo)
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/blindado/servico-blindado-1-servico-blindado-2.mp4" data-caption="Serviço Blindado · Operação Executiva (Vídeo)" data-galeria="blindado">
+                  <video src="assets/galerias/blindado/servico-blindado-1-servico-blindado-2.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Serviço Blindado · Operação Executiva (Vídeo)
+                  </figcaption>
+                </figure>
+          </div>
+        </div><div class="ph-galeria-panel " data-galeria="ouropreto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+            <figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/ouropreto/ouropreto-29-capela-do-senhor-do-bonfim.jpeg" data-caption="Capela do Senhor do Bonfim · Ouro Preto" data-galeria="ouropreto">
+                  <img src="assets/galerias/ouropreto/ouropreto-29-capela-do-senhor-do-bonfim.jpeg" alt="Capela do Senhor do Bonfim · Ouro Preto - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Capela do Senhor do Bonfim · Ouro Preto
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/ouropreto/ouropreto-30-nossa-senhora-do-pilar.jpeg" data-caption="Basílica de Nossa Senhora do Pilar · Ouro Preto" data-galeria="ouropreto">
+                  <img src="assets/galerias/ouropreto/ouropreto-30-nossa-senhora-do-pilar.jpeg" alt="Basílica de Nossa Senhora do Pilar · Ouro Preto - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Basílica de Nossa Senhora do Pilar · Ouro Preto
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/ouropreto/ouropreto-31-rua-donato-da-fonseca.jpeg" data-caption="Rua Donato da Fonseca · Centro Histórico" data-galeria="ouropreto">
+                  <img src="assets/galerias/ouropreto/ouropreto-31-rua-donato-da-fonseca.jpeg" alt="Rua Donato da Fonseca · Centro Histórico - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Rua Donato da Fonseca · Centro Histórico
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/ouropreto/ouropreto-32-campos-da-ufop-1.jpeg" data-caption="Campos da UFOP · Vista Panorâmica" data-galeria="ouropreto">
+                  <img src="assets/galerias/ouropreto/ouropreto-32-campos-da-ufop-1.jpeg" alt="Campos da UFOP · Vista Panorâmica - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Campos da UFOP · Vista Panorâmica
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/ouropreto/ouropreto-33-campos-da-ufop-5.jpeg" data-caption="Mirante Histórico com Guia · Ouro Preto" data-galeria="ouropreto">
+                  <img src="assets/galerias/ouropreto/ouropreto-33-campos-da-ufop-5.jpeg" alt="Mirante Histórico com Guia · Ouro Preto - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Mirante Histórico com Guia · Ouro Preto
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/ouropreto/ouropreto-34-igreja-de-santa-efigenia-3.jpeg" data-caption="Igreja de Santa Efigênia · City Tour Guiado" data-galeria="ouropreto">
+                  <img src="assets/galerias/ouropreto/ouropreto-34-igreja-de-santa-efigenia-3.jpeg" alt="Igreja de Santa Efigênia · City Tour Guiado - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Igreja de Santa Efigênia · City Tour Guiado
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/ouropreto/ouropreto-35-igreja-de-santa-efigenia-4.jpeg" data-caption="Fachada Barroca · Igreja de Santa Efigênia" data-galeria="ouropreto">
+                  <img src="assets/galerias/ouropreto/ouropreto-35-igreja-de-santa-efigenia-4.jpeg" alt="Fachada Barroca · Igreja de Santa Efigênia - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Fachada Barroca · Igreja de Santa Efigênia
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/ouropreto/ouropreto-36-morro-do-cruzeiro-1.jpeg" data-caption="Mirante Morro do Cruzeiro · Ouro Preto" data-galeria="ouropreto">
+                  <img src="assets/galerias/ouropreto/ouropreto-36-morro-do-cruzeiro-1.jpeg" alt="Mirante Morro do Cruzeiro · Ouro Preto - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Mirante Morro do Cruzeiro · Ouro Preto
+                  </figcaption>
+                </figure>
+          </div>
+        </div><div class="ph-galeria-panel " data-galeria="inhotim">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+            <figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-18-e-suits-morro-do-chapeu-1.jpeg" data-caption="eSuites Toscanini × Morro do Chapéu" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-18-e-suits-morro-do-chapeu-1.jpeg" alt="eSuites Toscanini × Morro do Chapéu - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    eSuites Toscanini × Morro do Chapéu
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-19-e-suits-morro-do-chapeu-2.jpeg" data-caption="Translado Condomínio Morro do Chapéu" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-19-e-suits-morro-do-chapeu-2.jpeg" alt="Translado Condomínio Morro do Chapéu - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Translado Condomínio Morro do Chapéu
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-20-e-suits-morro-do-chapeu-5.jpeg" data-caption="Embarque no Aeroporto Internacional" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-20-e-suits-morro-do-chapeu-5.jpeg" alt="Embarque no Aeroporto Internacional - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Embarque no Aeroporto Internacional
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-21-e-suits-morro-do-chapeu-8.jpeg" data-caption="Estacionamento Privativo em Roteiro" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-21-e-suits-morro-do-chapeu-8.jpeg" alt="Estacionamento Privativo em Roteiro - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Estacionamento Privativo em Roteiro
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-22-e-suits-morro-do-chapeu-9.jpeg" data-caption="Atendimento Noturno · Sedan Executivo" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-22-e-suits-morro-do-chapeu-9.jpeg" alt="Atendimento Noturno · Sedan Executivo - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Atendimento Noturno · Sedan Executivo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-23-cliente-bilingue.jpeg" data-caption="Receptivo Bilíngue · Instituto Inhotim" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-23-cliente-bilingue.jpeg" alt="Receptivo Bilíngue · Instituto Inhotim - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Receptivo Bilíngue · Instituto Inhotim
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-24-novotel-finalizado-2.jpeg" data-caption="Saída Executiva · Novotel Belo Horizonte" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-24-novotel-finalizado-2.jpeg" alt="Saída Executiva · Novotel Belo Horizonte - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Saída Executiva · Novotel Belo Horizonte
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-25-novotel-x-inhotim-1.jpeg" data-caption="Embarque no Novotel Rumo a Inhotim" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-25-novotel-x-inhotim-1.jpeg" alt="Embarque no Novotel Rumo a Inhotim - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Embarque no Novotel Rumo a Inhotim
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-26-novotel-x-inhotim-2.jpeg" data-caption="Arte & Cultura · Instituto Inhotim" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-26-novotel-x-inhotim-2.jpeg" alt="Arte & Cultura · Instituto Inhotim - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Arte & Cultura · Instituto Inhotim
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-27-pedro-c-cliente-bilingue.jpeg" data-caption="Lagoas & Jardins · Instituto Inhotim" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-27-pedro-c-cliente-bilingue.jpeg" alt="Lagoas & Jardins · Instituto Inhotim - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Lagoas & Jardins · Instituto Inhotim
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/inhotim/inhotim-28-taua-1.jpeg" data-caption="Tauá Resort & Convention · Araxá/MG" data-galeria="inhotim">
+                  <img src="assets/galerias/inhotim/inhotim-28-taua-1.jpeg" alt="Tauá Resort & Convention · Araxá/MG - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Tauá Resort & Convention · Araxá/MG
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/inhotim/novotel-x-inhotim-novotel-x-inhotim-5.mp4" data-caption="Roteiro Inhotim · Bastidores (Vídeo)" data-galeria="inhotim">
+                  <video src="assets/galerias/inhotim/novotel-x-inhotim-novotel-x-inhotim-5.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Roteiro Inhotim · Bastidores (Vídeo)
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/inhotim/novotel-x-inhotim-novotel-x-inhotim-6.mp4" data-caption="Roteiro Inhotim · Bastidores (Vídeo)" data-galeria="inhotim">
+                  <video src="assets/galerias/inhotim/novotel-x-inhotim-novotel-x-inhotim-6.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Roteiro Inhotim · Bastidores (Vídeo)
+                  </figcaption>
+                </figure>
+          </div>
+        </div><div class="ph-galeria-panel " data-galeria="pampulha">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+            <figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-1.mp4" data-caption="Igreja São Francisco de Assis · Vídeo" data-galeria="pampulha">
+                  <video src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-1.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Igreja São Francisco de Assis · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-2.mp4" data-caption="Igreja São Francisco de Assis · Vídeo" data-galeria="pampulha">
+                  <video src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-2.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Igreja São Francisco de Assis · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-7.mp4" data-caption="Igreja São Francisco de Assis · Vídeo" data-galeria="pampulha">
+                  <video src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-7.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Igreja São Francisco de Assis · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-8.mp4" data-caption="Igreja São Francisco de Assis · Vídeo" data-galeria="pampulha">
+                  <video src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-8.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Igreja São Francisco de Assis · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/mirante-morro-dos-veados-mirante-morro-dos-veados-4.mp4" data-caption="Mirante Morro dos Veados · Vídeo" data-galeria="pampulha">
+                  <video src="assets/galerias/pampulha/mirante-morro-dos-veados-mirante-morro-dos-veados-4.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Mirante Morro dos Veados · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/mirante-morro-dos-veados-mirante-morro-dos-veados-5.mp4" data-caption="Mirante Morro dos Veados · Vídeo" data-galeria="pampulha">
+                  <video src="assets/galerias/pampulha/mirante-morro-dos-veados-mirante-morro-dos-veados-5.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Mirante Morro dos Veados · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/pampulha/pampulha-37-igreja-sao-francisco-de-assis-1.jpeg" data-caption="Interior · Igreja São Francisco de Assis" data-galeria="pampulha">
+                  <img src="assets/galerias/pampulha/pampulha-37-igreja-sao-francisco-de-assis-1.jpeg" alt="Interior · Igreja São Francisco de Assis - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Interior · Igreja São Francisco de Assis
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/pampulha/pampulha-38-igreja-sao-francisco-de-assis-2.jpeg" data-caption="Jardins & Painéis · Conjunto da Pampulha" data-galeria="pampulha">
+                  <img src="assets/galerias/pampulha/pampulha-38-igreja-sao-francisco-de-assis-2.jpeg" alt="Jardins & Painéis · Conjunto da Pampulha - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Jardins & Painéis · Conjunto da Pampulha
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/pampulha/pampulha-39-mirante-morro-dos-veados-1.jpeg" data-caption="Mirante Morro dos Veados · Belo Horizonte" data-galeria="pampulha">
+                  <img src="assets/galerias/pampulha/pampulha-39-mirante-morro-dos-veados-1.jpeg" alt="Mirante Morro dos Veados · Belo Horizonte - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Mirante Morro dos Veados · Belo Horizonte
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/pampulha/pampulha-40-mirante-morro-dos-veados-3.jpeg" data-caption="Paisagem Serrana · Morro dos Veados" data-galeria="pampulha">
+                  <img src="assets/galerias/pampulha/pampulha-40-mirante-morro-dos-veados-3.jpeg" alt="Paisagem Serrana · Morro dos Veados - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Paisagem Serrana · Morro dos Veados
+                  </figcaption>
+                </figure>
+          </div>
+        </div><div class="ph-galeria-panel " data-galeria="aeroportos">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+            <figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/aeroportos/aeroportos-00-confins-x-jf-1.jpeg" data-caption="Transfer Rodoviário · Confins × Juiz de Fora" data-galeria="aeroportos">
+                  <img src="assets/galerias/aeroportos/aeroportos-00-confins-x-jf-1.jpeg" alt="Transfer Rodoviário · Confins × Juiz de Fora - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Transfer Rodoviário · Confins × Juiz de Fora
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/aeroportos/aeroportos-01-confins-x-jf-10.jpeg" data-caption="Chegada Executiva · Premier Parc Hotel" data-galeria="aeroportos">
+                  <img src="assets/galerias/aeroportos/aeroportos-01-confins-x-jf-10.jpeg" alt="Chegada Executiva · Premier Parc Hotel - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Chegada Executiva · Premier Parc Hotel
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/aeroportos/aeroportos-02-confins-x-jf-2.jpeg" data-caption="Parada em Roteiro · Confins × Juiz de Fora" data-galeria="aeroportos">
+                  <img src="assets/galerias/aeroportos/aeroportos-02-confins-x-jf-2.jpeg" alt="Parada em Roteiro · Confins × Juiz de Fora - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Parada em Roteiro · Confins × Juiz de Fora
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/aeroportos/aeroportos-03-confins-x-jf-8.jpeg" data-caption="Recepção Executiva em Hotelaria" data-galeria="aeroportos">
+                  <img src="assets/galerias/aeroportos/aeroportos-03-confins-x-jf-8.jpeg" alt="Recepção Executiva em Hotelaria - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Recepção Executiva em Hotelaria
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/aeroportos/aeroportos-04-foto-pedro-henrique-1.jpeg" data-caption="Chauffeur Executivo · Pedro Henrique" data-galeria="aeroportos">
+                  <img src="assets/galerias/aeroportos/aeroportos-04-foto-pedro-henrique-1.jpeg" alt="Chauffeur Executivo · Pedro Henrique - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Chauffeur Executivo · Pedro Henrique
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/aeroportos/aeroportos-05-foto-pedro-henrique-5.jpeg" data-caption="Atendimento Personalizado · Pedro Henrique" data-galeria="aeroportos">
+                  <img src="assets/galerias/aeroportos/aeroportos-05-foto-pedro-henrique-5.jpeg" alt="Atendimento Personalizado · Pedro Henrique - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Atendimento Personalizado · Pedro Henrique
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/aeroportos/aeroportos-06-servico-nobile-inn-1.jpeg" data-caption="Nobile Inn Pampulha × Pará de Minas (Frente)" data-galeria="aeroportos">
+                  <img src="assets/galerias/aeroportos/aeroportos-06-servico-nobile-inn-1.jpeg" alt="Nobile Inn Pampulha × Pará de Minas (Frente) - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Nobile Inn Pampulha × Pará de Minas (Frente)
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/aeroportos/aeroportos-07-servico-nobile-inn-2.jpeg" data-caption="Nobile Inn Pampulha × Pará de Minas (Traseira)" data-galeria="aeroportos">
+                  <img src="assets/galerias/aeroportos/aeroportos-07-servico-nobile-inn-2.jpeg" alt="Nobile Inn Pampulha × Pará de Minas (Traseira) - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Nobile Inn Pampulha × Pará de Minas (Traseira)
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-white/10 bg-[#12141a] aspect-[4/3] cursor-pointer" data-type="image" data-src="assets/galerias/aeroportos/aeroportos-08-novotel-x-ouro-preto-2.jpeg" data-caption="Protocolo Essenza · Água & Mimos a Bordo" data-galeria="aeroportos">
+                  <img src="assets/galerias/aeroportos/aeroportos-08-novotel-x-ouro-preto-2.jpeg" alt="Protocolo Essenza · Água & Mimos a Bordo - PH Transfer" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 text-xs font-medium text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    Protocolo Essenza · Água & Mimos a Bordo
+                  </figcaption>
+                </figure>
+          </div>
+        </div><div class="ph-galeria-panel " data-galeria="videos">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+            <figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/blindado/servico-blindado-1-servico-blindado-1.mp4" data-caption="Serviço Blindado · Operação Executiva (Vídeo)" data-galeria="videos">
+                  <video src="assets/galerias/blindado/servico-blindado-1-servico-blindado-1.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Serviço Blindado · Operação Executiva (Vídeo)
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/blindado/servico-blindado-1-servico-blindado-2.mp4" data-caption="Serviço Blindado · Operação Executiva (Vídeo)" data-galeria="videos">
+                  <video src="assets/galerias/blindado/servico-blindado-1-servico-blindado-2.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Serviço Blindado · Operação Executiva (Vídeo)
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/inhotim/novotel-x-inhotim-novotel-x-inhotim-5.mp4" data-caption="Roteiro Inhotim · Bastidores (Vídeo)" data-galeria="videos">
+                  <video src="assets/galerias/inhotim/novotel-x-inhotim-novotel-x-inhotim-5.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Roteiro Inhotim · Bastidores (Vídeo)
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/inhotim/novotel-x-inhotim-novotel-x-inhotim-6.mp4" data-caption="Roteiro Inhotim · Bastidores (Vídeo)" data-galeria="videos">
+                  <video src="assets/galerias/inhotim/novotel-x-inhotim-novotel-x-inhotim-6.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Roteiro Inhotim · Bastidores (Vídeo)
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-1.mp4" data-caption="Igreja São Francisco de Assis · Vídeo" data-galeria="videos">
+                  <video src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-1.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Igreja São Francisco de Assis · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-2.mp4" data-caption="Igreja São Francisco de Assis · Vídeo" data-galeria="videos">
+                  <video src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-2.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Igreja São Francisco de Assis · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-7.mp4" data-caption="Igreja São Francisco de Assis · Vídeo" data-galeria="videos">
+                  <video src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-7.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Igreja São Francisco de Assis · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-8.mp4" data-caption="Igreja São Francisco de Assis · Vídeo" data-galeria="videos">
+                  <video src="assets/galerias/pampulha/igreja-sao-francisco-de-assis-igreja-sao-francisco-de-assis-8.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Igreja São Francisco de Assis · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/mirante-morro-dos-veados-mirante-morro-dos-veados-4.mp4" data-caption="Mirante Morro dos Veados · Vídeo" data-galeria="videos">
+                  <video src="assets/galerias/pampulha/mirante-morro-dos-veados-mirante-morro-dos-veados-4.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Mirante Morro dos Veados · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/pampulha/mirante-morro-dos-veados-mirante-morro-dos-veados-5.mp4" data-caption="Mirante Morro dos Veados · Vídeo" data-galeria="videos">
+                  <video src="assets/galerias/pampulha/mirante-morro-dos-veados-mirante-morro-dos-veados-5.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    Mirante Morro dos Veados · Vídeo
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/videos/videos-city-tour-ouro-preto-guia-bilingue-1.mp4" data-caption="City Tour Ouro Preto · Guia Bilíngue (Vídeo)" data-galeria="videos">
+                  <video src="assets/galerias/videos/videos-city-tour-ouro-preto-guia-bilingue-1.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    City Tour Ouro Preto · Guia Bilíngue (Vídeo)
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/videos/videos-city-tour-ouro-preto-guia-bilingue-2.mp4" data-caption="City Tour Ouro Preto · Guia Bilíngue (Vídeo)" data-galeria="videos">
+                  <video src="assets/galerias/videos/videos-city-tour-ouro-preto-guia-bilingue-2.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    City Tour Ouro Preto · Guia Bilíngue (Vídeo)
+                  </figcaption>
+                </figure><figure class="ph-galeria-card group relative overflow-hidden rounded-2xl border border-[#0077B6]/40 bg-[#0d111a] aspect-[4/3] cursor-pointer" data-type="video" data-src="assets/galerias/videos/videos-city-tour-ouro-preto-guia-bilingue.mp4" data-caption="City Tour Ouro Preto · Guia Bilíngue (Vídeo)" data-galeria="videos">
+                  <video src="assets/galerias/videos/videos-city-tour-ouro-preto-guia-bilingue.mp4#t=0.5" muted playsinline preload="metadata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></video>
+                  <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-white/90 text-[#0d0d0e] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold bg-[#023E8A]/80 text-[#90E0EF] border border-[#0077B6]/50 backdrop-blur-md">Vídeo</span>
+                  <figcaption class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 to-transparent text-xs font-medium text-white">
+                    City Tour Ouro Preto · Guia Bilíngue (Vídeo)
+                  </figcaption>
+                </figure>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#050608] border-t border-white/10 py-10 text-zinc-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 PH Transfer Executivo. Todos os direitos reservados.</p>
+      <a href="index.html" class="text-[#90E0EF] hover:text-white transition-colors font-medium">← Voltar para a página principal</a>
+    </div>
+  </footer>
+
+  <div id="ph-lightbox" class="ph-lightbox p-4" role="dialog" aria-modal="true" aria-label="Visualizador de mídia">
+    <button id="ph-lightbox-close" type="button" class="absolute top-4 right-4 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white flex items-center justify-center transition-all cursor-pointer z-20" aria-label="Fechar">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <button id="ph-lightbox-prev" type="button" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white flex items-center justify-center transition-all cursor-pointer z-20" aria-label="Anterior">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button id="ph-lightbox-next" type="button" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white flex items-center justify-center transition-all cursor-pointer z-20" aria-label="Próxima">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <div class="max-w-5xl w-full flex flex-col items-center gap-3">
+      <img id="ph-lightbox-img" src="" alt="" class="hidden max-w-full max-h-[80vh] rounded-2xl border border-white/15 shadow-2xl object-contain" />
+      <video id="ph-lightbox-video" src="" controls playsinline class="hidden max-w-full max-h-[80vh] rounded-2xl border border-white/15 shadow-2xl bg-black"></video>
+      <p id="ph-lightbox-caption" class="text-xs sm:text-sm text-zinc-300 font-medium text-center"></p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      }
+
+      const tabs = document.querySelectorAll('.ph-galeria-tab');
+      const panels = document.querySelectorAll('.ph-galeria-panel');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = tab.getAttribute('data-galeria');
+          tabs.forEach(t => {
+            t.classList.remove('bg-white', 'text-[#0d0d0e]', 'font-bold', 'shadow-[0_0_24px_rgba(144,224,239,0.22)]', 'border-white');
+            t.classList.add('bg-white/5', 'text-zinc-300', 'border-white/10', 'hover:border-[#90E0EF]/50', 'hover:text-white', 'font-semibold');
+          });
+          tab.classList.add('bg-white', 'text-[#0d0d0e]', 'font-bold', 'shadow-[0_0_24px_rgba(144,224,239,0.22)]', 'border-white');
+          tab.classList.remove('bg-white/5', 'text-zinc-300', 'border-white/10', 'hover:border-[#90E0EF]/50', 'hover:text-white', 'font-semibold');
+
+          panels.forEach(p => p.classList.toggle('active', p.getAttribute('data-galeria') === target));
+        });
+      });
+
+      const lb = document.getElementById('ph-lightbox');
+      const lbImg = document.getElementById('ph-lightbox-img');
+      const lbVideo = document.getElementById('ph-lightbox-video');
+      const lbCap = document.getElementById('ph-lightbox-caption');
+      const closeBtn = document.getElementById('ph-lightbox-close');
+      const prevBtn = document.getElementById('ph-lightbox-prev');
+      const nextBtn = document.getElementById('ph-lightbox-next');
+
+      let currentItems = [];
+      let currentIdx = 0;
+
+      function renderItem(item) {
+        if (!item) return;
+        lbCap.textContent = item.caption || '';
+        if (item.type === 'video') {
+          lbImg.classList.add('hidden');
+          lbImg.src = '';
+          lbVideo.classList.remove('hidden');
+          lbVideo.src = item.src;
+          lbVideo.play().catch(() => {});
+        } else {
+          lbVideo.pause();
+          lbVideo.classList.add('hidden');
+          lbVideo.src = '';
+          lbImg.classList.remove('hidden');
+          lbImg.src = item.src;
+        }
+      }
+
+      function openLightbox(card) {
+        const gal = card.getAttribute('data-galeria');
+        currentItems = Array.from(document.querySelectorAll('.ph-galeria-panel[data-galeria="' + gal + '"] .ph-galeria-card')).map(el => ({
+          type: el.getAttribute('data-type'),
+          src: el.getAttribute('data-src'),
+          caption: el.getAttribute('data-caption')
+        }));
+        const clickedSrc = card.getAttribute('data-src');
+        currentIdx = Math.max(0, currentItems.findIndex(x => x.src === clickedSrc));
+        renderItem(currentItems[currentIdx]);
+        lb.classList.add('open');
+      }
+
+      function closeLightbox() {
+        lb.classList.remove('open');
+        lbVideo.pause();
+        lbVideo.src = '';
+      }
+
+      function stepLightbox(dir) {
+        if (!currentItems.length) return;
+        currentIdx = (currentIdx + dir + currentItems.length) % currentItems.length;
+        renderItem(currentItems[currentIdx]);
+      }
+
+      document.addEventListener('click', (e) => {
+        const card = e.target.closest ? e.target.closest('.ph-galeria-card') : null;
+        if (card) { openLightbox(card); return; }
+        if (e.target === lb) { closeLightbox(); return; }
+      });
+      if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+      if (prevBtn) prevBtn.addEventListener('click', () => stepLightbox(-1));
+      if (nextBtn) nextBtn.addEventListener('click', () => stepLightbox(1));
+
+      document.addEventListener('keydown', (e) => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') stepLightbox(1);
+        if (e.key === 'ArrowLeft') stepLightbox(-1);
+      });
+    });
+  </script>
+</body>
+</html>
